@@ -26,6 +26,8 @@
 		BE6FE3802611602800AF067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE6FE3822611602800AF067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE6FE38D2612D0A700AF067F /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Open_Sans; path = ../../../../Downloads/Open_Sans; sourceTree = "<group>"; };
+		BE6FE3902612EA8600AF067F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		BE6FE3932612EA8E00AF067F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 				BE6FE3762611602600AF067F /* SceneDelegate.swift */,
 				BE6FE3782611602600AF067F /* ViewController.swift */,
 				BE6FE37A2611602600AF067F /* Main.storyboard */,
+				BE6FE3902612EA8600AF067F /* OpenSans-Regular.ttf */,
+				BE6FE3932612EA8E00AF067F /* OpenSans-SemiBold.ttf */,
 				BE6FE38D2612D0A700AF067F /* Open_Sans */,
 				BE6FE37D2611602800AF067F /* Assets.xcassets */,
 				BE6FE37F2611602800AF067F /* LaunchScreen.storyboard */,

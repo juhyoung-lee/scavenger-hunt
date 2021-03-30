@@ -14,6 +14,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -24,6 +27,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Hunts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18z-Wx-Gmj">
+                                <rect key="frame" x="110" y="256" width="194" height="37"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="27"/>
+                                <color key="textColor" red="0.0" green="0.33333333333333331" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="220-Qo-21J">
                                 <rect key="frame" x="20" y="44" width="53" height="63"/>
                                 <constraints>
@@ -43,81 +52,114 @@
                                 <state key="normal" image="setting"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="btM-0t-Ca1">
-                                <rect key="frame" x="157" y="88" width="100" height="100"/>
+                                <rect key="frame" x="157" y="69" width="100" height="100"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lynne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuX-wx-2WD">
-                                <rect key="frame" x="173.5" y="193.5" width="67.5" height="33"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Hunts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18z-Wx-Gmj">
-                                <rect key="frame" x="110" y="249.5" width="194" height="37"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="27"/>
-                                <color key="textColor" red="0.0" green="0.33333333333333331" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duke" translatesAutoresizingMaskIntoConstraints="NO" id="Zze-P4-l93">
-                                <rect key="frame" x="20" y="286.5" width="374" height="437"/>
+                                <rect key="frame" x="20" y="308" width="374" height="437"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zze-P4-l93" secondAttribute="height" multiplier="384:449" id="eMV-5u-4Zy"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lynne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuX-wx-2WD">
+                                <rect key="frame" x="173.5" y="176" width="67.5" height="33"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hunt_bar" translatesAutoresizingMaskIntoConstraints="NO" id="JnT-uA-X1M">
-                                <rect key="frame" x="25" y="634.5" width="364" height="89"/>
+                                <rect key="frame" x="25" y="656" width="364" height="89"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-2Y-vYh">
+                                <rect key="frame" x="282" y="699.5" width="19" height="23.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 hr 30 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-LD-0jc">
-                                <rect key="frame" x="65" y="678" width="95" height="24"/>
+                                <rect key="frame" x="65.5" y="699.5" width="94.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN3-dm-T1K">
-                                <rect key="frame" x="83" y="652" width="55" height="24"/>
+                                <rect key="frame" x="83" y="674" width="55" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stops" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diz-0L-QaF">
-                                <rect key="frame" x="270" y="652" width="45" height="24"/>
+                                <rect key="frame" x="270" y="674" width="45" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-2Y-vYh">
-                                <rect key="frame" x="282" y="678" width="20" height="24"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_rate" translatesAutoresizingMaskIntoConstraints="NO" id="6o8-q9-Jlw">
+                                <rect key="frame" x="148.5" y="441.5" width="24" height="24"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STARTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxt-jo-LNh">
+                                <rect key="frame" x="170.5" y="441.5" width="73" height="24"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore Duke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyO-a3-41e">
+                                <rect key="frame" x="114" y="465.5" width="186" height="39.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0x4-1x-KTM">
+                                <rect key="frame" x="50" y="570.5" width="314" height="76.5"/>
+                                <string key="text">Taking you where the guided tours don't. A freshman orientation that takes you to the sweetest hangout spots and nookes and crannies on campus</string>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar" translatesAutoresizingMaskIntoConstraints="NO" id="Ool-SU-gfP">
+                                <rect key="frame" x="25" y="775" width="364" height="67"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
+                            <constraint firstItem="6o8-q9-Jlw" firstAttribute="centerY" secondItem="gxt-jo-LNh" secondAttribute="centerY" id="1vk-mu-Wm6"/>
+                            <constraint firstItem="Ool-SU-gfP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2X0-VJ-6KJ"/>
                             <constraint firstItem="sN3-dm-T1K" firstAttribute="centerY" secondItem="diz-0L-QaF" secondAttribute="centerY" id="4OL-1Y-Do1"/>
                             <constraint firstItem="220-Qo-21J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5rW-az-XLc"/>
+                            <constraint firstItem="gxt-jo-LNh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6as-Fk-5hC"/>
                             <constraint firstItem="diz-0L-QaF" firstAttribute="leading" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="-119" id="CDR-bn-ME8"/>
+                            <constraint firstItem="btM-0t-Ca1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Crw-Wj-BHG"/>
                             <constraint firstItem="18z-Wx-Gmj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DEL-J8-qes"/>
                             <constraint firstItem="qJg-TW-4oW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="ECO-0V-fj8"/>
                             <constraint firstItem="Zze-P4-l93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FBv-5W-0B7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0x4-1x-KTM" secondAttribute="trailing" constant="50" id="FKb-8T-5Zc"/>
                             <constraint firstItem="220-Qo-21J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Iig-vu-LtP"/>
+                            <constraint firstItem="wyO-a3-41e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jxb-JL-yAc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ool-SU-gfP" secondAttribute="bottom" constant="20" id="Lvi-NB-aYQ"/>
+                            <constraint firstItem="JnT-uA-X1M" firstAttribute="top" secondItem="wyO-a3-41e" secondAttribute="bottom" multiplier="1.3" id="OuS-jg-kof"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="leading" secondItem="sN3-dm-T1K" secondAttribute="trailing" constant="-113" id="QSI-Oz-Ftv"/>
                             <constraint firstItem="fFc-2Y-vYh" firstAttribute="leading" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="-107" id="RMA-ew-h8S"/>
-                            <constraint firstItem="Zze-P4-l93" firstAttribute="top" secondItem="18z-Wx-Gmj" secondAttribute="bottom" id="Vg2-3g-d9N"/>
+                            <constraint firstItem="Ool-SU-gfP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="XKC-tl-LPV"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="bottom" secondItem="Zze-P4-l93" secondAttribute="bottom" id="XLB-M0-3tY"/>
                             <constraint firstItem="fFc-2Y-vYh" firstAttribute="top" secondItem="diz-0L-QaF" secondAttribute="bottom" constant="2" id="YTB-qZ-vzD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qJg-TW-4oW" secondAttribute="trailing" constant="20" id="ZVe-rG-nne"/>
+                            <constraint firstItem="Ool-SU-gfP" firstAttribute="top" secondItem="JnT-uA-X1M" secondAttribute="bottom" multiplier="1.04" id="aKN-wX-7K3"/>
+                            <constraint firstItem="gxt-jo-LNh" firstAttribute="leading" secondItem="6o8-q9-Jlw" secondAttribute="trailing" constant="-2" id="ay0-S2-1FJ"/>
                             <constraint firstItem="PuX-wx-2WD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fzI-iO-xF9"/>
                             <constraint firstItem="gmG-LD-0jc" firstAttribute="top" secondItem="sN3-dm-T1K" secondAttribute="bottom" constant="2" id="iaG-va-hgr"/>
+                            <constraint firstItem="18z-Wx-Gmj" firstAttribute="top" secondItem="PuX-wx-2WD" secondAttribute="bottom" constant="47" id="n2n-L1-ycO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zze-P4-l93" secondAttribute="trailing" constant="20" id="ogx-6s-teJ"/>
+                            <constraint firstItem="wyO-a3-41e" firstAttribute="top" secondItem="gxt-jo-LNh" secondAttribute="bottom" id="pL8-aZ-jAF"/>
                             <constraint firstItem="btM-0t-Ca1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" id="pmS-QP-Jfp"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="leading" secondItem="gmG-LD-0jc" secondAttribute="trailing" constant="-135" id="qfp-vt-bsl"/>
-                            <constraint firstItem="18z-Wx-Gmj" firstAttribute="top" secondItem="PuX-wx-2WD" secondAttribute="bottom" multiplier="1.1" id="sba-vl-yCl"/>
+                            <constraint firstItem="JnT-uA-X1M" firstAttribute="firstBaseline" secondItem="0x4-1x-KTM" secondAttribute="baseline" constant="13.5" symbolType="layoutAnchor" id="qsk-Fh-KcU"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="tKq-tf-Q9m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ool-SU-gfP" secondAttribute="trailing" constant="25" id="uAM-3t-kFa"/>
+                            <constraint firstItem="0x4-1x-KTM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="vil-e2-fqz"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="top" secondItem="sN3-dm-T1K" secondAttribute="bottom" constant="-41.5" id="wrg-Zg-G1s"/>
                             <constraint firstItem="btM-0t-Ca1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xju-8U-SsU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="25" id="xpv-CW-3sx"/>
-                            <constraint firstItem="PuX-wx-2WD" firstAttribute="top" secondItem="btM-0t-Ca1" secondAttribute="bottom" multiplier="1.03" id="yvB-4J-Wb7"/>
+                            <constraint firstItem="PuX-wx-2WD" firstAttribute="top" secondItem="btM-0t-Ca1" secondAttribute="bottom" constant="7" id="yvB-4J-Wb7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -130,8 +172,10 @@
         <image name="duke" width="395" height="449"/>
         <image name="hunt_bar" width="383" height="89"/>
         <image name="menu.png" width="35" height="40"/>
+        <image name="navbar" width="377" height="67"/>
         <image name="profile" width="100" height="100"/>
         <image name="setting" width="40" height="35"/>
+        <image name="star_rate" width="24" height="24"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
