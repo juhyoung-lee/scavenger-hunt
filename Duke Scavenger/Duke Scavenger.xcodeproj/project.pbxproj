@@ -14,6 +14,7 @@
 		BE6FE37E2611602800AF067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE37D2611602800AF067F /* Assets.xcassets */; };
 		BE6FE3812611602800AF067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE37F2611602800AF067F /* LaunchScreen.storyboard */; };
 		BE6FE38E2612D0A800AF067F /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE38D2612D0A700AF067F /* Open_Sans */; };
+		BEB899F726142A25009ECBF4 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEB899F626142A25009ECBF4 /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BE6FE38D2612D0A700AF067F /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Open_Sans; path = ../../../../Downloads/Open_Sans; sourceTree = "<group>"; };
 		BE6FE3902612EA8600AF067F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		BE6FE3932612EA8E00AF067F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		BEB899F626142A25009ECBF4 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		BE6FE3682611602600AF067F = {
 			isa = PBXGroup;
 			children = (
+				BEB899F626142A25009ECBF4 /* assets */,
 				BE6FE3732611602600AF067F /* Duke Scavenger */,
 				BE6FE3722611602600AF067F /* Products */,
 			);
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB899F726142A25009ECBF4 /* assets in Resources */,
 				BE6FE3812611602800AF067F /* LaunchScreen.storyboard in Resources */,
 				BE6FE37E2611602800AF067F /* Assets.xcassets in Resources */,
 				BE6FE37C2611602600AF067F /* Main.storyboard in Resources */,

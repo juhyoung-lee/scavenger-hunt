@@ -118,6 +118,34 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar" translatesAutoresizingMaskIntoConstraints="NO" id="Ool-SU-gfP">
                                 <rect key="frame" x="25" y="775" width="364" height="67"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_curr" translatesAutoresizingMaskIntoConstraints="NO" id="HTi-er-oXG">
+                                <rect key="frame" x="-6" y="751" width="198" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="5cd-Tl-CfA"/>
+                                    <constraint firstAttribute="height" constant="120" id="MtB-kg-nVd"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-i8-oJS">
+                                <rect key="frame" x="68" y="791" width="37" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="0Ka-qP-gsy"/>
+                                    <constraint firstAttribute="height" constant="34" id="3VW-7e-j8a"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_hunt" translatesAutoresizingMaskIntoConstraints="NO" id="3jI-TP-t1b">
+                                <rect key="frame" x="187.5" y="798" width="39" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Not-cd-ZaB"/>
+                                    <constraint firstAttribute="width" constant="39" id="vIf-Q7-CJW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discover" translatesAutoresizingMaskIntoConstraints="NO" id="W6H-B7-XQF">
+                                <rect key="frame" x="278" y="777" width="65" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="nbg-3T-aMW"/>
+                                    <constraint firstAttribute="width" constant="65" id="uCL-d0-9kH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -127,26 +155,32 @@
                             <constraint firstItem="sN3-dm-T1K" firstAttribute="centerY" secondItem="diz-0L-QaF" secondAttribute="centerY" id="4OL-1Y-Do1"/>
                             <constraint firstItem="220-Qo-21J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5rW-az-XLc"/>
                             <constraint firstItem="gxt-jo-LNh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6as-Fk-5hC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W6H-B7-XQF" secondAttribute="bottom" constant="15" id="9t1-I0-KVN"/>
                             <constraint firstItem="diz-0L-QaF" firstAttribute="leading" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="-119" id="CDR-bn-ME8"/>
                             <constraint firstItem="btM-0t-Ca1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Crw-Wj-BHG"/>
                             <constraint firstItem="18z-Wx-Gmj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DEL-J8-qes"/>
                             <constraint firstItem="qJg-TW-4oW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="ECO-0V-fj8"/>
+                            <constraint firstItem="3jI-TP-t1b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FBI-Z1-ns1"/>
                             <constraint firstItem="Zze-P4-l93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FBv-5W-0B7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0x4-1x-KTM" secondAttribute="trailing" constant="50" id="FKb-8T-5Zc"/>
                             <constraint firstItem="220-Qo-21J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Iig-vu-LtP"/>
                             <constraint firstItem="wyO-a3-41e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jxb-JL-yAc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ool-SU-gfP" secondAttribute="bottom" constant="20" id="Lvi-NB-aYQ"/>
+                            <constraint firstItem="Z6m-i8-oJS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="LxW-oQ-ehX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W6H-B7-XQF" secondAttribute="trailing" constant="71" id="Mr7-YM-h8V"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="top" secondItem="wyO-a3-41e" secondAttribute="bottom" multiplier="1.3" id="OuS-jg-kof"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="leading" secondItem="sN3-dm-T1K" secondAttribute="trailing" constant="-113" id="QSI-Oz-Ftv"/>
                             <constraint firstItem="fFc-2Y-vYh" firstAttribute="leading" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="-107" id="RMA-ew-h8S"/>
-                            <constraint firstItem="Ool-SU-gfP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="XKC-tl-LPV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3jI-TP-t1b" secondAttribute="bottom" constant="36" id="UYy-Sw-Xhx"/>
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="bottom" secondItem="Zze-P4-l93" secondAttribute="bottom" id="XLB-M0-3tY"/>
                             <constraint firstItem="fFc-2Y-vYh" firstAttribute="top" secondItem="diz-0L-QaF" secondAttribute="bottom" constant="2" id="YTB-qZ-vzD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qJg-TW-4oW" secondAttribute="trailing" constant="20" id="ZVe-rG-nne"/>
                             <constraint firstItem="Ool-SU-gfP" firstAttribute="top" secondItem="JnT-uA-X1M" secondAttribute="bottom" multiplier="1.04" id="aKN-wX-7K3"/>
                             <constraint firstItem="gxt-jo-LNh" firstAttribute="leading" secondItem="6o8-q9-Jlw" secondAttribute="trailing" constant="-2" id="ay0-S2-1FJ"/>
                             <constraint firstItem="PuX-wx-2WD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fzI-iO-xF9"/>
+                            <constraint firstItem="HTi-er-oXG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="9" id="gFV-04-eoP"/>
                             <constraint firstItem="gmG-LD-0jc" firstAttribute="top" secondItem="sN3-dm-T1K" secondAttribute="bottom" constant="2" id="iaG-va-hgr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Z6m-i8-oJS" secondAttribute="bottom" constant="37" id="j8V-uu-DAd"/>
                             <constraint firstItem="18z-Wx-Gmj" firstAttribute="top" secondItem="PuX-wx-2WD" secondAttribute="bottom" constant="47" id="n2n-L1-ycO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zze-P4-l93" secondAttribute="trailing" constant="20" id="ogx-6s-teJ"/>
                             <constraint firstItem="wyO-a3-41e" firstAttribute="top" secondItem="gxt-jo-LNh" secondAttribute="bottom" id="pL8-aZ-jAF"/>
@@ -159,6 +193,7 @@
                             <constraint firstItem="JnT-uA-X1M" firstAttribute="top" secondItem="sN3-dm-T1K" secondAttribute="bottom" constant="-41.5" id="wrg-Zg-G1s"/>
                             <constraint firstItem="btM-0t-Ca1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xju-8U-SsU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JnT-uA-X1M" secondAttribute="trailing" constant="25" id="xpv-CW-3sx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="HTi-er-oXG" secondAttribute="leading" constant="6" id="yIZ-sG-zn5"/>
                             <constraint firstItem="PuX-wx-2WD" firstAttribute="top" secondItem="btM-0t-Ca1" secondAttribute="bottom" constant="7" id="yvB-4J-Wb7"/>
                         </constraints>
                     </view>
@@ -169,10 +204,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_hunt" width="30" height="29"/>
+        <image name="discover" width="64" height="65"/>
         <image name="duke" width="395" height="449"/>
+        <image name="home" width="32" height="28"/>
         <image name="hunt_bar" width="383" height="89"/>
         <image name="menu.png" width="35" height="40"/>
         <image name="navbar" width="377" height="67"/>
+        <image name="navbar_curr" width="188" height="129"/>
         <image name="profile" width="100" height="100"/>
         <image name="setting" width="40" height="35"/>
         <image name="star_rate" width="24" height="24"/>
