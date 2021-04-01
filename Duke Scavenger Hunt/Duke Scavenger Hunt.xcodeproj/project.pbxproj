@@ -13,6 +13,7 @@
 		BEE2BDBC26159173007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBA26159173007D856B /* Main.storyboard */; };
 		BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBD26159174007D856B /* Assets.xcassets */; };
 		BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */; };
+		BEE2BDE7261593AE007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDE6261593AE007D856B /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BEE2BDBD26159174007D856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEE2BDC026159174007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEE2BDC226159174007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE2BDE6261593AE007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		BEE2BDA826159173007D856B = {
 			isa = PBXGroup;
 			children = (
+				BEE2BDE6261593AE007D856B /* assets */,
 				BEE2BDB326159173007D856B /* Duke Scavenger Hunt */,
 				BEE2BDB226159173007D856B /* Products */,
 			);
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */,
+				BEE2BDE7261593AE007D856B /* assets in Resources */,
 				BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */,
 				BEE2BDBC26159173007D856B /* Main.storyboard in Resources */,
 			);
