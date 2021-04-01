@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Duke Scavenger Hunt
+//  DukeScavenger
 //
 //  Created by codeplus on 4/1/21.
 //
