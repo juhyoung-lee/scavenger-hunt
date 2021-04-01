@@ -7,33 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE6FE3752611602600AF067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6FE3742611602600AF067F /* AppDelegate.swift */; };
-		BE6FE3772611602600AF067F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6FE3762611602600AF067F /* SceneDelegate.swift */; };
-		BE6FE3792611602600AF067F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6FE3782611602600AF067F /* ViewController.swift */; };
-		BE6FE37C2611602600AF067F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE37A2611602600AF067F /* Main.storyboard */; };
-		BE6FE37E2611602800AF067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE37D2611602800AF067F /* Assets.xcassets */; };
-		BE6FE3812611602800AF067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE37F2611602800AF067F /* LaunchScreen.storyboard */; };
-		BE6FE38E2612D0A800AF067F /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = BE6FE38D2612D0A700AF067F /* Open_Sans */; };
-		BEB899F726142A25009ECBF4 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEB899F626142A25009ECBF4 /* assets */; };
+		BEE2BDB526159173007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB426159173007D856B /* AppDelegate.swift */; };
+		BEE2BDB726159173007D856B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB626159173007D856B /* ViewController.swift */; };
+		BEE2BDB926159173007D856B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB826159173007D856B /* Experience.rcproject */; };
+		BEE2BDBC26159173007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBA26159173007D856B /* Main.storyboard */; };
+		BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBD26159174007D856B /* Assets.xcassets */; };
+		BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE6FE3712611602600AF067F /* Duke Scavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Duke Scavenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE6FE3742611602600AF067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE6FE3762611602600AF067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BE6FE3782611602600AF067F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BE6FE37B2611602600AF067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BE6FE37D2611602800AF067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BE6FE3802611602800AF067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BE6FE3822611602800AF067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE6FE38D2612D0A700AF067F /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Open_Sans; path = ../../../../Downloads/Open_Sans; sourceTree = "<group>"; };
-		BE6FE3902612EA8600AF067F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		BE6FE3932612EA8E00AF067F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../Downloads/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		BEB899F626142A25009ECBF4 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Duke Scavenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE2BDB426159173007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEE2BDB626159173007D856B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEE2BDB826159173007D856B /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
+		BEE2BDBB26159173007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEE2BDBD26159174007D856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEE2BDC026159174007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEE2BDC226159174007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BE6FE36E2611602600AF067F /* Frameworks */ = {
+		BEE2BDAE26159173007D856B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,75 +37,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BE6FE3682611602600AF067F = {
+		BEE2BDA826159173007D856B = {
 			isa = PBXGroup;
 			children = (
-				BEB899F626142A25009ECBF4 /* assets */,
-				BE6FE3732611602600AF067F /* Duke Scavenger */,
-				BE6FE3722611602600AF067F /* Products */,
+				BEE2BDB326159173007D856B /* Duke Scavenger Hunt */,
+				BEE2BDB226159173007D856B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BE6FE3722611602600AF067F /* Products */ = {
+		BEE2BDB226159173007D856B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE6FE3712611602600AF067F /* Duke Scavenger.app */,
+				BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE6FE3732611602600AF067F /* Duke Scavenger */ = {
+		BEE2BDB326159173007D856B /* Duke Scavenger Hunt */ = {
 			isa = PBXGroup;
 			children = (
-				BE6FE3742611602600AF067F /* AppDelegate.swift */,
-				BE6FE3762611602600AF067F /* SceneDelegate.swift */,
-				BE6FE3782611602600AF067F /* ViewController.swift */,
-				BE6FE37A2611602600AF067F /* Main.storyboard */,
-				BE6FE3902612EA8600AF067F /* OpenSans-Regular.ttf */,
-				BE6FE3932612EA8E00AF067F /* OpenSans-SemiBold.ttf */,
-				BE6FE38D2612D0A700AF067F /* Open_Sans */,
-				BE6FE37D2611602800AF067F /* Assets.xcassets */,
-				BE6FE37F2611602800AF067F /* LaunchScreen.storyboard */,
-				BE6FE3822611602800AF067F /* Info.plist */,
+				BEE2BDB426159173007D856B /* AppDelegate.swift */,
+				BEE2BDB626159173007D856B /* ViewController.swift */,
+				BEE2BDB826159173007D856B /* Experience.rcproject */,
+				BEE2BDBA26159173007D856B /* Main.storyboard */,
+				BEE2BDBD26159174007D856B /* Assets.xcassets */,
+				BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */,
+				BEE2BDC226159174007D856B /* Info.plist */,
 			);
-			path = "Duke Scavenger";
+			path = "Duke Scavenger Hunt";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE6FE3702611602600AF067F /* Duke Scavenger */ = {
+		BEE2BDB026159173007D856B /* Duke Scavenger Hunt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE6FE3852611602800AF067F /* Build configuration list for PBXNativeTarget "Duke Scavenger" */;
+			buildConfigurationList = BEE2BDC526159174007D856B /* Build configuration list for PBXNativeTarget "Duke Scavenger Hunt" */;
 			buildPhases = (
-				BE6FE36D2611602600AF067F /* Sources */,
-				BE6FE36E2611602600AF067F /* Frameworks */,
-				BE6FE36F2611602600AF067F /* Resources */,
+				BEE2BDAD26159173007D856B /* Sources */,
+				BEE2BDAE26159173007D856B /* Frameworks */,
+				BEE2BDAF26159173007D856B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Duke Scavenger";
-			productName = "Duke Scavenger";
-			productReference = BE6FE3712611602600AF067F /* Duke Scavenger.app */;
+			name = "Duke Scavenger Hunt";
+			productName = "Duke Scavenger Hunt";
+			productReference = BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BE6FE3692611602600AF067F /* Project object */ = {
+		BEE2BDA926159173007D856B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					BE6FE3702611602600AF067F = {
-						CreatedOnToolsVersion = 12.4;
+					BEE2BDB026159173007D856B = {
+						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
-			buildConfigurationList = BE6FE36C2611602600AF067F /* Build configuration list for PBXProject "Duke Scavenger" */;
+			buildConfigurationList = BEE2BDAC26159173007D856B /* Build configuration list for PBXProject "Duke Scavenger Hunt" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,57 +109,55 @@
 				en,
 				Base,
 			);
-			mainGroup = BE6FE3682611602600AF067F;
-			productRefGroup = BE6FE3722611602600AF067F /* Products */;
+			mainGroup = BEE2BDA826159173007D856B;
+			productRefGroup = BEE2BDB226159173007D856B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE6FE3702611602600AF067F /* Duke Scavenger */,
+				BEE2BDB026159173007D856B /* Duke Scavenger Hunt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BE6FE36F2611602600AF067F /* Resources */ = {
+		BEE2BDAF26159173007D856B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEB899F726142A25009ECBF4 /* assets in Resources */,
-				BE6FE3812611602800AF067F /* LaunchScreen.storyboard in Resources */,
-				BE6FE37E2611602800AF067F /* Assets.xcassets in Resources */,
-				BE6FE37C2611602600AF067F /* Main.storyboard in Resources */,
-				BE6FE38E2612D0A800AF067F /* Open_Sans in Resources */,
+				BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */,
+				BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */,
+				BEE2BDBC26159173007D856B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BE6FE36D2611602600AF067F /* Sources */ = {
+		BEE2BDAD26159173007D856B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6FE3792611602600AF067F /* ViewController.swift in Sources */,
-				BE6FE3752611602600AF067F /* AppDelegate.swift in Sources */,
-				BE6FE3772611602600AF067F /* SceneDelegate.swift in Sources */,
+				BEE2BDB726159173007D856B /* ViewController.swift in Sources */,
+				BEE2BDB526159173007D856B /* AppDelegate.swift in Sources */,
+				BEE2BDB926159173007D856B /* Experience.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BE6FE37A2611602600AF067F /* Main.storyboard */ = {
+		BEE2BDBA26159173007D856B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BE6FE37B2611602600AF067F /* Base */,
+				BEE2BDBB26159173007D856B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		BE6FE37F2611602800AF067F /* LaunchScreen.storyboard */ = {
+		BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BE6FE3802611602800AF067F /* Base */,
+				BEE2BDC026159174007D856B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -177,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BE6FE3832611602800AF067F /* Debug */ = {
+		BEE2BDC326159174007D856B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -228,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -238,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		BE6FE3842611602800AF067F /* Release */ = {
+		BEE2BDC426159174007D856B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -283,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -293,38 +281,36 @@
 			};
 			name = Release;
 		};
-		BE6FE3862611602800AF067F /* Debug */ = {
+		BEE2BDC626159174007D856B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Duke Scavenger/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				INFOPLIST_FILE = "Duke Scavenger Hunt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Duke-University.Duke-Scavenger";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.duke.cs207.Duke-Scavenger-Hunt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		BE6FE3872611602800AF067F /* Release */ = {
+		BEE2BDC726159174007D856B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Duke Scavenger/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				INFOPLIST_FILE = "Duke Scavenger Hunt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Duke-University.Duke-Scavenger";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.duke.cs207.Duke-Scavenger-Hunt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE6FE36C2611602600AF067F /* Build configuration list for PBXProject "Duke Scavenger" */ = {
+		BEE2BDAC26159173007D856B /* Build configuration list for PBXProject "Duke Scavenger Hunt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE6FE3832611602800AF067F /* Debug */,
-				BE6FE3842611602800AF067F /* Release */,
+				BEE2BDC326159174007D856B /* Debug */,
+				BEE2BDC426159174007D856B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE6FE3852611602800AF067F /* Build configuration list for PBXNativeTarget "Duke Scavenger" */ = {
+		BEE2BDC526159174007D856B /* Build configuration list for PBXNativeTarget "Duke Scavenger Hunt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE6FE3862611602800AF067F /* Debug */,
-				BE6FE3872611602800AF067F /* Release */,
+				BEE2BDC626159174007D856B /* Debug */,
+				BEE2BDC726159174007D856B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BE6FE3692611602600AF067F /* Project object */;
+	rootObject = BEE2BDA926159173007D856B /* Project object */;
 }
