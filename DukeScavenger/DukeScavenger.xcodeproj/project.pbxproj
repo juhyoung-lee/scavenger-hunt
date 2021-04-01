@@ -13,7 +13,7 @@
 		BEE2BDFE2615CC26007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDFC2615CC26007D856B /* Main.storyboard */; };
 		BEE2BE002615CC27007D856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDFF2615CC27007D856B /* Assets.xcassets */; };
 		BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */; };
-		BEE2BE0C2615CCC1007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE0B2615CCC1007D856B /* assets */; };
+		BEE2BE142615D0D8007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE132615D0D8007D856B /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		BEE2BDFF2615CC27007D856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEE2BE022615CC27007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEE2BE042615CC27007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEE2BE0B2615CCC1007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../Duke Scavenger Hunt/assets"; sourceTree = "<group>"; };
+		BEE2BE132615D0D8007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 		BEE2BDEA2615CC26007D856B = {
 			isa = PBXGroup;
 			children = (
-				BEE2BE0B2615CCC1007D856B /* assets */,
+				BEE2BE132615D0D8007D856B /* assets */,
 				BEE2BDF52615CC26007D856B /* DukeScavenger */,
 				BEE2BDF42615CC26007D856B /* Products */,
 			);
@@ -127,7 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE2BE0C2615CCC1007D856B /* assets in Resources */,
+				BEE2BE142615D0D8007D856B /* assets in Resources */,
 				BEE2BDF92615CC26007D856B /* art.scnassets in Resources */,
 				BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */,
 				BEE2BE002615CC27007D856B /* Assets.xcassets in Resources */,
