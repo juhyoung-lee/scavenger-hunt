@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BEE2BDB526159173007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB426159173007D856B /* AppDelegate.swift */; };
-		BEE2BDB726159173007D856B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB626159173007D856B /* ViewController.swift */; };
-		BEE2BDB926159173007D856B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDB826159173007D856B /* Experience.rcproject */; };
-		BEE2BDBC26159173007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBA26159173007D856B /* Main.storyboard */; };
-		BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBD26159174007D856B /* Assets.xcassets */; };
-		BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */; };
-		BEE2BDE7261593AE007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDE6261593AE007D856B /* assets */; };
+		BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDF62615CC26007D856B /* AppDelegate.swift */; };
+		BEE2BDF92615CC26007D856B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDF82615CC26007D856B /* art.scnassets */; };
+		BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDFA2615CC26007D856B /* ViewController.swift */; };
+		BEE2BDFE2615CC26007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDFC2615CC26007D856B /* Main.storyboard */; };
+		BEE2BE002615CC27007D856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDFF2615CC27007D856B /* Assets.xcassets */; };
+		BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */; };
+		BEE2BE0C2615CCC1007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE0B2615CCC1007D856B /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Duke Scavenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEE2BDB426159173007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEE2BDB626159173007D856B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BEE2BDB826159173007D856B /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
-		BEE2BDBB26159173007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BEE2BDBD26159174007D856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BEE2BDC026159174007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BEE2BDC226159174007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEE2BDE6261593AE007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		BEE2BDF32615CC26007D856B /* DukeScavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeScavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE2BDF62615CC26007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEE2BDF82615CC26007D856B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		BEE2BDFA2615CC26007D856B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEE2BDFD2615CC26007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEE2BDFF2615CC27007D856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEE2BE022615CC27007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEE2BE042615CC27007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE2BE0B2615CCC1007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../Duke Scavenger Hunt/assets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BEE2BDAE26159173007D856B /* Frameworks */ = {
+		BEE2BDF02615CC26007D856B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,72 +39,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BEE2BDA826159173007D856B = {
+		BEE2BDEA2615CC26007D856B = {
 			isa = PBXGroup;
 			children = (
-				BEE2BDE6261593AE007D856B /* assets */,
-				BEE2BDB326159173007D856B /* Duke Scavenger Hunt */,
-				BEE2BDB226159173007D856B /* Products */,
+				BEE2BE0B2615CCC1007D856B /* assets */,
+				BEE2BDF52615CC26007D856B /* DukeScavenger */,
+				BEE2BDF42615CC26007D856B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BEE2BDB226159173007D856B /* Products */ = {
+		BEE2BDF42615CC26007D856B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */,
+				BEE2BDF32615CC26007D856B /* DukeScavenger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BEE2BDB326159173007D856B /* Duke Scavenger Hunt */ = {
+		BEE2BDF52615CC26007D856B /* DukeScavenger */ = {
 			isa = PBXGroup;
 			children = (
-				BEE2BDB426159173007D856B /* AppDelegate.swift */,
-				BEE2BDB626159173007D856B /* ViewController.swift */,
-				BEE2BDB826159173007D856B /* Experience.rcproject */,
-				BEE2BDBA26159173007D856B /* Main.storyboard */,
-				BEE2BDBD26159174007D856B /* Assets.xcassets */,
-				BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */,
-				BEE2BDC226159174007D856B /* Info.plist */,
+				BEE2BDF62615CC26007D856B /* AppDelegate.swift */,
+				BEE2BDF82615CC26007D856B /* art.scnassets */,
+				BEE2BDFA2615CC26007D856B /* ViewController.swift */,
+				BEE2BDFC2615CC26007D856B /* Main.storyboard */,
+				BEE2BDFF2615CC27007D856B /* Assets.xcassets */,
+				BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */,
+				BEE2BE042615CC27007D856B /* Info.plist */,
 			);
-			path = "Duke Scavenger Hunt";
+			path = DukeScavenger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BEE2BDB026159173007D856B /* Duke Scavenger Hunt */ = {
+		BEE2BDF22615CC26007D856B /* DukeScavenger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEE2BDC526159174007D856B /* Build configuration list for PBXNativeTarget "Duke Scavenger Hunt" */;
+			buildConfigurationList = BEE2BE072615CC27007D856B /* Build configuration list for PBXNativeTarget "DukeScavenger" */;
 			buildPhases = (
-				BEE2BDAD26159173007D856B /* Sources */,
-				BEE2BDAE26159173007D856B /* Frameworks */,
-				BEE2BDAF26159173007D856B /* Resources */,
+				BEE2BDEF2615CC26007D856B /* Sources */,
+				BEE2BDF02615CC26007D856B /* Frameworks */,
+				BEE2BDF12615CC26007D856B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Duke Scavenger Hunt";
-			productName = "Duke Scavenger Hunt";
-			productReference = BEE2BDB126159173007D856B /* Duke Scavenger Hunt.app */;
+			name = DukeScavenger;
+			productName = DukeScavenger;
+			productReference = BEE2BDF32615CC26007D856B /* DukeScavenger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BEE2BDA926159173007D856B /* Project object */ = {
+		BEE2BDEB2615CC26007D856B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					BEE2BDB026159173007D856B = {
+					BEE2BDF22615CC26007D856B = {
 						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
-			buildConfigurationList = BEE2BDAC26159173007D856B /* Build configuration list for PBXProject "Duke Scavenger Hunt" */;
+			buildConfigurationList = BEE2BDEE2615CC26007D856B /* Build configuration list for PBXProject "DukeScavenger" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,56 +112,56 @@
 				en,
 				Base,
 			);
-			mainGroup = BEE2BDA826159173007D856B;
-			productRefGroup = BEE2BDB226159173007D856B /* Products */;
+			mainGroup = BEE2BDEA2615CC26007D856B;
+			productRefGroup = BEE2BDF42615CC26007D856B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BEE2BDB026159173007D856B /* Duke Scavenger Hunt */,
+				BEE2BDF22615CC26007D856B /* DukeScavenger */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BEE2BDAF26159173007D856B /* Resources */ = {
+		BEE2BDF12615CC26007D856B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE2BDC126159174007D856B /* LaunchScreen.storyboard in Resources */,
-				BEE2BDE7261593AE007D856B /* assets in Resources */,
-				BEE2BDBE26159174007D856B /* Assets.xcassets in Resources */,
-				BEE2BDBC26159173007D856B /* Main.storyboard in Resources */,
+				BEE2BE0C2615CCC1007D856B /* assets in Resources */,
+				BEE2BDF92615CC26007D856B /* art.scnassets in Resources */,
+				BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */,
+				BEE2BE002615CC27007D856B /* Assets.xcassets in Resources */,
+				BEE2BDFE2615CC26007D856B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BEE2BDAD26159173007D856B /* Sources */ = {
+		BEE2BDEF2615CC26007D856B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE2BDB726159173007D856B /* ViewController.swift in Sources */,
-				BEE2BDB526159173007D856B /* AppDelegate.swift in Sources */,
-				BEE2BDB926159173007D856B /* Experience.rcproject in Sources */,
+				BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */,
+				BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BEE2BDBA26159173007D856B /* Main.storyboard */ = {
+		BEE2BDFC2615CC26007D856B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BEE2BDBB26159173007D856B /* Base */,
+				BEE2BDFD2615CC26007D856B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		BEE2BDBF26159174007D856B /* LaunchScreen.storyboard */ = {
+		BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BEE2BDC026159174007D856B /* Base */,
+				BEE2BE022615CC27007D856B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BEE2BDC326159174007D856B /* Debug */ = {
+		BEE2BE052615CC27007D856B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -230,7 +230,7 @@
 			};
 			name = Debug;
 		};
-		BEE2BDC426159174007D856B /* Release */ = {
+		BEE2BE062615CC27007D856B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,36 +285,36 @@
 			};
 			name = Release;
 		};
-		BEE2BDC626159174007D856B /* Debug */ = {
+		BEE2BE082615CC27007D856B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Duke Scavenger Hunt/Info.plist";
+				INFOPLIST_FILE = DukeScavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.duke.cs207.Duke-Scavenger-Hunt";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.cs207.DukeScavenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		BEE2BDC726159174007D856B /* Release */ = {
+		BEE2BE092615CC27007D856B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Duke Scavenger Hunt/Info.plist";
+				INFOPLIST_FILE = DukeScavenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.duke.cs207.Duke-Scavenger-Hunt";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.cs207.DukeScavenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,25 +324,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BEE2BDAC26159173007D856B /* Build configuration list for PBXProject "Duke Scavenger Hunt" */ = {
+		BEE2BDEE2615CC26007D856B /* Build configuration list for PBXProject "DukeScavenger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEE2BDC326159174007D856B /* Debug */,
-				BEE2BDC426159174007D856B /* Release */,
+				BEE2BE052615CC27007D856B /* Debug */,
+				BEE2BE062615CC27007D856B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEE2BDC526159174007D856B /* Build configuration list for PBXNativeTarget "Duke Scavenger Hunt" */ = {
+		BEE2BE072615CC27007D856B /* Build configuration list for PBXNativeTarget "DukeScavenger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEE2BDC626159174007D856B /* Debug */,
-				BEE2BDC726159174007D856B /* Release */,
+				BEE2BE082615CC27007D856B /* Debug */,
+				BEE2BE092615CC27007D856B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BEE2BDA926159173007D856B /* Project object */;
+	rootObject = BEE2BDEB2615CC26007D856B /* Project object */;
 }
