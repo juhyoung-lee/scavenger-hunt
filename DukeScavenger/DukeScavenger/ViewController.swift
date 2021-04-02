@@ -40,6 +40,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //createDatabase()
         
         // Do any additional setup after loading the view.
         view.addBackground()
@@ -192,7 +193,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             print("\ndb populated!\n")
         } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
-            print("\nconstraint failed: \(message) in \(statement)\n")
+            print("\nconstraint failed: \(message) in \(String(describing: statement))\n")
         } catch {
             print("\ndb population failed\n")
         }
