@@ -16,6 +16,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         // Do any additional setup after loading the view.
@@ -31,15 +32,21 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    var regionHasBeenCentered = false
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             let locValue: CLLocationCoordinate2D = manager.location!.coordinate
 
             mapView.mapType = MKMapType.standard
 
-            let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: locValue, span: span)
-          
-            mapView.setRegion(region, animated: true)
+        
+            // allows user to scroll around without snapping back to location.
+            if !regionHasBeenCentered {
+                mapView.setRegion(region, animated: true)
+                regionHasBeenCentered = true
+            }
 
             let annotation = MKPointAnnotation()
             annotation.coordinate = locValue
@@ -47,6 +54,14 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             annotation.subtitle = "current location"
             mapView.addAnnotation(annotation)
         
+    }
+    
+    func solveLocation(lat:Double, long:Double, locName:String) {
+        let annotation = MKPointAnnotation()
+        let locValue = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        annotation.coordinate = locValue
+        annotation.title = locName
+        mapView.addAnnotation(annotation)
     }
     /*
     // MARK: - Navigation

@@ -56,13 +56,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4LQ-FG-diP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4LQ-FG-diP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J5t-ym-0Hd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4LQ-FG-diP" firstAttribute="top" secondItem="vd2-Gj-3HW" secondAttribute="top" id="QMV-IT-Tla"/>
+                            <constraint firstItem="4LQ-FG-diP" firstAttribute="leading" secondItem="J5t-ym-0Hd" secondAttribute="leading" id="W1a-mL-wUl"/>
+                            <constraint firstAttribute="bottom" secondItem="4LQ-FG-diP" secondAttribute="bottom" id="jKf-Vu-F0Z"/>
+                            <constraint firstItem="4LQ-FG-diP" firstAttribute="trailing" secondItem="J5t-ym-0Hd" secondAttribute="trailing" id="p8d-wq-6Wn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="4LQ-FG-diP" id="6NQ-oL-mv4"/>
