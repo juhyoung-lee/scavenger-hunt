@@ -49,45 +49,56 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // needs more work :)
 
         // Set the view's delegate
-        //sceneView.delegate = self
+        sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        //sceneView.showsStatistics = true
+        sceneView.showsStatistics = true
         
         // Create a new scene
-        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene(named: "art.scnassets/MainScene.scn")!
         //createDatabase()
         // Set the scene to the view
-        //sceneView.scene = scene
+        sceneView.scene = scene
+        
+        let dummyNode = scene.rootNode.childNode(withName: "DummyNode", recursively: false)
+        
+        let randomBin = Int.random(in: 0...1)
+        var multiplier = 1
+        if randomBin == 1 {
+            multiplier = -1
+        }
+        let randomX = multiplier*Int.random(in: 0...8)
+        let randomY = multiplier*Int.random(in: 0...8)
+        let randomZ = multiplier*Int.random(in: 0...8)
+        dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         
         // Create a session configuration
-        //let configuration = ARWorldTrackingConfiguration()
+        let configuration = ARWorldTrackingConfiguration()
 
         // Run the view's session
-        //sceneView.session.run(configuration)
+        sceneView.session.run(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //super.viewWillDisappear(animated)
+        super.viewWillDisappear(animated)
         
         // Pause the view's session
-        //sceneView.session.pause()
+        sceneView.session.pause()
     }
 
     // MARK: - ARSCNViewDelegate
     
-/*
+
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
      
         return node
     }
-*/
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
