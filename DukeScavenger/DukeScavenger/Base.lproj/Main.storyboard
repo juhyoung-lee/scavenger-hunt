@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xRf-cl-88m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -40,18 +40,19 @@
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="42d-WF-RWQ"/>
                     <connections>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="88"/>
+            <point key="canvasLocation" x="1012" y="800"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Arb-4l-aFH">
             <objects>
-                <viewController id="xRf-cl-88m" customClass="ViewController" customModule="Duke_Scavenger_Hunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xRf-cl-88m" customClass="ViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZPg-Bp-dg5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +176,10 @@
                                     <constraint firstAttribute="height" constant="70" id="ejs-7K-KZK"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20A-JC-Lue">
+                                <rect key="frame" x="27" y="322" width="362" height="421"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ufp-gM-Rhl"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -229,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jj4-mU-ZQT" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="800"/>
+            <point key="canvasLocation" x="137.68115942028987" y="799.55357142857144"/>
         </scene>
     </scenes>
     <resources>
