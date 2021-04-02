@@ -1,0 +1,61 @@
+//
+//  locationViewController.swift
+//  DukeScavenger
+//
+//  Created by RJ  Schreck on 4/1/21.
+//
+
+import UIKit
+import CoreLocation
+import MapKit
+
+class locationViewController: UIViewController, CLLocationManagerDelegate {
+
+    @IBOutlet weak var mapView: MKMapView!
+    var locationManager = CLLocationManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        // Do any additional setup after loading the view.
+    }
+    //Mark: CoreLocation Methods
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways{
+            locationManager.startUpdatingLocation()
+        }
+        if status == .notDetermined || status == .denied {
+            print("app cannot be used without location authorization")
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let locValue: CLLocationCoordinate2D = manager.location!.coordinate
+
+            mapView.mapType = MKMapType.standard
+
+            let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            let region = MKCoordinateRegion(center: locValue, span: span)
+          
+            mapView.setRegion(region, animated: true)
+
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = locValue
+            annotation.title = "User Location"
+            annotation.subtitle = "current location"
+            mapView.addAnnotation(annotation)
+        
+    }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
