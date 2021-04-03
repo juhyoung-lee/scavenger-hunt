@@ -12,8 +12,13 @@ import SQLite
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    @IBOutlet weak var back: UINavigationItem!
+    
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBAction func introSegue(_ sender: Any) {
+        performSegue(withIdentifier: "introSegue", sender: self)
+    }
     struct Hunts {
         let table = Table("hunts")
         let hId = Expression<Int64>("id")
@@ -43,7 +48,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //createDatabase()
         
         // Do any additional setup after loading the view.
-        view.addBackground()
+        view.addBackground(imageName: "mainMenu")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
         
         // SQLite Database
         // needs more work :)
