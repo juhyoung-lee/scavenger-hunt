@@ -22,6 +22,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        createUserTrackingButton()
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -58,6 +59,28 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             mapView.addAnnotation(annotation)
         
             self.solveLocation(loc: myLocations[0])
+    }
+    
+    func createUserTrackingButton() {
+        mapView.showsUserLocation = true
+        
+        let button = MKUserTrackingButton(mapView: mapView)
+        button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        
+        let scale = MKScaleView(mapView: mapView)
+        scale.legendAlignment = .trailing
+        scale.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scale)
+        
+        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 45),
+                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+                                     scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+                                     scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
     }
     
     func solveLocation(loc: RiddleLocation) {
