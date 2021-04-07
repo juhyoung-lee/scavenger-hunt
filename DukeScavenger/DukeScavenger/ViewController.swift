@@ -17,6 +17,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     
     @IBAction func introSegue(_ sender: Any) {
+        print("send help")
         performSegue(withIdentifier: "introSegue", sender: self)
     }
     struct Hunts {
