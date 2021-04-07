@@ -56,11 +56,11 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func solveLocation(lat:Double, long:Double, locName:String) {
+    func solveLocation(loc: RiddleLocation) {
         let annotation = MKPointAnnotation()
-        let locValue = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let locValue = CLLocationCoordinate2D(latitude: loc.latitude, longitude: loc.longitude)
         annotation.coordinate = locValue
-        annotation.title = locName
+        annotation.title = loc.locName
         mapView.addAnnotation(annotation)
     }
     /*

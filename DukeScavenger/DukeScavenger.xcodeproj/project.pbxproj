@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		112E073F2616B5DE00485F34 /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E073E2616B5DE00485F34 /* locationViewController.swift */; };
+		BE674213261D7893002E1779 /* RiddleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE674212261D7893002E1779 /* RiddleLocation.swift */; };
 		BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDF62615CC26007D856B /* AppDelegate.swift */; };
 		BEE2BDF92615CC26007D856B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDF82615CC26007D856B /* art.scnassets */; };
 		BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDFA2615CC26007D856B /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		112E073E2616B5DE00485F34 /* locationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
+		BE674212261D7893002E1779 /* RiddleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddleLocation.swift; sourceTree = "<group>"; };
 		BEE2BDF32615CC26007D856B /* DukeScavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeScavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE2BDF62615CC26007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEE2BDF82615CC26007D856B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				BEE2BDFF2615CC27007D856B /* Assets.xcassets */,
 				BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */,
 				BEE2BE042615CC27007D856B /* Info.plist */,
+				BE674212261D7893002E1779 /* RiddleLocation.swift */,
 			);
 			path = DukeScavenger;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE674213261D7893002E1779 /* RiddleLocation.swift in Sources */,
 				112E073F2616B5DE00485F34 /* locationViewController.swift in Sources */,
 				BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */,
 				BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */,
