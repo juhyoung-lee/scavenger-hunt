@@ -8,6 +8,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import AudioToolbox
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
@@ -30,7 +31,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/MainScene.scn")!
+        let randomSelector = Int.random(in: 1...2)
+        var sceneName = "art.scnassets/MainScene.scn"
+        if randomSelector == 1 {
+            sceneName = "art.scnassets/bella-union.usdz"
+        }
+        let scene = SCNScene(named: sceneName)!
         //createDatabase()
         // Set the scene to the view
         sceneView.scene = scene
@@ -39,6 +45,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func addSceneContent() {
+
         let dummyNode = self.sceneView.scene.rootNode.childNode(withName: "DummyNode", recursively: false)
         
         let randomBin = Int.random(in: 0...1)
@@ -46,12 +53,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         if randomBin == 1 {
             multiplier = -1
         }
-        let randomX = multiplier*Int.random(in: 0...8)
-        let randomY = multiplier*Int.random(in: 0...8)
-        let randomZ = multiplier*Int.random(in: 0...8)
+        let randomX = multiplier*Int.random(in: 2...10)
+        let randomY = multiplier*Int.random(in: 2...10)
+        let randomZ = multiplier*Int.random(in: 2...10)
         dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
-        
-        let dummyNode2 = self.sceneView.scene.rootNode.childNode(withName: "ArcadeNode", recursively: false)
+        /*
+        let dummyNode2 = self.sceneView.scene.rootNode.childNode(withName: "CoffeeNode", recursively: false)
         
         let randomBin2 = Int.random(in: 0...1)
         var multiplier2 = 1
@@ -62,6 +69,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let randomY2 = multiplier2*Int.random(in: 0...8)
         let randomZ2 = multiplier2*Int.random(in: 0...8)
         dummyNode2?.position = SCNVector3(randomX2, randomY2, randomZ2)
+ */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +77,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -93,10 +101,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let hits = sceneView.hitTest(location,options: nil )
         
         for hitResult in hits {
-            if hitResult.node.name == "sphere" {
-                hitResult.node.removeFromParentNode()
-            }
+            hitResult.node.removeFromParentNode()
         }
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         // Find the closest hit, and the corresponding SceneKit node
         /*if let closest = hits.first {
             let touchedNode = closest.node
