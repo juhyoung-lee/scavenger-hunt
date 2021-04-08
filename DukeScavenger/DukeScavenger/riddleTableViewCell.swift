@@ -8,8 +8,9 @@
 import UIKit
 
 class riddleTableViewCell: UITableViewCell {
-    @IBOutlet weak var riddleNum: UILabel!
+
     
+    @IBOutlet weak var riddleNum: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

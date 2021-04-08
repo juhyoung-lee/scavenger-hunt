@@ -12,6 +12,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var menuShowing = false
     var nums = (1...10).map{"Riddle \($0)"}
     
+
     @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var riddleTable: UITableView!
@@ -24,7 +25,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBAction func openMenu(_ sender: Any) {
-        print("send help")
         if(menuShowing){
             LeadingConstraint.constant = -270
         }
@@ -41,18 +41,52 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 10 //number or riddles
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
             as! riddleTableViewCell
         
         // Configure the cell...
         cell.riddleNum.text = nums[indexPath.row]
+        cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
+        cell.riddleNum.textColor = .white
         cell.riddleNum.textAlignment = .center
+        
 
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String? {
+        return "All Riddles"
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        header.textLabel?.frame = header.frame
+        header.textLabel?.textAlignment = .center
+        header.contentView.backgroundColor = .init(red: 82/255, green: 163/255, blue: 211/255, alpha:0.8)
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let verticalPadding: CGFloat = 10
+        
+        let maskLayer = CALayer()
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+        //tableView.contentInset.bottom = (-verticalPadding/2) + 40
+        //tableView.contentInset.top = -verticalPadding/2
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -65,3 +99,4 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     */
 
 }
+

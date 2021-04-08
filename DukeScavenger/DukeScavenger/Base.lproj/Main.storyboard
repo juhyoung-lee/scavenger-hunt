@@ -321,24 +321,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89J-wM-Axa">
-                                <rect key="frame" x="0.0" y="88" width="260" height="775"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.63921568630000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="100" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89J-wM-Axa">
+                                <rect key="frame" x="-260" y="88" width="260" height="759"/>
+                                <color key="backgroundColor" red="0.32156862745098036" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="z3K-3y-yP1"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.32156862749999998" green="0.63921568630000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleCell" id="Rpx-jg-QT8" customClass="riddleTableViewCell" customModule="DukeScavenger" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleCell" textLabel="HRV-BT-A86" style="IBUITableViewCellStyleDefault" id="Rpx-jg-QT8" customClass="riddleTableViewCell" customModule="DukeScavenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="260" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rpx-jg-QT8" id="udp-tS-cja" customClass="riddleTableViewCell" customModule="DukeScavenger" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riddle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S40-GN-AQq">
-                                                    <rect key="frame" x="40" y="11" width="143" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HRV-BT-A86">
+                                                    <rect key="frame" x="16" y="0.0" width="228" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -348,7 +349,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="riddleNum" destination="S40-GN-AQq" id="5XU-et-BIc"/>
+                                            <outlet property="riddleNum" destination="HRV-BT-A86" id="EyQ-EN-HHn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -361,9 +362,9 @@
                         <viewLayoutGuide key="safeArea" id="wE9-cs-4TL"/>
                         <color key="backgroundColor" red="0.1743965076" green="0.31343880889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="89J-wM-Axa" secondAttribute="bottom" constant="-50" id="BP3-bl-QF0"/>
-                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" id="UPb-C3-ztO"/>
+                            <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="89J-wM-Axa" secondAttribute="bottom" multiplier="0.96" id="BP3-bl-QF0"/>
                             <constraint firstItem="89J-wM-Axa" firstAttribute="top" secondItem="wE9-cs-4TL" secondAttribute="top" id="a3W-2X-BtR"/>
+                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-260" id="uSN-dW-ecc"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -381,7 +382,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="LeadingConstraint" destination="UPb-C3-ztO" id="uuv-IM-Hbu"/>
+                        <outlet property="LeadingConstraint" destination="uSN-dW-ecc" id="8oQ-uS-Es6"/>
                         <outlet property="riddleTable" destination="89J-wM-Axa" id="XlI-2w-fjj"/>
                     </connections>
                 </viewController>
