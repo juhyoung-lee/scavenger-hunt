@@ -4,7 +4,6 @@
 //
 //  Created by codeplus on 4/1/21.
 //
-
 import UIKit
 import SceneKit
 import ARKit
@@ -26,7 +25,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let rId = Expression<Int64>("id")
         let huntId = Expression<Int64>("hunt")
         let msg = Expression<String>("message")
-        let soln = Expression<String>("solution")
+        let hint = Expression<String>("hint")
+        let blurb = Expression<String>("blurb")
         let loc = Expression<String>("location")
     }
     
@@ -40,13 +40,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //createDatabase()
         
         // Do any additional setup after loading the view.
         view.addBackground()
         
         // SQLite Database
-        // needs more work :)
+        let db = createDatabase()
+        populateDatabase(db: db)
+        printDatabase(db: db)
+        
 
         // Set the view's delegate
         //sceneView.delegate = self
@@ -56,7 +58,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         //let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        //createDatabase()
+        
         // Set the scene to the view
         //sceneView.scene = scene
     }
@@ -108,8 +110,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // TODO: skip if db exists
         let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let db = try! Connection("\(dbPath)/db.sqlite3")
-        if let _ = try? db.execute("PRAGMA foreign_keys = ON;") {
-            print("foreign key support failed to activate")
+        if let error = try? db.execute("PRAGMA foreign_keys = ON;") {
+            print("\n\n\nforeign key support status: \(error)")
         } // turns on foreign keys support for the db connection
         print("\n")
         
@@ -127,7 +129,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             t.column(r.rId, primaryKey: true)
             t.column(r.huntId, references: h.table, h.hId)
             t.column(r.msg, unique: true)
-            t.column(r.soln, unique: true)
+            t.column(r.hint, unique: true)
+            t.column(r.blurb, unique: true)
             t.column(r.loc)
             t.foreignKey(r.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
         }){
@@ -157,39 +160,39 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let p = Progress()
         dropDatabaseRows(db: db)
         do {
-            try db.run(h.table.insert(
-                        h.hId <- 1,
-                        h.name <- "OWeek Hunt",
-                        h.descript <- "fuck freshmen"))
-            try db.run(h.table.insert(
-                        h.hId <- 2,
-                        h.name <- "LDOC Hunt",
-                        h.descript <- "fuck freshmen"))
+            let bundle = Bundle.main
+            func readtxt(fileName: String) -> String {
+                let path = bundle.path(forResource: fileName, ofType: "txt")!
+                var string : String = ""
+                do {
+                    string = try String (contentsOfFile: path)
+                } catch {
+                    print ("error reading datafile")
+                }
+                return string
+            }
             
-            try db.run(r.table.insert(
-                        r.rId <- 101,
-                        r.huntId <- 1,
-                        r.msg <- "big pointy",
-                        r.soln <- "chapel",
-                        r.loc <- "long 0, lat 0"))
-            try db.run(r.table.insert(
-                        r.rId <- 102,
-                        r.huntId <- 0,
-                        r.msg <- "move your car",
-                        r.soln <- "bus stop",
-                        r.loc <- "long 10, lat 0"))
-            try db.run(r.table.insert(
-                        r.rId <- 103,
-                        r.huntId <- 0,
-                        r.msg <- "move your car",
-                        r.soln <- "bus stop",
-                        r.loc <- "long 10, lat 0"))
+            let huntsLines = readtxt(fileName: "hunts").split(separator: "\n")
+            let riddlesLines = readtxt(fileName: "riddles").split(separator:"\n")
             
-            try db.run(p.table.insert(
-                        p.pId <- 0,
-                        p.huntId <- 1,
-                        p.riddleId <- 1,
-                        p.time <- "4/2/21-01:21"))
+            for line in huntsLines {
+                let temp = line.split(separator: "|")
+                try db.run(h.table.insert(
+                            h.hId <- Int64(temp[0]) ?? 0,
+                            h.name <- String(temp[1]),
+                            h.descript <- String(temp[2])))
+            }
+            for line in riddlesLines {
+                let temp = line.split(separator: "|")
+                try db.run(r.table.insert(
+                            r.rId <- Int64(temp[0]) ?? 0,
+                            r.huntId <- Int64(temp[1]) ?? 0,
+                            r.msg <- String(temp[2]),
+                            r.hint <- String(temp[3]),
+                            r.blurb <- String(temp[4]),
+                            r.loc <- String(temp[5])))
+            }
+
             
             print("\ndb populated!\n")
         } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
@@ -202,12 +205,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func dropDatabaseRows(db: Connection) {
         let h = Hunts()
         let r = Riddles()
-        let p = Progress()
+//      let p = Progress()
         
         do {
             try db.run(h.table.delete())
             try db.run(r.table.delete())
-            try db.run(p.table.delete())
+//            try db.run(p.table.delete())
             print("\ndb rows deleted!\n")
         } catch {
             print("\ndb row deletion failed\n")
@@ -242,7 +245,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             print("riddles table")
             for row in try db.prepare(r.table) {
-                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), soln: \(row[r.soln]), loc: \(row[r.loc])")
+                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
             }
             print("progress table")
             for row in try db.prepare(p.table) {
