@@ -14,6 +14,23 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
+    var toggleState = 1
+    
+    @IBAction func toggleVisibility(_ sender: UIButton) {
+        let show = UIImage(named: "eye")
+        let hide = UIImage(named: "closed-eye")
+        if toggleState == 1 {
+            //hide all annotations
+            toggleState = 2
+            sender.setImage(hide, for: UIControl.State.normal)
+        }
+        else {
+            //show all annotations
+            toggleState = 1
+            sender.setImage(show, for: UIControl.State.normal)
+        }
+    }
+    
     // tentatively just here for testing
     let myLocations: [RiddleLocation] = [RiddleLocation(latitude: 35.99911, longitude: -78.92904, locName: "Nasher Museum"), RiddleLocation(latitude: 35.99705, longitude: -78.94258, locName: "Cameron Stadium"), RiddleLocation(latitude: 36.00668, longitude: -78.91326, locName: "Duke Coffeehouse")]
     
@@ -119,4 +136,15 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     }
     */
 
+}
+
+@IBDesignable extension UIButton {
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
 }

@@ -59,14 +59,33 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4LQ-FG-diP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGe-v2-CMb">
+                                <rect key="frame" x="20" y="97" width="40" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="closed-eye">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="toggleVisibility:" destination="eeE-Ef-pVN" eventType="touchUpInside" id="ZD5-sA-E2r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J5t-ym-0Hd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OGe-v2-CMb" firstAttribute="leading" secondItem="J5t-ym-0Hd" secondAttribute="leading" constant="20" id="3aV-1D-F67"/>
+                            <constraint firstItem="J5t-ym-0Hd" firstAttribute="bottom" secondItem="OGe-v2-CMb" secondAttribute="bottom" constant="720" id="Lfy-vH-Jh3"/>
                             <constraint firstItem="4LQ-FG-diP" firstAttribute="top" secondItem="vd2-Gj-3HW" secondAttribute="top" id="QMV-IT-Tla"/>
                             <constraint firstItem="4LQ-FG-diP" firstAttribute="leading" secondItem="J5t-ym-0Hd" secondAttribute="leading" id="W1a-mL-wUl"/>
                             <constraint firstAttribute="bottom" secondItem="4LQ-FG-diP" secondAttribute="bottom" id="jKf-Vu-F0Z"/>
+                            <constraint firstItem="OGe-v2-CMb" firstAttribute="top" secondItem="J5t-ym-0Hd" secondAttribute="top" constant="53" id="lSz-Yw-AOh"/>
                             <constraint firstItem="4LQ-FG-diP" firstAttribute="trailing" secondItem="J5t-ym-0Hd" secondAttribute="trailing" id="p8d-wq-6Wn"/>
+                            <constraint firstItem="J5t-ym-0Hd" firstAttribute="trailing" secondItem="OGe-v2-CMb" secondAttribute="trailing" constant="354" id="qga-Tm-lKQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -263,6 +282,7 @@
     </scenes>
     <resources>
         <image name="add_hunt" width="30" height="29"/>
+        <image name="closed-eye" width="256" height="256"/>
         <image name="discover" width="64" height="65"/>
         <image name="duke" width="395" height="449"/>
         <image name="home" width="32" height="28"/>
