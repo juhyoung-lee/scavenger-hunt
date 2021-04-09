@@ -9,6 +9,9 @@ import UIKit
 
 class introViewController: UIViewController {
 
+    @IBAction func riddleSegue(_ sender: Any) {
+        performSegue(withIdentifier: "riddleSegue", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addBackground()
