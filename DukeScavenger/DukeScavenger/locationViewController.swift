@@ -66,6 +66,11 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         
         let button = MKUserTrackingButton(mapView: mapView)
         button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10.0
+        button.layer.masksToBounds = false
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
@@ -77,7 +82,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         scale.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scale)
         
-        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 45),
+        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
                                      button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
                                      scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
                                      scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
