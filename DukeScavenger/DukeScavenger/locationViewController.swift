@@ -39,26 +39,36 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     var regionHasBeenCentered = false
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            let locValue: CLLocationCoordinate2D = manager.location!.coordinate
+        let locValue: CLLocationCoordinate2D = manager.location!.coordinate
 
-            mapView.mapType = MKMapType.standard
+        mapView.mapType = MKMapType.standard
 
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: locValue, span: span)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: locValue, span: span)
+    
+        // allows user to scroll around without snapping back to location.
+        if !regionHasBeenCentered {
+            mapView.setRegion(region, animated: true)
+            regionHasBeenCentered = true
+        }
+
+//            let annotation = MKPointAnnotation()
+//            annotation.coordinate = locValue
+//            annotation.title = "User Location"
+//            annotation.subtitle = "current location"
+//            mapView.addAnnotation(annotation)
         
-            // allows user to scroll around without snapping back to location.
-            if !regionHasBeenCentered {
-                mapView.setRegion(region, animated: true)
-                regionHasBeenCentered = true
+        for location in myLocations {
+            let coord = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+            
+            if coord.distance(from: userLoc) < 40 {
+                triggerARView(loc: location)
             }
-
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = locValue
-            annotation.title = "User Location"
-            annotation.subtitle = "current location"
-            mapView.addAnnotation(annotation)
+        }
         
-            self.solveLocation(loc: myLocations[0])
+        // just a demo of this function
+        self.solveLocation(loc: myLocations[0])
     }
     
     func createUserTrackingButton() {
@@ -94,6 +104,10 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = locValue
         annotation.title = loc.locName
         mapView.addAnnotation(annotation)
+    }
+    
+    func triggerARView(loc: RiddleLocation) {
+        // make ARView pop up
     }
     /*
     // MARK: - Navigation
