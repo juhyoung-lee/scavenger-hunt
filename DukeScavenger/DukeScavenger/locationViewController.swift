@@ -40,6 +40,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         createUserTrackingButton()
+        triggerARView(loc: myLocations[0])
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -125,6 +126,21 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     func triggerARView(loc: RiddleLocation) {
         // make ARView pop up
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Riddle Location Found!", message: "You are near a riddle location! Open AR?",
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+            
+            let okButton = UIAlertAction(title: "Yes", style: .default) { _ in
+                let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ViewController
+                self.present(ARVC, animated: true, completion: nil)
+            }
+            alert.addAction(okButton)
+            
+            self.present(alert, animated: true)
+        }
     }
     /*
     // MARK: - Navigation
