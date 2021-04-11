@@ -342,8 +342,20 @@
                                 <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="100" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89J-wM-Axa">
-                                <rect key="frame" x="-260" y="88" width="260" height="759"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="771-As-btk">
+                                <rect key="frame" x="-12" y="363" width="53" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="Dkd-VY-HCU"/>
+                                    <constraint firstAttribute="width" constant="53" id="hS6-VI-Sth"/>
+                                    <constraint firstAttribute="width" secondItem="771-As-btk" secondAttribute="height" multiplier="53:224" id="wJZ-om-QVL"/>
+                                </constraints>
+                                <state key="normal" image="slide_out"/>
+                                <connections>
+                                    <action selector="openMenu:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="sSD-Xb-SHk"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="40" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89J-wM-Axa">
+                                <rect key="frame" x="-270" y="31" width="260" height="816"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
                                 <constraints>
@@ -379,22 +391,6 @@
                                     <outlet property="delegate" destination="Ezj-jg-Moe" id="Sos-5a-8RL"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doB-nt-dPm">
-                                <rect key="frame" x="25" y="57" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0GC-Ft-mQI"/>
-                                    <constraint firstAttribute="width" constant="50" id="ftF-Kt-8b8"/>
-                                </constraints>
-                                <state key="normal" image="menu"/>
-                                <connections>
-                                    <action selector="openMenu:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="a9a-cy-iMr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-oW-Cqf">
-                                <rect key="frame" x="184" y="595" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wE9-cs-4TL"/>
                         <color key="backgroundColor" red="0.1743965076" green="0.31343880889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -404,13 +400,13 @@
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="89J-wM-Axa" secondAttribute="bottom" multiplier="0.96" id="BP3-bl-QF0"/>
                             <constraint firstItem="8fq-70-hyV" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="60" id="GJY-zK-znk"/>
                             <constraint firstItem="Gtl-6O-6Fp" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="OYI-hS-9rP"/>
+                            <constraint firstItem="771-As-btk" firstAttribute="centerY" secondItem="OJk-Zr-LXm" secondAttribute="centerY" constant="27" id="Q2f-9X-3UD"/>
                             <constraint firstItem="II0-Lq-5ab" firstAttribute="top" secondItem="wE9-cs-4TL" secondAttribute="top" constant="-30" id="WVM-sX-qMF"/>
-                            <constraint firstItem="89J-wM-Axa" firstAttribute="top" secondItem="wE9-cs-4TL" secondAttribute="top" id="a3W-2X-BtR"/>
-                            <constraint firstItem="doB-nt-dPm" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="25" id="bl3-mR-CUd"/>
+                            <constraint firstItem="89J-wM-Axa" firstAttribute="top" secondItem="wE9-cs-4TL" secondAttribute="top" multiplier="0.35" id="a3W-2X-BtR"/>
+                            <constraint firstItem="771-As-btk" firstAttribute="leading" secondItem="89J-wM-Axa" secondAttribute="trailing" constant="-2" id="bT7-KC-FbM"/>
                             <constraint firstItem="Gtl-6O-6Fp" firstAttribute="top" secondItem="II0-Lq-5ab" secondAttribute="bottom" constant="50" id="fzm-N8-x0d"/>
                             <constraint firstItem="8fq-70-hyV" firstAttribute="top" secondItem="Gtl-6O-6Fp" secondAttribute="bottom" constant="40" id="k91-jF-3F5"/>
-                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-260" id="uSN-dW-ecc"/>
-                            <constraint firstItem="doB-nt-dPm" firstAttribute="centerY" secondItem="II0-Lq-5ab" secondAttribute="centerY" id="y2O-0m-NsK"/>
+                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-270" id="uSN-dW-ecc"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -470,6 +466,7 @@
         <image name="hunt_bar" width="383" height="89"/>
         <image name="menu" width="35" height="40"/>
         <image name="profile" width="100" height="100"/>
+        <image name="slide_out" width="89" height="383"/>
         <image name="star_rate" width="24" height="24"/>
         <image name="start-button" width="272" height="67"/>
         <image name="white-box" width="395" height="428"/>

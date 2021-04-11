@@ -41,6 +41,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         menuShowing = !menuShowing
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10 //number or riddles
     }
@@ -77,6 +78,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         header.textLabel?.textAlignment = .center
         header.contentView.backgroundColor = .init(red: 82/255, green: 163/255, blue: 211/255, alpha:0.8)
     }
+    
     
     
     
