@@ -124,6 +124,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-tZ-dpt">
                                 <rect key="frame" x="157" y="58" width="100" height="100"/>
                             </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7dF-cg-6ux">
+                                <rect key="frame" x="141.5" y="799" width="131" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ufp-gM-Rhl"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -139,6 +146,7 @@
                             <constraint firstItem="H1f-QC-mp6" firstAttribute="centerX" secondItem="fyv-gq-Jyx" secondAttribute="centerX" id="IhX-g8-ss4"/>
                             <constraint firstItem="Dhn-9Y-h7J" firstAttribute="centerX" secondItem="gBD-Uf-Ffz" secondAttribute="centerX" id="It4-ur-lpu"/>
                             <constraint firstItem="IKG-Sj-kdY" firstAttribute="leading" secondItem="ufp-gM-Rhl" secondAttribute="leading" constant="10" id="NuD-rG-7gN"/>
+                            <constraint firstItem="ufp-gM-Rhl" firstAttribute="bottom" secondItem="7dF-cg-6ux" secondAttribute="bottom" constant="32" id="R3Z-nr-YbG"/>
                             <constraint firstItem="Vgc-Jd-d6M" firstAttribute="centerX" secondItem="ZPg-Bp-dg5" secondAttribute="centerX" id="Ro6-GJ-otf"/>
                             <constraint firstItem="gBD-Uf-Ffz" firstAttribute="leading" secondItem="ufp-gM-Rhl" secondAttribute="leading" constant="72" id="Tl8-P9-82n"/>
                             <constraint firstItem="ufp-gM-Rhl" firstAttribute="trailing" secondItem="fyv-gq-Jyx" secondAttribute="trailing" constant="99" id="Vqy-jF-0jI"/>
@@ -149,6 +157,7 @@
                             <constraint firstItem="ufp-gM-Rhl" firstAttribute="bottom" secondItem="IKG-Sj-kdY" secondAttribute="bottom" multiplier="1.13" id="oHX-Lq-Ri0"/>
                             <constraint firstItem="2iE-S0-odt" firstAttribute="centerX" secondItem="ZPg-Bp-dg5" secondAttribute="centerX" id="ojO-8w-lKq"/>
                             <constraint firstItem="CYR-KG-HIL" firstAttribute="leading" secondItem="ufp-gM-Rhl" secondAttribute="leading" constant="50" id="pJ3-dN-VFu"/>
+                            <constraint firstItem="7dF-cg-6ux" firstAttribute="centerX" secondItem="ZPg-Bp-dg5" secondAttribute="centerX" id="q3k-40-u41"/>
                             <constraint firstItem="ufp-gM-Rhl" firstAttribute="trailing" secondItem="IKG-Sj-kdY" secondAttribute="trailing" constant="10" id="rXe-NE-h6H"/>
                             <constraint firstItem="p2b-JN-Y5b" firstAttribute="firstBaseline" secondItem="CYR-KG-HIL" secondAttribute="baseline" constant="10.5" symbolType="layoutAnchor" id="raE-Gn-RQz"/>
                             <constraint firstItem="iV0-jR-9ti" firstAttribute="centerX" secondItem="ZPg-Bp-dg5" secondAttribute="centerX" id="sy7-Xf-itR"/>
