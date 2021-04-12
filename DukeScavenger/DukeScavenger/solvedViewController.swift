@@ -1,21 +1,22 @@
 //
-//  introViewController.swift
-//  DukeScavenger
+//  solvedViewController.swift
+//  
 //
-//  Created by codeplus on 4/2/21.
+//  Created by codeplus on 4/11/21.
 //
 
 import UIKit
 
-class introViewController: UIViewController {
+class solvedViewController: UIViewController {
 
-    @IBAction func riddleSegue(_ sender: Any) {
-        performSegue(withIdentifier: "startHuntSegue", sender: self)
+    @IBAction func solvedSegue(_ sender: Any) {
+        performSegue(withIdentifier: "returnSegue", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addBackground()
+
         // Do any additional setup after loading the view.
+        view.addBackground(imageName: "solvedBackground")
     }
     
 

@@ -7,12 +7,16 @@
 
 import UIKit
 
-class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     var menuShowing = false
     var nums = (1...10).map{"Riddle \($0)"}
     
-
+    @IBAction func solvedSegue(_ sender: Any) {
+        performSegue(withIdentifier: "solvedSegue", sender: self)
+    }
+    @IBOutlet weak var riddleName: UILabel!
+    
     @IBOutlet weak var LeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var riddleTable: UITableView!
@@ -24,6 +28,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
         
     }
     
@@ -40,8 +45,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         menuShowing = !menuShowing
     }
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10 //number or riddles
     }
@@ -93,6 +97,12 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //tableView.contentInset.top = -verticalPadding/2
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        riddleName.text = "Riddle \(indexPath.row + 1)"
+        print(indexPath.row)
+        openMenu((Any).self)
+    }
+
     
     /*
     // MARK: - Navigation
