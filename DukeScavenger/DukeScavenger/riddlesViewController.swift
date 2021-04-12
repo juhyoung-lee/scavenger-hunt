@@ -9,8 +9,11 @@ import UIKit
 
 class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
+    
     var menuShowing = false
     var nums = (1...10).map{"Riddle \($0)"}
+    
+    private var tapGesture: UITapGestureRecognizer? = nil
     
     @IBAction func solvedSegue(_ sender: Any) {
         performSegue(withIdentifier: "solvedSegue", sender: self)
@@ -29,10 +32,10 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        
     }
-    
 
+    
+    
     @IBAction func openMenu(_ sender: Any) {
         if(menuShowing){
             LeadingConstraint.constant = -270
@@ -45,28 +48,22 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         menuShowing = !menuShowing
     }
+    
+    @IBAction func touchWasDetected(_ sender: UITapGestureRecognizer) {
+        let touchPoint = sender.location(in: view)
+        if (!riddleTable.frame.contains(touchPoint) && menuShowing){
+            openMenu((Any).self)
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 //number or riddles
+        }
+        else{
+            let row = riddleTable.indexPathForRow(at: touchPoint)![1]
+            riddleName.text = "Riddle \(row)"
+            openMenu((Any).self)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
-            as! riddleTableViewCell
-        
-        // Configure the cell...
-        cell.riddleNum.text = nums[indexPath.row]
-        cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
-        cell.riddleNum.textColor = .white
-        cell.riddleNum.textAlignment = .center
-        
-
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String? {
@@ -84,7 +81,24 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
+            as! riddleTableViewCell
+        
+        // Configure the cell...
+        cell.riddleNum.text = nums[indexPath.row]
+        cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
+        cell.riddleNum.textColor = .white
+        cell.riddleNum.textAlignment = .center
+            
+
+            
+            return cell
+        }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let verticalPadding: CGFloat = 10
@@ -95,12 +109,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.layer.mask = maskLayer
         //tableView.contentInset.bottom = (-verticalPadding/2) + 40
         //tableView.contentInset.top = -verticalPadding/2
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        riddleName.text = "Riddle \(indexPath.row + 1)"
-        print(indexPath.row)
-        openMenu((Any).self)
     }
 
     
@@ -115,4 +123,3 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     */
 
 }
-

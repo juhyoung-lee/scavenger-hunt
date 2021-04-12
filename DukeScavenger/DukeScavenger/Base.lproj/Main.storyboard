@@ -414,6 +414,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wE9-cs-4TL"/>
                         <color key="backgroundColor" red="0.1743965076" green="0.31343880889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6H5-4d-Uvw" firstAttribute="top" secondItem="A79-LD-gjz" secondAttribute="bottom" constant="26" id="1RN-TB-6s6"/>
                             <constraint firstItem="II0-Lq-5ab" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="8rF-Fe-Ef7"/>
@@ -432,6 +433,9 @@
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="6H5-4d-Uvw" secondAttribute="bottom" constant="35" id="lVx-kG-w5l"/>
                             <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-270" id="uSN-dW-ecc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="V9Y-Js-MMy" appends="YES" id="3P4-i5-6jK"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="SfQ-bZ-Nr6"/>
@@ -444,6 +448,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1k-1e-7N5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V9Y-Js-MMy">
+                    <connections>
+                        <action selector="touchWasDetected:" destination="Ezj-jg-Moe" id="uUz-Lo-dFX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3559" y="800"/>
         </scene>
