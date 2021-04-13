@@ -117,6 +117,14 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         if solvedMode[0]{
             solvedNotification.isHidden = false
             findHuntButton.isHidden = false
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.addSubview(blurEffectView)
+            self.view.addSubview(solvedNotification)
+            self.view.addSubview(findHuntButton)
         }
         else{
             solvedNotification.isHidden = true
