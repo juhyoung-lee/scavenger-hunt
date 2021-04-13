@@ -15,6 +15,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private var tapGesture: UITapGestureRecognizer? = nil
     
+    var solvedMode: [Bool] = [false]
+    
+    var solvedRiddle: [Bool] =  [false, false, true, true, false, false, true, true, false, false]
+    
+    @IBOutlet weak var solvedNotification: UIImageView!
     @IBAction func solvedSegue(_ sender: Any) {
         performSegue(withIdentifier: "solvedSegue", sender: self)
     }
@@ -24,17 +29,15 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var riddleTable: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.addBackground(imageName: "RiddleView")
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        
-    }
-
+    @IBOutlet weak var answerButton: UIButton!
     
+ 
+    @IBOutlet weak var hintButton: UIButton!
+
+    @IBOutlet weak var findHuntButton: UIButton!
+    @IBAction func findHuntButton(_ sender: Any) {
+        performSegue(withIdentifier: "returnHomeSegue", sender: self)
+    }
     
     @IBAction func openMenu(_ sender: Any) {
         if(menuShowing){
@@ -59,7 +62,40 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
             riddleName.text = "Riddle \(row)"
             openMenu((Any).self)
+            if solvedRiddle[row-1]{
+                answerButton.isHidden = true
+                hintButton.isHidden = true
+                if row-1 == 9{ //if this is len-1 of the riddles array
+                    print("finished riddle")
+                
+            }
+            else{
+                answerButton.isHidden = false
+                hintButton.isHidden = false
+            }
         }
+    }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.addBackground(imageName: "RiddleView")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        riddleName.text = "Riddle 1"
+        
+        if solvedMode[0]{
+            solvedNotification.isHidden = false
+            findHuntButton.isHidden = false
+        }
+        else{
+            solvedNotification.isHidden = true
+            findHuntButton.isHidden = true
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,7 +146,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //tableView.contentInset.bottom = (-verticalPadding/2) + 40
         //tableView.contentInset.top = -verticalPadding/2
     }
-
     
     /*
     // MARK: - Navigation

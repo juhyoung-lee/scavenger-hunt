@@ -9,9 +9,8 @@ import UIKit
 
 class solvedViewController: UIViewController {
 
-    @IBAction func solvedSegue(_ sender: Any) {
-        performSegue(withIdentifier: "returnSegue", sender: self)
-    }
+    @IBOutlet weak var solvedNotification: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
