@@ -19,6 +19,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var solvedRiddle: [Bool] =  [false, false, true, true, false, false, true, true, false, false]
     
+    @IBOutlet weak var tab: UIButton!
     @IBOutlet weak var solvedNotification: UIImageView!
     @IBAction func solvedSegue(_ sender: Any) {
         performSegue(withIdentifier: "solvedSegue", sender: self)
@@ -39,40 +40,67 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "returnHomeSegue", sender: self)
     }
     
+    @IBOutlet var blurView: UIView!
+    
+    
     @IBAction func openMenu(_ sender: Any) {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
         if(menuShowing){
             LeadingConstraint.constant = -270
+            self.navigationItem.setHidesBackButton(true, animated: true)
+            for subview in blurView.subviews{
+                if subview is UIVisualEffectView{
+                    subview.removeFromSuperview()
+                }
+            }
         }
         else{
             LeadingConstraint.constant = 0
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.addSubview(blurEffectView)
+            self.view.addSubview(riddleTable)
+            self.view.addSubview(tab)
+            
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
                 self.view.layoutIfNeeded()
             })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+                self.navigationItem.setHidesBackButton(false, animated: true)
+            }
+            
+            
         }
         menuShowing = !menuShowing
     }
     
     @IBAction func touchWasDetected(_ sender: UITapGestureRecognizer) {
         let touchPoint = sender.location(in: view)
-        if (!riddleTable.frame.contains(touchPoint) && menuShowing){
-            openMenu((Any).self)
-
+        if (!riddleTable.frame.contains(touchPoint)){
+            if(menuShowing){
+                openMenu((Any).self)
+            }
         }
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
-            riddleName.text = "Riddle \(row)"
-            openMenu((Any).self)
-            if solvedRiddle[row-1]{
-                answerButton.isHidden = true
-                hintButton.isHidden = true
-                if row-1 == 9{ //if this is len-1 of the riddles array
-                    print("finished riddle")
-                
+            if row > 0 {
+                riddleName.text = "Riddle \(row)"
+                openMenu((Any).self)
+                if solvedRiddle[row-1]{
+                    answerButton.isHidden = true
+                    hintButton.isHidden = true
+                    if row-1 == 9{ //if this is len-1 of the riddles array
+                        print("finished riddle")
+                    
+                }
+                else{
+                    answerButton.isHidden = false
+                    hintButton.isHidden = false
+                }
             }
-            else{
-                answerButton.isHidden = false
-                hintButton.isHidden = false
-            }
+            
         }
     }
     }
@@ -94,7 +122,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             solvedNotification.isHidden = true
             findHuntButton.isHidden = true
         }
-        
+        navigationItem.hidesBackButton = true
         
     }
     
