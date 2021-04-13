@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		481C01F7DA8C5A0A70BB937E /* Pods_DukeScavenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */; };
-		9911AF21F5EF1FEC774F6AF3 /* Pods_DukeScavenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA646BFE7A741BD35927762 /* Pods_DukeScavenger.framework */; };
 		BE3D28352617A3130086EC76 /* introViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D28342617A3130086EC76 /* introViewController.swift */; };
 		BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDF62615CC26007D856B /* AppDelegate.swift */; };
 		BEE2BDF92615CC26007D856B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDF82615CC26007D856B /* art.scnassets */; };
@@ -25,7 +24,6 @@
 		12A68AB6A3798257E4658276 /* Pods-DukeScavenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.release.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.release.xcconfig"; sourceTree = "<group>"; };
 		146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DukeScavenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3047E57C2B62E842BF6F792F /* Pods-DukeScavenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.debug.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.debug.xcconfig"; sourceTree = "<group>"; };
-		4BA646BFE7A741BD35927762 /* Pods_DukeScavenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DukeScavenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3D28342617A3130086EC76 /* introViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = introViewController.swift; sourceTree = "<group>"; };
 		BEE2BDF32615CC26007D856B /* DukeScavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeScavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE2BDF62615CC26007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,8 +34,8 @@
 		BEE2BE022615CC27007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEE2BE042615CC27007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEE2BE132615D0D8007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		DA53EC282620138E0006934C /* riddles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = riddles.txt; path = ../../../../../Downloads/riddles.txt; sourceTree = "<group>"; };
-		DA53EC2C262029A00006934C /* hunts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hunts.txt; path = ../../../../../Downloads/hunts.txt; sourceTree = "<group>"; };
+		DA53EC282620138E0006934C /* riddles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = riddles.txt; sourceTree = "<group>"; };
+		DA53EC2C262029A00006934C /* hunts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hunts.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
