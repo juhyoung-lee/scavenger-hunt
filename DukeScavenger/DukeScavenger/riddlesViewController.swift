@@ -32,7 +32,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var answerButton: UIButton!
     
- 
     @IBOutlet weak var hintButton: UIButton!
 
     @IBOutlet weak var findHuntButton: UIButton!
@@ -42,6 +41,8 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet var blurView: UIView!
     
+    
+    @IBOutlet weak var passed: UIImageView!
     
     @IBAction func openMenu(_ sender: Any) {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
@@ -91,15 +92,17 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if solvedRiddle[row-1]{
                     answerButton.isHidden = true
                     hintButton.isHidden = true
+                    passed.isHidden = false
                     if row-1 == 9{ //if this is len-1 of the riddles array
                         print("finished riddle")
                     
+                    }
                 }
                 else{
                     answerButton.isHidden = false
                     hintButton.isHidden = false
+                    passed.isHidden = true
                 }
-            }
             
         }
     }
@@ -112,11 +115,13 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        riddleName.text = "Riddle 1"
+        riddleName.text = "Riddle Number"
+        passed.isHidden = true
         
         if solvedMode[0]{
             solvedNotification.isHidden = false
             findHuntButton.isHidden = false
+            
             
             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
