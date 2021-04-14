@@ -18,6 +18,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func introSegue(_ sender: Any) {
         performSegue(withIdentifier: "introSegue", sender: self)
     }
+    @IBOutlet weak var campusToggle: UISegmentedControl!
+    
+    
     struct Hunts {
         let table = Table("hunts")
         let hId = Expression<Int64>("id")
@@ -51,6 +54,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        
+        
         
         
         // SQLite Database
