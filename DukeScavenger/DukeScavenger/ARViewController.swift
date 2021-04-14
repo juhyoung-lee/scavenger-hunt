@@ -16,13 +16,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //createDatabase()
-        
-        // Do any additional setup after loading the view.
-        //view.addBackground()
-        
-        // SQLite Database
-        // needs more work :)
 
         // Set the view's delegate
         sceneView.delegate = self
@@ -37,8 +30,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             sceneName = "art.scnassets/bella-union.usdz"
         }
         let scene = SCNScene(named: sceneName)!
-        //createDatabase()
-        // Set the scene to the view
+
         sceneView.scene = scene
         
         self.addSceneContent()
