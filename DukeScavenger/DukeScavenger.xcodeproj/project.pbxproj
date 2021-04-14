@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		112E073F2616B5DE00485F34 /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112E073E2616B5DE00485F34 /* locationViewController.swift */; };
+		7627EDE568CF2FC59C6C2729 /* Pods_DukeScavenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A933DC5E5BA1A3656D84B8 /* Pods_DukeScavenger.framework */; };
 		BE674213261D7893002E1779 /* RiddleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE674212261D7893002E1779 /* RiddleLocation.swift */; };
 		BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDF62615CC26007D856B /* AppDelegate.swift */; };
 		BEE2BDF92615CC26007D856B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDF82615CC26007D856B /* art.scnassets */; };
@@ -19,7 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0605054C221F27CB71396297 /* Pods-DukeScavenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.release.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.release.xcconfig"; sourceTree = "<group>"; };
 		112E073E2616B5DE00485F34 /* locationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
+		73A933DC5E5BA1A3656D84B8 /* Pods_DukeScavenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DukeScavenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7617D146350BA7A5BAD015D8 /* Pods-DukeScavenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.debug.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.debug.xcconfig"; sourceTree = "<group>"; };
 		BE674212261D7893002E1779 /* RiddleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddleLocation.swift; sourceTree = "<group>"; };
 		BEE2BDF32615CC26007D856B /* DukeScavenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeScavenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE2BDF62615CC26007D856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,18 +41,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7627EDE568CF2FC59C6C2729 /* Pods_DukeScavenger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		800C9B0C343F0EEEFD77BD16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7617D146350BA7A5BAD015D8 /* Pods-DukeScavenger.debug.xcconfig */,
+				0605054C221F27CB71396297 /* Pods-DukeScavenger.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BEE2BDEA2615CC26007D856B = {
 			isa = PBXGroup;
 			children = (
 				BEE2BE132615D0D8007D856B /* assets */,
 				BEE2BDF52615CC26007D856B /* DukeScavenger */,
 				BEE2BDF42615CC26007D856B /* Products */,
+				800C9B0C343F0EEEFD77BD16 /* Pods */,
+				E45E625B58627EB49FDC470A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +93,14 @@
 			path = DukeScavenger;
 			sourceTree = "<group>";
 		};
+		E45E625B58627EB49FDC470A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73A933DC5E5BA1A3656D84B8 /* Pods_DukeScavenger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEE2BE072615CC27007D856B /* Build configuration list for PBXNativeTarget "DukeScavenger" */;
 			buildPhases = (
+				13116F0A5CFAEC1E537D1B27 /* [CP] Check Pods Manifest.lock */,
 				BEE2BDEF2615CC26007D856B /* Sources */,
 				BEE2BDF02615CC26007D856B /* Frameworks */,
 				BEE2BDF12615CC26007D856B /* Resources */,
+				EFE8DA5AEAE39EDBCBF1D555 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +169,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13116F0A5CFAEC1E537D1B27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DukeScavenger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFE8DA5AEAE39EDBCBF1D555 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEE2BDEF2615CC26007D856B /* Sources */ = {
@@ -295,6 +364,7 @@
 		};
 		BEE2BE082615CC27007D856B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7617D146350BA7A5BAD015D8 /* Pods-DukeScavenger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		BEE2BE092615CC27007D856B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0605054C221F27CB71396297 /* Pods-DukeScavenger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
