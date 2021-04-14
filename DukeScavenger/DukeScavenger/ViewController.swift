@@ -34,8 +34,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let huntId = Expression<Int64>("hunt")
         let msg = Expression<String>("message")
         let hint = Expression<String>("hint")
+        let answer = Expression<String>("answer")
         let blurb = Expression<String>("blurb")
         let loc = Expression<String>("location")
+        let sprite = Expression<String>("sprite")
     }
     
     struct Progress {
@@ -61,6 +63,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // SQLite Database
         let db = createDatabase()
+        //dropDatabase(db: db)
         populateDatabase(db: db)
         printDatabase(db: db)
         
@@ -144,10 +147,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         attempt = try? db.run(r.table.create(ifNotExists: true) { t in
             t.column(r.rId, primaryKey: true)
             t.column(r.huntId, references: h.table, h.hId)
-            t.column(r.msg, unique: true)
-            t.column(r.hint, unique: true)
-            t.column(r.blurb, unique: true)
+            t.column(r.msg)
+            t.column(r.hint)
+            t.column(r.blurb)
+            t.column(r.answer)
             t.column(r.loc)
+            t.column(r.sprite)
             t.foreignKey(r.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
         })
         print("\(attempt)")
@@ -201,7 +206,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             r.msg <- String(temp[2]),
                             r.hint <- String(temp[3]),
                             r.blurb <- String(temp[4]),
-                            r.loc <- String(temp[5])))
+                            r.answer <- String(temp[5]),
+                            r.loc <- String(temp[6]),
+                            r.sprite <- String(temp[7])))
             }
 
             
