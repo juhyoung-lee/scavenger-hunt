@@ -130,17 +130,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         } // turns on foreign keys support for the db connection
         print("\n")
         
+        var attempt: Statement?
+        
         let h = Hunts()
-        if let _ = try? db.run(h.table.create(ifNotExists: true) { t in
+        attempt = try? db.run(h.table.create(ifNotExists: true) { t in
             t.column(h.hId, primaryKey: true)
             t.column(h.name, unique: true)
             t.column(h.descript)
-        }){
-            print("hunts db creation failed")
-        }
+        })
+        print("\(attempt)")
         
         let r = Riddles()
-        if let _ = try? db.run(r.table.create(ifNotExists: true) { t in
+        attempt = try? db.run(r.table.create(ifNotExists: true) { t in
             t.column(r.rId, primaryKey: true)
             t.column(r.huntId, references: h.table, h.hId)
             t.column(r.msg, unique: true)
@@ -148,31 +149,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             t.column(r.blurb, unique: true)
             t.column(r.loc)
             t.foreignKey(r.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
-        }){
-            print("riddles db creation failed")
-        }
-        
+        })
+        print("\(attempt)")
 
         let p = Progress()
-        if let _ = try? db.run(p.table.create(ifNotExists: true) { t in
+        attempt = try? db.run(p.table.create(ifNotExists: true) { t in
             t.column(p.pId, primaryKey: .autoincrement)
             t.column(p.huntId)
             t.column(p.riddleId)
             t.column(p.time)
             t.foreignKey(p.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
             t.foreignKey(p.riddleId, references: r.table, r.rId, update: .cascade, delete: .cascade)
-        }) {
-            print("progress db creation failed")
-        }
-        
-        print("db exists!\n")
+        })
+        print("\(attempt)")
+
         return db
     }
     
     func populateDatabase(db: Connection) {
         let h = Hunts()
         let r = Riddles()
-        let p = Progress()
         dropDatabaseRows(db: db)
         do {
             let bundle = Bundle.main
@@ -220,13 +216,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func dropDatabaseRows(db: Connection) {
         let h = Hunts()
         let r = Riddles()
-//      let p = Progress()
         
         do {
             try db.run(h.table.delete())
             try db.run(r.table.delete())
-//            try db.run(p.table.delete())
-            print("\ndb rows deleted!\n")
+            print("\ndb hunts and riddles rows deleted!\n")
         } catch {
             print("\ndb row deletion failed\n")
         }
@@ -238,10 +232,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let p = Progress()
         
         do {
-            try db.run(h.table.drop())
-            try db.run(r.table.drop())
             try db.run(p.table.drop())
+            try db.run(r.table.drop())
+            try db.run(h.table.drop())
             print("\ndb dropped!\n")
+        } catch let Result.error(message, code, statement) {
+            print("\ndb drop failed: \(message) in \(String(describing: statement))\n")
         } catch {
             print("\ndb drop failed\n")
         }
