@@ -23,11 +23,19 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             //hide all annotations
             toggleState = 2
             sender.setImage(hide, for: UIControl.State.normal)
+            let annotations = mapView.annotations
+            for annotation in annotations {
+                mapView.view(for: annotation)?.isHidden = true
+            }
         }
         else {
             //show all annotations
             toggleState = 1
             sender.setImage(show, for: UIControl.State.normal)
+            let annotations = mapView.annotations
+            for annotation in annotations {
+                mapView.view(for: annotation)?.isHidden = false
+            }
         }
     }
     

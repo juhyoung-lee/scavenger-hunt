@@ -62,7 +62,7 @@
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGe-v2-CMb">
                                 <rect key="frame" x="20" y="97" width="40" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button" image="closed-eye">
+                                <state key="normal" title="Button" image="eye">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -282,9 +282,9 @@
     </scenes>
     <resources>
         <image name="add_hunt" width="30" height="29"/>
-        <image name="closed-eye" width="256" height="256"/>
         <image name="discover" width="64" height="65"/>
         <image name="duke" width="395" height="449"/>
+        <image name="eye" width="256" height="256"/>
         <image name="home" width="32" height="28"/>
         <image name="hunt_bar" width="383" height="89"/>
         <image name="menu.png" width="35" height="40"/>
