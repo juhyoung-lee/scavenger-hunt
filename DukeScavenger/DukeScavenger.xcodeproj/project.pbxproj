@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11AF21B02627D2DC00FB7572 /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF21AF2627D2DC00FB7572 /* locationViewController.swift */; };
+		11AF21B32627D37100FB7572 /* RiddleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF21B22627D37100FB7572 /* RiddleLocation.swift */; };
 		481C01F7DA8C5A0A70BB937E /* Pods_DukeScavenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */; };
 		BE3D28352617A3130086EC76 /* introViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D28342617A3130086EC76 /* introViewController.swift */; };
 		BE52ADE02623BD6A007FA357 /* solvedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52ADDF2623BD69007FA357 /* solvedViewController.swift */; };
@@ -18,13 +20,13 @@
 		BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2BDFA2615CC26007D856B /* ViewController.swift */; };
 		BEE2BDFE2615CC26007D856B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BDFC2615CC26007D856B /* Main.storyboard */; };
 		BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */; };
-		BEE2BE142615D0D8007D856B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = BEE2BE132615D0D8007D856B /* assets */; };
 		DA53EC292620138E0006934C /* riddles.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA53EC282620138E0006934C /* riddles.txt */; };
 		DA53EC2D262029A00006934C /* hunts.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA53EC2C262029A00006934C /* hunts.txt */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11AF21AF2627D2DC00FB7572 /* locationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
+		11AF21B22627D37100FB7572 /* RiddleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddleLocation.swift; sourceTree = "<group>"; };
 		12A68AB6A3798257E4658276 /* Pods-DukeScavenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.release.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.release.xcconfig"; sourceTree = "<group>"; };
 		146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DukeScavenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3047E57C2B62E842BF6F792F /* Pods-DukeScavenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.debug.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -40,10 +42,8 @@
 		BEE2BDFD2615CC26007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEE2BE022615CC27007D856B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEE2BE042615CC27007D856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEE2BE132615D0D8007D856B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		DA53EC282620138E0006934C /* riddles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = riddles.txt; sourceTree = "<group>"; };
 		DA53EC2C262029A00006934C /* hunts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hunts.txt; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,8 @@
 				BEA9CD36261D7AB0009248AA /* riddleTableViewCell.swift */,
 				BE52ADDF2623BD69007FA357 /* solvedViewController.swift */,
 				BEE2BDFC2615CC26007D856B /* Main.storyboard */,
+				11AF21AF2627D2DC00FB7572 /* locationViewController.swift */,
+				11AF21B22627D37100FB7572 /* RiddleLocation.swift */,
 				BEA9CD33261D5E6D009248AA /* riddlesViewController.swift */,
 				BE3D28342617A3130086EC76 /* introViewController.swift */,
 				BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */,
@@ -177,7 +179,6 @@
 				DA53EC2D262029A00006934C /* hunts.txt in Resources */,
 				BEE2BE032615CC27007D856B /* LaunchScreen.storyboard in Resources */,
 				DA53EC292620138E0006934C /* riddles.txt in Resources */,
-				BEE2BE002615CC27007D856B /* Assets.xcassets in Resources */,
 				BEE2BDFE2615CC26007D856B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +236,8 @@
 				BE52ADE02623BD6A007FA357 /* solvedViewController.swift in Sources */,
 				BEA9CD37261D7AB0009248AA /* riddleTableViewCell.swift in Sources */,
 				BEE2BDFB2615CC26007D856B /* ViewController.swift in Sources */,
+				11AF21B32627D37100FB7572 /* RiddleLocation.swift in Sources */,
+				11AF21B02627D2DC00FB7572 /* locationViewController.swift in Sources */,
 				BEE2BDF72615CC26007D856B /* AppDelegate.swift in Sources */,
 				BE3D28352617A3130086EC76 /* introViewController.swift in Sources */,
 			);
