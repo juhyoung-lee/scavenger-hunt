@@ -20,6 +20,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     @IBOutlet weak var campusToggle: UISegmentedControl!
     
+    lazy public var database = createDatabase()
     
     struct Hunts {
         let table = Table("hunts")
@@ -47,6 +48,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let riddleId = Expression<Int64>("riddle")
         let time = Expression<String>("timeCompleted")
     }
+    var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript]
+    var riddleDict : [String: Expression<String>] = ["msg":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "loc": Riddles().loc, "sprite": Riddles().sprite]
+    var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleID" : Progress().riddleId]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +63,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         
         
-        
-        
         // SQLite Database
         let db = createDatabase()
         //dropDatabase(db: db)
         populateDatabase(db: db)
         printDatabase(db: db)
-        
 
         // Set the view's delegate
         //sceneView.delegate = self
@@ -275,6 +276,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     
     }
+    func returnHuntData(idnum: Int, select: String) -> String {
+        let h = Hunts()
+        do {
+            for row in try database.prepare(h.table) {
+                if row[h.hId] == idnum {
+                    return row[huntDict[select]!]
+                }
+            }
+            print("db printed\n")
+        } catch {
+            print("\ndb printing failed\n")
+        }
+    return "Data not found"
+    }
+    
+    func returnRiddleData(idnum: Int, select: String) -> String {
+        let r = Riddles()
+        do {
+            for row in try database.prepare(r.table) {
+                if row[r.rId] == idnum {
+                    return row[riddleDict[select]!]
+                }
+            }
+            print("db printed\n")
+        } catch {
+            print("\ndb printing failed\n")
+        }
+    return "Data not found"
+    }
+    
+    func returnProgressData(hId: Int, select: String) -> Int64 {
+        let p = Progress()
+        do {
+            for row in try database.prepare(p.table) {
+                if row[p.huntId] == hId {
+                    return row[progressDict[select]!]
+                }
+            }
+            print("db printed\n")
+        } catch {
+            print("\ndb printing failed\n")
+        }
+    return 0
+    }
+    
 }
 
 extension UIView {
