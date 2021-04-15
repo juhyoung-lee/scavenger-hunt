@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z12-su-Ndg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -308,6 +309,85 @@
             </objects>
             <point key="canvasLocation" x="2710.144927536232" y="799.55357142857144"/>
         </scene>
+        <!--Hint View Controller-->
+        <scene sceneID="zYn-wE-R0V">
+            <objects>
+                <viewController id="zuu-Tq-roT" customClass="hintViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bUU-rS-dJj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1U-qI-Fuy">
+                                <rect key="frame" x="143.5" y="14" width="127" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpb-fO-54B">
+                                <rect key="frame" x="40" y="223" width="334" height="100.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-7S-IqI">
+                                <rect key="frame" x="142" y="353.5" width="130" height="61"/>
+                                <state key="normal" image="get-answer"/>
+                                <connections>
+                                    <action selector="showAnswer:" destination="zuu-Tq-roT" eventType="touchUpInside" id="84k-L8-c8u"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer-popup" translatesAutoresizingMaskIntoConstraints="NO" id="vBe-o5-fHQ">
+                                <rect key="frame" x="10" y="227" width="394" height="323"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vBe-o5-fHQ" secondAttribute="height" multiplier="367:301" id="DpH-mJ-5bz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM6-d5-RkN">
+                                <rect key="frame" x="20" y="376" width="366" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mX9-4d-scK"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="JM6-d5-RkN" firstAttribute="top" secondItem="vBe-o5-fHQ" secondAttribute="bottom" constant="-174" id="3kl-tF-tUV"/>
+                            <constraint firstItem="mX9-4d-scK" firstAttribute="bottom" secondItem="vBe-o5-fHQ" secondAttribute="bottom" constant="263" id="4do-AJ-DYp"/>
+                            <constraint firstItem="Xpb-fO-54B" firstAttribute="top" secondItem="O1U-qI-Fuy" secondAttribute="bottom" multiplier="3.6" id="AKS-O7-dsU"/>
+                            <constraint firstItem="O1U-qI-Fuy" firstAttribute="centerX" secondItem="bUU-rS-dJj" secondAttribute="centerX" id="DYN-VK-hRS"/>
+                            <constraint firstItem="Xpb-fO-54B" firstAttribute="leading" secondItem="mX9-4d-scK" secondAttribute="leading" constant="40" id="JtO-RV-aPa"/>
+                            <constraint firstItem="JM6-d5-RkN" firstAttribute="leading" secondItem="mX9-4d-scK" secondAttribute="leading" constant="20" id="K3u-xA-wG3"/>
+                            <constraint firstItem="mX9-4d-scK" firstAttribute="trailing" secondItem="Xpb-fO-54B" secondAttribute="trailing" constant="40" id="PAO-kQ-gqZ"/>
+                            <constraint firstItem="O1U-qI-Fuy" firstAttribute="top" secondItem="mX9-4d-scK" secondAttribute="top" constant="-30" id="QJh-Gg-OlW"/>
+                            <constraint firstItem="vBe-o5-fHQ" firstAttribute="leading" secondItem="mX9-4d-scK" secondAttribute="leading" constant="10" id="bSs-Ph-Mcm"/>
+                            <constraint firstItem="mX9-4d-scK" firstAttribute="trailing" secondItem="JM6-d5-RkN" secondAttribute="trailing" constant="28" id="cQ5-uh-MDl"/>
+                            <constraint firstItem="hMm-7S-IqI" firstAttribute="top" secondItem="Xpb-fO-54B" secondAttribute="bottom" constant="30" id="cw6-PO-uA3"/>
+                            <constraint firstItem="mX9-4d-scK" firstAttribute="trailing" secondItem="vBe-o5-fHQ" secondAttribute="trailing" constant="10" id="gKb-62-pcs"/>
+                            <constraint firstItem="hMm-7S-IqI" firstAttribute="centerX" secondItem="bUU-rS-dJj" secondAttribute="centerX" id="l6s-uo-at1"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="o23-Lb-c6B" appends="YES" id="9xG-oA-GEL"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="zZW-hi-Nsa"/>
+                    <connections>
+                        <outlet property="answer" destination="vBe-o5-fHQ" id="kfz-6h-S4q"/>
+                        <outlet property="answerText" destination="JM6-d5-RkN" id="YhX-Js-hPF"/>
+                        <outlet property="blurView" destination="bUU-rS-dJj" id="lpm-SK-1YT"/>
+                        <outlet property="view" destination="bUU-rS-dJj" id="YkW-V3-hHG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEk-X2-x73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="o23-Lb-c6B">
+                    <connections>
+                        <action selector="tapDetected:" destination="zuu-Tq-roT" id="V7K-os-rau"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4968.115942028986" y="1474.5535714285713"/>
+        </scene>
         <!--Riddles View Controller-->
         <scene sceneID="hgL-gn-vST">
             <objects>
@@ -462,6 +542,7 @@
                         <outlet property="tab" destination="771-As-btk" id="Xzk-os-v47"/>
                         <segue destination="Qwb-rC-tDf" kind="show" identifier="solvedSegue" id="cqb-oe-urw"/>
                         <segue destination="xRf-cl-88m" kind="show" identifier="returnHomeSegue" id="COy-yn-QbO"/>
+                        <segue destination="zuu-Tq-roT" kind="show" identifier="showHintSegue" id="Tds-JF-4fF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1k-1e-7N5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -546,10 +627,12 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="answer-button" width="374" height="64"/>
+        <image name="answer-popup" width="319" height="239"/>
         <image name="completed" width="485" height="226"/>
         <image name="duke" width="395" height="449"/>
         <image name="duke-starter" width="414" height="245"/>
         <image name="find_hunt" width="272" height="67"/>
+        <image name="get-answer" width="130" height="61"/>
         <image name="great_job" width="414" height="400"/>
         <image name="hint-button" width="266" height="64"/>
         <image name="hunt_bar" width="383" height="89"/>
@@ -560,6 +643,9 @@
         <image name="start-button" width="272" height="67"/>
         <image name="start-here" width="302" height="284"/>
         <image name="white-box" width="395" height="428"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
