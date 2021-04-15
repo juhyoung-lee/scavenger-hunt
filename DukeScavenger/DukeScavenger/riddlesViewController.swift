@@ -44,6 +44,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var passed: UIImageView!
     
+    @IBAction func showHint(_ sender: Any) {
+        performSegue(withIdentifier: "showHintSegue", sender: self)
+    }
+    
+    
     @IBAction func openMenu(_ sender: Any) {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
