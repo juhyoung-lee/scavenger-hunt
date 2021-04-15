@@ -25,7 +25,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let randomSelector = Int.random(in: 0...20)
-        var sceneName = "art.scnassets/al-buehler.usdz"
+        var sceneName = "art.scnassets/wilson-red-mango.usdz"
         /*
         if randomSelector == 1 {
             sceneName = "art.scnassets/bella-union.usdz"
