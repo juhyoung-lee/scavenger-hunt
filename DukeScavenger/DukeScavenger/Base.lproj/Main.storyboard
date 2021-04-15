@@ -626,6 +626,85 @@
             </objects>
             <point key="canvasLocation" x="1911.594202898551" y="87.723214285714278"/>
         </scene>
+        <!--Hint View Controller-->
+        <scene sceneID="LeZ-im-eCp">
+            <objects>
+                <viewController id="6tY-NG-n0u" customClass="hintViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CiZ-u6-zkW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfi-6S-RHL">
+                                <rect key="frame" x="143.5" y="14" width="127" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHQ-Ln-Nc5">
+                                <rect key="frame" x="40" y="223" width="334" height="100.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-Pt-DK2">
+                                <rect key="frame" x="142" y="353.5" width="130" height="61"/>
+                                <state key="normal" image="get-answer"/>
+                                <connections>
+                                    <action selector="showAnswer:" destination="6tY-NG-n0u" eventType="touchUpInside" id="rCl-Ef-0yb"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer-popup" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-gO-9DF">
+                                <rect key="frame" x="10" y="276" width="394" height="323"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TgY-gO-9DF" secondAttribute="height" multiplier="367:301" id="wbn-Bd-Hgu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MN-IT-N0p">
+                                <rect key="frame" x="20" y="425" width="366" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vlW-FO-HYa"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Vdc-Pt-DK2" firstAttribute="centerX" secondItem="CiZ-u6-zkW" secondAttribute="centerX" id="35j-0n-Hd5"/>
+                            <constraint firstItem="vlW-FO-HYa" firstAttribute="trailing" secondItem="TgY-gO-9DF" secondAttribute="trailing" constant="10" id="5Tx-oq-LaV"/>
+                            <constraint firstItem="vlW-FO-HYa" firstAttribute="bottom" secondItem="TgY-gO-9DF" secondAttribute="bottom" constant="263" id="7qA-yL-1y1"/>
+                            <constraint firstItem="vlW-FO-HYa" firstAttribute="trailing" secondItem="9MN-IT-N0p" secondAttribute="trailing" constant="28" id="IfL-Eb-Fqv"/>
+                            <constraint firstItem="vlW-FO-HYa" firstAttribute="trailing" secondItem="qHQ-Ln-Nc5" secondAttribute="trailing" constant="40" id="cex-DF-h7u"/>
+                            <constraint firstItem="Pfi-6S-RHL" firstAttribute="top" secondItem="vlW-FO-HYa" secondAttribute="top" constant="-30" id="cse-3E-w7o"/>
+                            <constraint firstItem="qHQ-Ln-Nc5" firstAttribute="top" secondItem="Pfi-6S-RHL" secondAttribute="bottom" multiplier="3.6" id="gtc-yh-JRv"/>
+                            <constraint firstItem="Pfi-6S-RHL" firstAttribute="centerX" secondItem="CiZ-u6-zkW" secondAttribute="centerX" id="mKi-EQ-1X7"/>
+                            <constraint firstItem="9MN-IT-N0p" firstAttribute="leading" secondItem="vlW-FO-HYa" secondAttribute="leading" constant="20" id="oCa-Tg-wIa"/>
+                            <constraint firstItem="qHQ-Ln-Nc5" firstAttribute="leading" secondItem="vlW-FO-HYa" secondAttribute="leading" constant="40" id="opq-MD-5Dv"/>
+                            <constraint firstItem="Vdc-Pt-DK2" firstAttribute="top" secondItem="qHQ-Ln-Nc5" secondAttribute="bottom" constant="30" id="qqB-6M-6Gj"/>
+                            <constraint firstItem="9MN-IT-N0p" firstAttribute="top" secondItem="TgY-gO-9DF" secondAttribute="bottom" constant="-174" id="snc-du-iak"/>
+                            <constraint firstItem="TgY-gO-9DF" firstAttribute="leading" secondItem="vlW-FO-HYa" secondAttribute="leading" constant="10" id="znY-qx-ZGG"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IGH-7i-J23" appends="YES" id="8ju-WE-nYf"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="qrk-Ik-1z1"/>
+                    <connections>
+                        <outlet property="answer" destination="TgY-gO-9DF" id="ubg-N5-BvY"/>
+                        <outlet property="answerText" destination="9MN-IT-N0p" id="g7X-lB-haA"/>
+                        <outlet property="blurView" destination="CiZ-u6-zkW" id="9aB-ML-uzb"/>
+                        <outlet property="view" destination="CiZ-u6-zkW" id="lxW-sZ-EwA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwu-84-dKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IGH-7i-J23">
+                    <connections>
+                        <action selector="tapDetected:" destination="6tY-NG-n0u" id="5mg-gL-aCi"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4968.115942028986" y="1474.5535714285713"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="f5L-Dn-xlz"/>
@@ -634,11 +713,13 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="answer-button" width="374" height="64"/>
+        <image name="answer-popup" width="319" height="239"/>
         <image name="completed" width="485" height="226"/>
         <image name="duke" width="395" height="449"/>
         <image name="duke-starter" width="414" height="245"/>
         <image name="eye" width="256" height="256"/>
         <image name="find_hunt" width="272" height="67"/>
+        <image name="get-answer" width="130" height="61"/>
         <image name="great_job" width="414" height="400"/>
         <image name="hint-button" width="266" height="64"/>
         <image name="hunt_bar" width="383" height="89"/>
