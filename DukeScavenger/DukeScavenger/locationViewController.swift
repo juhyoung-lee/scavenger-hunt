@@ -16,6 +16,12 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     var toggleState = 1
     
+    
+    @IBAction func toggleRiddles(_ sender: Any) {
+        let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let riddleView = sampleStoryBoard.instantiateViewController(withIdentifier: "riddlesViewController") as! ViewController
+        self.present(riddleView, animated: true, completion: nil)
+    }
     @IBAction func toggleVisibility(_ sender: UIButton) {
         let show = UIImage(named: "eye")
         let hide = UIImage(named: "closed-eye")
@@ -40,7 +46,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // tentatively just here for testing
-   // let myLocations: [RiddleLocation] = [RiddleLocation(latitude: 35.99911, longitude: -78.92904, locName: "Nasher Museum"), RiddleLocation(latitude: 35.99705, longitude: -78.94258, locName: "Cameron Stadium"), RiddleLocation(latitude: 36.00668, longitude: -78.91326, locName: "Duke Coffeehouse")]
+   let myLocations: [RiddleLocation] = [RiddleLocation(latitude: 35.99911, longitude: -78.92904, locName: "Nasher Museum"), RiddleLocation(latitude: 35.99705, longitude: -78.94258, locName: "Cameron Stadium"), RiddleLocation(latitude: 36.00668, longitude: -78.91326, locName: "Duke Coffeehouse")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,14 +12,14 @@ class RiddleLocation {
     var longitude: Double
     var locName: String
     var solved: Bool
-    var spriteName: String
+    //var spriteName: String
     
-    init(latitude: Double, longitude: Double, locName: String, spriteName: String) {
+    init(latitude: Double, longitude: Double, locName: String) {
         self.latitude = latitude
         self.longitude = longitude
         self.locName = locName
         self.solved = false
-        self.spriteName = spriteName
+       // self.spriteName = spriteName
     }
     
     func solve() {
