@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Sd-Gb-Lvr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6tY-NG-n0u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -463,6 +463,7 @@
                         <outlet property="tab" destination="771-As-btk" id="Xzk-os-v47"/>
                         <segue destination="Qwb-rC-tDf" kind="show" identifier="solvedSegue" id="cqb-oe-urw"/>
                         <segue destination="xRf-cl-88m" kind="show" identifier="returnHomeSegue" id="COy-yn-QbO"/>
+                        <segue destination="6tY-NG-n0u" kind="show" identifier="hintShowSegue" id="dsJ-Xa-PEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1k-1e-7N5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -631,36 +632,36 @@
             <objects>
                 <viewController id="6tY-NG-n0u" customClass="hintViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CiZ-u6-zkW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfi-6S-RHL">
-                                <rect key="frame" x="143.5" y="14" width="127" height="48"/>
+                                <rect key="frame" x="143.5" y="-30" width="127" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHQ-Ln-Nc5">
-                                <rect key="frame" x="40" y="223" width="334" height="100.5"/>
+                                <rect key="frame" x="40" y="65" width="334" height="100.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-Pt-DK2">
-                                <rect key="frame" x="142" y="353.5" width="130" height="61"/>
+                                <rect key="frame" x="142" y="195.5" width="130" height="61"/>
                                 <state key="normal" image="get-answer"/>
                                 <connections>
                                     <action selector="showAnswer:" destination="6tY-NG-n0u" eventType="touchUpInside" id="rCl-Ef-0yb"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer-popup" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-gO-9DF">
-                                <rect key="frame" x="10" y="276" width="394" height="323"/>
+                                <rect key="frame" x="10" y="173" width="394" height="323"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TgY-gO-9DF" secondAttribute="height" multiplier="367:301" id="wbn-Bd-Hgu"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MN-IT-N0p">
-                                <rect key="frame" x="20" y="425" width="366" height="95.5"/>
+                                <rect key="frame" x="20" y="322" width="366" height="95.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -703,7 +704,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4968.115942028986" y="1474.5535714285713"/>
+            <point key="canvasLocation" x="4242" y="1463"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

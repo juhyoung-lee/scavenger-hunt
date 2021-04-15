@@ -10,6 +10,7 @@
 		11AF21B02627D2DC00FB7572 /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF21AF2627D2DC00FB7572 /* locationViewController.swift */; };
 		11AF21B32627D37100FB7572 /* RiddleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF21B22627D37100FB7572 /* RiddleLocation.swift */; };
 		481C01F7DA8C5A0A70BB937E /* Pods_DukeScavenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */; };
+		BE037B5426282D1000A7003E /* hintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE037B5326282D1000A7003E /* hintViewController.swift */; };
 		BE3D28352617A3130086EC76 /* introViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D28342617A3130086EC76 /* introViewController.swift */; };
 		BE52ADE02623BD6A007FA357 /* solvedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52ADDF2623BD69007FA357 /* solvedViewController.swift */; };
 		BE52ADE52623C7F0007FA357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE52ADE42623C7F0007FA357 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		12A68AB6A3798257E4658276 /* Pods-DukeScavenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.release.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.release.xcconfig"; sourceTree = "<group>"; };
 		146FCB872C3917081AB94F39 /* Pods_DukeScavenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DukeScavenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3047E57C2B62E842BF6F792F /* Pods-DukeScavenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DukeScavenger.debug.xcconfig"; path = "Target Support Files/Pods-DukeScavenger/Pods-DukeScavenger.debug.xcconfig"; sourceTree = "<group>"; };
+		BE037B5326282D1000A7003E /* hintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hintViewController.swift; sourceTree = "<group>"; };
 		BE3D28342617A3130086EC76 /* introViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = introViewController.swift; sourceTree = "<group>"; };
 		BE52ADDF2623BD69007FA357 /* solvedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = solvedViewController.swift; sourceTree = "<group>"; };
 		BE52ADE42623C7F0007FA357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DukeScavenger/Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				BEA9CD33261D5E6D009248AA /* riddlesViewController.swift */,
 				BE3D28342617A3130086EC76 /* introViewController.swift */,
 				BEE2BE012615CC27007D856B /* LaunchScreen.storyboard */,
+				BE037B5326282D1000A7003E /* hintViewController.swift */,
 				BEE2BE042615CC27007D856B /* Info.plist */,
 			);
 			path = DukeScavenger;
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE037B5426282D1000A7003E /* hintViewController.swift in Sources */,
 				BEA9CD34261D5E6D009248AA /* riddlesViewController.swift in Sources */,
 				BE52ADE02623BD6A007FA357 /* solvedViewController.swift in Sources */,
 				BEA9CD37261D7AB0009248AA /* riddleTableViewCell.swift in Sources */,
