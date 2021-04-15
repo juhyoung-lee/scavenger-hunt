@@ -24,11 +24,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let randomSelector = Int.random(in: 1...2)
-        var sceneName = "art.scnassets/MainScene.scn"
+        let randomSelector = Int.random(in: 0...20)
+        var sceneName = "art.scnassets/al-buehler.usdz"
+        /*
         if randomSelector == 1 {
             sceneName = "art.scnassets/bella-union.usdz"
         }
+ */
         let scene = SCNScene(named: sceneName)!
 
         sceneView.scene = scene
@@ -38,7 +40,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     
     func addSceneContent() {
 
-        let dummyNode = self.sceneView.scene.rootNode.childNode(withName: "DummyNode", recursively: false)
+        let dummyNode = self.sceneView.scene.rootNode.childNode(withName: "DummyNode", recursively: true)
         
         let randomBin = Int.random(in: 0...1)
         var multiplier = 1
@@ -49,6 +51,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let randomY = multiplier*Int.random(in: 2...10)
         let randomZ = multiplier*Int.random(in: 2...10)
         dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
+        dummyNode?.scale = SCNVector3(0.1, 0.1, 0.1)
         /*
         let dummyNode2 = self.sceneView.scene.rootNode.childNode(withName: "CoffeeNode", recursively: false)
         
@@ -92,33 +95,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // search the 3D scene for objects located along that line
         let hits = sceneView.hitTest(location,options: nil )
         
-        for hitResult in hits {
-            hitResult.node.removeFromParentNode()
+        if !hits.isEmpty {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                node.removeFromParentNode() }
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        // Find the closest hit, and the corresponding SceneKit node
-        /*if let closest = hits.first {
-            let touchedNode = closest.node
-            
-                        
-            // This is an action that will create a 2 second rotate by 360º around the Y axis
-            let rotateOnce = SCNAction.rotate( by:2.0 * .pi,
-                                            around: SCNVector3Make(0,1,0),
-                                            duration: 2.0)
-                        
-            // Make a new action that repeats the rotateOnce one indefinitely
-            let rotateForever = SCNAction.repeatForever(rotateOnce)
-                        
-            // If the current node has any actions - i.e. is already spinning - make it stop.
-            // Otherwise make it spin.
-                        
-            if touchedNode.hasActions {
-                touchedNode.removeAllActions()
-            } else {
-                touchedNode.runAction(rotateForever)
-            }
-
-        }*/
         
     }
 
