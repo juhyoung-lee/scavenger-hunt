@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Sd-Gb-Lvr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z12-su-Ndg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -459,6 +459,7 @@
                         <outlet property="passed" destination="w1v-5u-8Tn" id="peB-6x-qGn"/>
                         <outlet property="riddleName" destination="Gtl-6O-6Fp" id="Opd-vh-Evx"/>
                         <outlet property="riddleTable" destination="89J-wM-Axa" id="XlI-2w-fjj"/>
+                        <outlet property="riddleText" destination="8fq-70-hyV" id="Sd6-EG-dGr"/>
                         <outlet property="solvedNotification" destination="QGV-9A-mHb" id="Knt-NA-2II"/>
                         <outlet property="tab" destination="771-As-btk" id="Xzk-os-v47"/>
                         <segue destination="Qwb-rC-tDf" kind="show" identifier="solvedSegue" id="cqb-oe-urw"/>
@@ -628,7 +629,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f5L-Dn-xlz"/>
+        <segue reference="BC2-Ms-y0w"/>
         <segue reference="COy-yn-QbO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

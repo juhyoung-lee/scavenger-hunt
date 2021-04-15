@@ -48,6 +48,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let riddleId = Expression<Int64>("riddle")
         let time = Expression<String>("timeCompleted")
     }
+    
     var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript]
     var riddleDict : [String: Expression<String>] = ["msg":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "loc": Riddles().loc, "sprite": Riddles().sprite]
     var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleID" : Progress().riddleId]
@@ -67,7 +68,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let db = createDatabase()
         //dropDatabase(db: db)
         populateDatabase(db: db)
-        printDatabase(db: db)
+        let ret = returnHuntData(idnum: 1, select: "total")
+        print ("\(ret)")
+        //printDatabase(db: db)
 
         // Set the view's delegate
         //sceneView.delegate = self
@@ -276,8 +279,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     
     }
-    func returnHuntData(idnum: Int, select: String) -> String {
+    func returnHuntData(idnum: Int64, select: String) -> Any {
         let h = Hunts()
+        let r = Riddles()
+        do {
+            let count = try database.scalar(r.table.filter(r.huntId == idnum).count)
+            if select == "total" {
+                return ("\(count)")
+            }
+        } catch {
+            print("\ndb printing failed\n")
+        }
         do {
             for row in try database.prepare(h.table) {
                 if row[h.hId] == idnum {

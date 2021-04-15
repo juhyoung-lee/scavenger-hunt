@@ -8,7 +8,7 @@
 import UIKit
 
 class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
-    
+    let vc = ViewController()
     
     var menuShowing = false
     var nums = (1...10).map{"Riddle \($0)"}
@@ -33,7 +33,8 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var answerButton: UIButton!
     
     @IBOutlet weak var hintButton: UIButton!
-
+    @IBOutlet weak var riddleText: UILabel!
+    
     @IBOutlet weak var findHuntButton: UIButton!
     @IBAction func findHuntButton(_ sender: Any) {
         performSegue(withIdentifier: "returnHomeSegue", sender: self)
@@ -87,7 +88,10 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
             if row > 0 {
+                
+                let riddleTxt = vc.returnRiddleData(idnum: row, select: "msg")
                 riddleName.text = "Riddle \(row)"
+                riddleText.text = "\(riddleTxt)"
                 openMenu((Any).self)
                 if solvedRiddle[row-1]{
                     answerButton.isHidden = true
