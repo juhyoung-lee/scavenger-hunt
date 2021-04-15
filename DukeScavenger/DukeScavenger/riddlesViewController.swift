@@ -41,6 +41,9 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet var blurView: UIView!
     
+    @IBAction func showHint(_ sender: Any) {
+        performSegue(withIdentifier: "showHintSegue", sender: self)
+    }
     
     @IBOutlet weak var passed: UIImageView!
     
