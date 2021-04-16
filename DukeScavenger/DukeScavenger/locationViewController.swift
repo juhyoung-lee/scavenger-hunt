@@ -16,6 +16,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     var toggleState = 1
     
+    let vc = ViewController()
     
     @IBAction func toggleRiddles(_ sender: Any) {
         let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -45,8 +46,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // tentatively just here for testing
-   let myLocations: [RiddleLocation] = [RiddleLocation(latitude: 35.99911, longitude: -78.92904, locName: "Nasher Museum"), RiddleLocation(latitude: 35.99705, longitude: -78.94258, locName: "Cameron Stadium"), RiddleLocation(latitude: 36.00668, longitude: -78.91326, locName: "Duke Coffeehouse")]
+    var myLocations: [RiddleLocation] = []
+    var solvedLocations: [RiddleLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,17 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         createUserTrackingButton()
-        triggerARView(loc: myLocations[0])
+        
+        //FIXME: make sure hunt ID is passed in
+        let riddleLocations = vc.getRiddleColumn(hId: 1, col: "location")
+        let riddleNames = vc.getRiddleColumn(hId: 1, col: "answer")
+        
+        for index in 1...riddleLocations.count-1 {
+            let lat = Double(riddleLocations[index].components(separatedBy: ", ")[0])
+            let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
+            myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
+        }
+        
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -91,17 +102,17 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
 //            annotation.subtitle = "current location"
 //            mapView.addAnnotation(annotation)
         
-        for location in myLocations {
-            let coord = CLLocation(latitude: location.latitude, longitude: location.longitude)
-            let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-            
-            if coord.distance(from: userLoc) < 40 {
-                triggerARView(loc: location)
-            }
+        let currentRiddle = myLocations[solvedLocations.count]
+        
+        let coord = CLLocation(latitude: currentRiddle.latitude, longitude: currentRiddle.longitude)
+        let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        if coord.distance(from: userLoc) < 40 {
+            triggerARView(loc: currentRiddle)
         }
         
         // just a demo of this function
-        self.solveLocation(loc: myLocations[0])
+        // self.solveLocation(loc: myLocations[0])
     }
     
     func createUserTrackingButton() {
@@ -137,6 +148,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = locValue
         annotation.title = loc.locName
         mapView.addAnnotation(annotation)
+        solvedLocations.append(loc)
     }
     
     func triggerARView(loc: RiddleLocation) {
