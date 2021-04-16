@@ -18,7 +18,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
     @IBAction func introSegue(_ sender: Any) {
         performSegue(withIdentifier: "introSegue", sender: self)
     }
-    @IBOutlet weak var campusToggle: UISegmentedControl!
     
     @IBOutlet weak var textF: UITextField!
     @IBOutlet weak var lbl: UILabel!
