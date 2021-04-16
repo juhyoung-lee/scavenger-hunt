@@ -8,8 +8,8 @@
 import UIKit
 
 class introViewController: UIViewController {
+
     @IBOutlet weak var campusToggle: UISegmentedControl!
-    
     @IBAction func riddleSegue(_ sender: Any) {
         performSegue(withIdentifier: "startHuntSegue", sender: self)
     }
@@ -31,7 +31,14 @@ class introViewController: UIViewController {
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        let destVC = segue.destination as! riddlesViewController
+        if campusToggle.selectedSegmentIndex == 0{
+            destVC.gCampus = 2
+        }
+        else{
+            destVC.gCampus = 1
+        }
+        
     }
 
 }
