@@ -373,7 +373,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
                 ret.append(riddle[riddleDict[col]!])
             }
         } catch {
-            print ("failed")
+            print ("riddle column retrieval failed")
         }
         return ret
     }
