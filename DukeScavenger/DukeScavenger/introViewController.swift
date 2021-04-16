@@ -8,7 +8,8 @@
 import UIKit
 
 class introViewController: UIViewController {
-
+    @IBOutlet weak var campusToggle: UISegmentedControl!
+    
     @IBAction func riddleSegue(_ sender: Any) {
         performSegue(withIdentifier: "startHuntSegue", sender: self)
     }
@@ -28,5 +29,9 @@ class introViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 
 }

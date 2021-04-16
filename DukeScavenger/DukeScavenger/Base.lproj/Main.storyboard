@@ -310,6 +310,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lYu-ch-wbz"/>
                     <connections>
+                        <outlet property="campusToggle" destination="VJx-b4-MwR" id="coB-50-dfB"/>
                         <segue destination="Ezj-jg-Moe" kind="show" identifier="startHuntSegue" id="BC2-Ms-y0w"/>
                     </connections>
                 </viewController>
@@ -720,7 +721,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f5L-Dn-xlz"/>
+        <segue reference="BC2-Ms-y0w"/>
         <segue reference="COy-yn-QbO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
