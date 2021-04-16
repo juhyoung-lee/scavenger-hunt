@@ -15,12 +15,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet weak var huntName: UILabel!
+    @IBOutlet weak var huntDescript: UILabel!
     @IBAction func introSegue(_ sender: Any) {
         performSegue(withIdentifier: "introSegue", sender: self)
     }
     
     @IBOutlet weak var textF: UITextField!
     @IBOutlet weak var lbl: UILabel!
+    @IBOutlet weak var difficulty: UILabel!
+    @IBOutlet weak var stops: UILabel!
     
     
     lazy public var database = createDatabase()
@@ -95,6 +99,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         
         // Set the scene to the view
         //sceneView.scene = scene
+        huntName.text = returnHuntData(idnum: 1, select: "name") as? String
+        huntDescript.text = returnHuntData(idnum: 1, select: "descript") as? String
+        difficulty.text = (returnHuntData(idnum: 1, select: "difficulty") as? String)?.capitalized
+        stops.text = returnHuntData(idnum: 1, select: "total") as? String
+        
     }
     
     @objc func lblTapped() {

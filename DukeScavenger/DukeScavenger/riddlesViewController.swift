@@ -16,9 +16,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var count = 0
     private var tapGesture: UITapGestureRecognizer? = nil
     
-    var solvedMode: [Bool] = [false]
-    
-    var solvedRiddle: [Bool] =  [false, false, true, true, false, false, true, true, false, false]
     
     @IBOutlet weak var tab: UIButton!
     @IBOutlet weak var solvedNotification: UIImageView!
@@ -82,6 +79,32 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         menuShowing = !menuShowing
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row + 1
+        let rID = getRiddleID(hID: gCampus, row: row)
+        let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
+        let max = 105 //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
+        //ie, the last completed riddle is 104, and you're currently on 105
+        
+        if  rID <= max{
+            riddleName.text = "Riddle \(row)"
+            riddleText.text = "\(riddleTxt)"
+            
+            if row == max {
+                hintButton.isHidden = false
+                passed.isHidden = true
+            }
+            else if row <= max {
+                answerButton.isHidden = true
+                hintButton.isHidden = true
+                passed.isHidden = false
+            }
+            openMenu((Any).self)
+            menuShowing = !menuShowing
+        }
+    }
+    
+    //doesn't work if you scroll through the table view
     @IBAction func touchWasDetected(_ sender: UITapGestureRecognizer) {
         let touchPoint = sender.location(in: view)
         if (!riddleTable.frame.contains(touchPoint)){
@@ -91,29 +114,26 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
-            if row > 0 {
-                rID = getRiddleID(hID: gCampus, row: row)
+            print(riddleTable.indexPathForRow(at: touchPoint)![1])
+            rID = getRiddleID(hID: gCampus, row: row)
+            if row > 0 && rID <= 105{
                 let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
                 riddleName.text = "Riddle \(row)"
                 riddleText.text = "\(riddleTxt)"
-                openMenu((Any).self)
-                if row <= vc.returnProgressData(hId: gCampus, select: "huntId"){
-                    answerButton.isHidden = true
-                    hintButton.isHidden = true
-                    passed.isHidden = false
-                    if row-1 == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! Int{ //if this is len-1 of the riddles array
-                        print("finished riddle")
-                    }
-                }
-                else{
-                    answerButton.isHidden = false
+                if row == 105 {
                     hintButton.isHidden = false
                     passed.isHidden = true
                 }
+                else if row <= 105 {
+                    answerButton.isHidden = true
+                    hintButton.isHidden = true
+                    passed.isHidden = false
+                }
+            openMenu((Any).self)
             menuShowing = !menuShowing
         }
     }
-    }
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +145,15 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         riddleName.text = "Riddle Number"
         passed.isHidden = true
         
-        if solvedMode[0]{
+        //fix conversion types as int later
+        //print(String(vc.returnProgressData(hId: gCampus, select: "riddleId")) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String)
+        //print(vc.returnHuntData(idnum: Int64(gCampus), select: "total"))
+        //print(String(vc.returnProgressData(hId: gCampus, select: "riddleId")))
+        //var temp = getRiddleID(hID: gCampus, row: vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! Int)
+        
+        //loading total and converting data types not working; fix later
+        
+        if getRiddleID(hID: gCampus, row: 21) == vc.returnProgressData(hId: gCampus, select: "riddleId"){
             solvedNotification.isHidden = false
             findHuntButton.isHidden = false
             
@@ -143,8 +171,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             findHuntButton.isHidden = true
         }
         navigationItem.hidesBackButton = true
-        print(vc.returnHuntData(idnum: 1, select: "descript"))
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -162,7 +188,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         header.textLabel?.frame = header.frame
         header.textLabel?.textAlignment = .center
-        header.contentView.backgroundColor = .init(red: 82/255, green: 163/255, blue: 211/255, alpha:0.8)
+        header.contentView.backgroundColor = .init(red: 94/255, green: 178/255, blue: 222/255, alpha:1.0)
     }
     
     
@@ -173,15 +199,21 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
             as! riddleTableViewCell
+        let max = 105
         
         // Configure the cell...
         cell.riddleNum.text = nums[indexPath.row]
         cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
         cell.riddleNum.textColor = .white
         cell.riddleNum.textAlignment = .center
-            
-
-            
+        
+        if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
+            print(getRiddleID(hID: gCampus, row: indexPath.row+1))
+            cell.backgroundColor = .gray
+        }
+        else{
+            cell.backgroundColor = UIColor(red: 0/255, green: 83/255, blue: 139/255, alpha:0.8)
+        }
             return cell
         }
     

@@ -176,7 +176,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="back" destination="GYS-aa-t7A" id="yzM-tK-zoz"/>
+                        <outlet property="difficulty" destination="Dhn-9Y-h7J" id="Xj7-gy-44p"/>
+                        <outlet property="huntDescript" destination="CYR-KG-HIL" id="ELv-yN-thf"/>
+                        <outlet property="huntName" destination="2iE-S0-odt" id="juo-Lg-VG3"/>
                         <outlet property="lbl" destination="iV0-jR-9ti" id="cI9-hp-RPY"/>
+                        <outlet property="stops" destination="H1f-QC-mp6" id="0L3-UH-ZNS"/>
                         <outlet property="textF" destination="3hr-UH-otW" id="pQE-3k-20R"/>
                         <segue destination="lgp-0n-dn8" kind="show" identifier="introSegue" id="JLf-Si-d0s"/>
                     </connections>
@@ -455,9 +459,6 @@
                             <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-270" id="uSN-dW-ecc"/>
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="w1v-5u-8Tn" secondAttribute="bottom" constant="54" id="yDg-kl-aPx"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="V9Y-Js-MMy" appends="YES" id="3P4-i5-6jK"/>
-                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="SfQ-bZ-Nr6"/>
@@ -480,11 +481,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1k-1e-7N5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="V9Y-Js-MMy">
-                    <connections>
-                        <action selector="touchWasDetected:" destination="Ezj-jg-Moe" id="uUz-Lo-dFX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3557.971014492754" y="799.55357142857144"/>
         </scene>
@@ -505,7 +501,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze7-6L-F6p">
                                 <rect key="frame" x="79" y="56" width="256" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.0" green="0.32549019607843138" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-IZ-137">
