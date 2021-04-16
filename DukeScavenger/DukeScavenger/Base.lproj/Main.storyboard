@@ -366,19 +366,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="771-As-btk">
-                                <rect key="frame" x="-12" y="336" width="53" height="224"/>
+                                <rect key="frame" x="-2" y="336" width="53" height="224"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="224" id="Dkd-VY-HCU"/>
                                     <constraint firstAttribute="width" constant="53" id="hS6-VI-Sth"/>
                                     <constraint firstAttribute="width" secondItem="771-As-btk" secondAttribute="height" multiplier="53:224" id="wJZ-om-QVL"/>
                                 </constraints>
-                                <state key="normal" image="slide_out"/>
+                                <state key="normal" image="hand-selector"/>
                                 <connections>
                                     <action selector="openMenu:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="sSD-Xb-SHk"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="140" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89J-wM-Axa">
-                                <rect key="frame" x="-270" y="0.0" width="260" height="790.5"/>
+                                <rect key="frame" x="-262" y="0.0" width="260" height="790.5"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
                                 <constraints>
@@ -451,12 +451,12 @@
                             <constraint firstItem="89J-wM-Axa" firstAttribute="top" secondItem="wE9-cs-4TL" secondAttribute="top" id="a3W-2X-BtR"/>
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="A79-LD-gjz" secondAttribute="bottom" constant="35" id="aNK-Hs-yoe"/>
                             <constraint firstItem="NVr-ga-5Jq" firstAttribute="centerX" secondItem="QGV-9A-mHb" secondAttribute="centerX" id="auC-94-gFP"/>
-                            <constraint firstItem="771-As-btk" firstAttribute="leading" secondItem="89J-wM-Axa" secondAttribute="trailing" constant="-2" id="bT7-KC-FbM"/>
+                            <constraint firstItem="771-As-btk" firstAttribute="leading" secondItem="89J-wM-Axa" secondAttribute="trailing" id="bT7-KC-FbM"/>
                             <constraint firstItem="Gtl-6O-6Fp" firstAttribute="top" secondItem="II0-Lq-5ab" secondAttribute="bottom" constant="50" id="fzm-N8-x0d"/>
                             <constraint firstItem="8fq-70-hyV" firstAttribute="top" secondItem="Gtl-6O-6Fp" secondAttribute="bottom" constant="20" id="k91-jF-3F5"/>
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="6H5-4d-Uvw" secondAttribute="bottom" constant="35" id="lVx-kG-w5l"/>
                             <constraint firstItem="QGV-9A-mHb" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="stg-vp-aiC"/>
-                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-270" id="uSN-dW-ecc"/>
+                            <constraint firstItem="89J-wM-Axa" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="-262" id="uSN-dW-ecc"/>
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="w1v-5u-8Tn" secondAttribute="bottom" constant="54" id="yDg-kl-aPx"/>
                         </constraints>
                     </view>
@@ -733,12 +733,12 @@
         <image name="find_hunt" width="272" height="67"/>
         <image name="get-answer" width="130" height="61"/>
         <image name="great_job" width="414" height="400"/>
+        <image name="hand-selector" width="89" height="383"/>
         <image name="hint-bulb" width="100" height="100"/>
         <image name="hunt_bar" width="383" height="89"/>
         <image name="map-icon" width="100" height="100"/>
         <image name="menu" width="35" height="40"/>
         <image name="profile" width="100" height="100"/>
-        <image name="slide_out" width="89" height="383"/>
         <image name="star_rate" width="24" height="24"/>
         <image name="start-button" width="272" height="67"/>
         <image name="start-here" width="302" height="284"/>

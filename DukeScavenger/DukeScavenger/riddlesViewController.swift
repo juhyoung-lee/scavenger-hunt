@@ -51,7 +51,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
         if(menuShowing){
-            LeadingConstraint.constant = -270
+            LeadingConstraint.constant = -262
             self.navigationItem.setHidesBackButton(true, animated: true)
             for subview in blurView.subviews{
                 if subview is UIVisualEffectView{
