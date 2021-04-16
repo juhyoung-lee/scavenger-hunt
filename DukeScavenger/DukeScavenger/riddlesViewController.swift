@@ -92,7 +92,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
             if row > 0 {
                 
-                let riddleTxt = vc.returnRiddleData(idnum: row, select: "msg")
+                let riddleTxt = vc.returnRiddleData(idnum: row + 100, select: "message")
                 riddleName.text = "Riddle \(row)"
                 riddleText.text = "\(riddleTxt)"
                 openMenu((Any).self)

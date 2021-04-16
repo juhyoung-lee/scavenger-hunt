@@ -9,7 +9,7 @@ import SceneKit
 import ARKit
 import SQLite
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var back: UINavigationItem!
     
@@ -19,6 +19,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         performSegue(withIdentifier: "introSegue", sender: self)
     }
     @IBOutlet weak var campusToggle: UISegmentedControl!
+    
+    @IBOutlet weak var textF: UITextField!
+    @IBOutlet weak var lbl: UILabel!
+    
     
     lazy public var database = createDatabase()
     
@@ -56,6 +60,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textF.delegate = self
+        textF.isHidden = true
+        let name = defaults.string(forKey: "Name")
+        if name != nil {
+            lbl.text = name
+        }
+        lbl.isUserInteractionEnabled = true
+        let aSelector : Selector = #selector(lblTapped)
+        let tapGesture = UITapGestureRecognizer(target: self, action: aSelector)
+        tapGesture.numberOfTapsRequired = 1
+        lbl.addGestureRecognizer(tapGesture)
+        
         // Do any additional setup after loading the view.
         view.addBackground(imageName: "mainMenu")
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -83,6 +99,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         //sceneView.scene = scene
+    }
+    
+    @objc func lblTapped() {
+        lbl.isHidden = true
+        textF.isHidden = false
+    }
+    let defaults = UserDefaults.standard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textF.isHidden = true
+        lbl.isHidden = false
+        lbl.text = textF.text
+        if lbl.text == "" {
+            lbl.text = "Insert Name"
+        }
+        self.view.endEditing(true)
+        defaults.setValue(lbl.text, forKey: "Name")
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -335,7 +368,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func getRiddleColumn(hId: Int64, col: String) -> Any {
         let r = Riddles()
-        var ret : [String] = ["Placeholder"]
+        var ret : [String] = ["0, 0"]
         do{
             for riddle in try database.prepare(r.table.select(riddleDict[col]!).filter(r.huntId == hId).order(r.rId.asc)) {
                 ret.append(riddle[riddleDict[col]!])
