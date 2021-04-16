@@ -13,6 +13,7 @@ import AudioToolbox
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    let vc = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
+        let sprite = vc.returnRiddleData(idnum: 001, select: "sprite")
+        print(sprite)
         // Create a new scene
         let randomSelector = Int.random(in: 0...20)
         var sceneName = "art.scnassets/wilson-red-mango.usdz"
