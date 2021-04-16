@@ -93,8 +93,9 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             if rID == max {
                 hintButton.isHidden = false
                 passed.isHidden = true
+                answerButton.isHidden = false
             }
-            else if rID <= max {
+            else if rID < max {
                 answerButton.isHidden = true
                 hintButton.isHidden = true
                 passed.isHidden = false

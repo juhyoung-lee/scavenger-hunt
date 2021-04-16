@@ -332,14 +332,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great_job" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-9A-mHb">
                                 <rect key="frame" x="0.0" y="221" width="414" height="400"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="completed" translatesAutoresizingMaskIntoConstraints="NO" id="w1v-5u-8Tn">
-                                <rect key="frame" x="-35.5" y="479" width="485" height="226"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A79-LD-gjz">
+                                <rect key="frame" x="274" y="624" width="100" height="100"/>
+                                <state key="normal" image="map-icon"/>
+                                <connections>
+                                    <action selector="solvedSegue:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="2LC-vB-bUl"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H5-4d-Uvw">
                                 <rect key="frame" x="40" y="624" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6H5-4d-Uvw" secondAttribute="height" multiplier="1:1" id="ryf-16-sdo"/>
-                                </constraints>
                                 <state key="normal" image="hint-bulb"/>
                                 <connections>
                                     <action selector="showHint:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="moG-Jv-Aag"/>
@@ -351,13 +352,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-70-hyV">
-                                <rect key="frame" x="40" y="122" width="334" height="173"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-70-hyV">
+                                <rect key="frame" x="50" y="122" width="314" height="200.5"/>
                                 <string key="text">Use the menu to select a riddle. Try to find the correct location and tap the associated sprite to solve it. Tap the buttons below for the answer or a hint, but try to figure it out on your own!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.32156862749999998" green="0.63921568630000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddle Number ?:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtl-6O-6Fp">
                                 <rect key="frame" x="103.5" y="68" width="207" height="34"/>
@@ -421,16 +423,9 @@
                                     <action selector="findHuntButton:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="7Sk-gg-jGO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A79-LD-gjz">
-                                <rect key="frame" x="274" y="624" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="A79-LD-gjz" secondAttribute="height" multiplier="1:1" id="lRu-j0-WH5"/>
-                                </constraints>
-                                <state key="normal" image="map-icon"/>
-                                <connections>
-                                    <action selector="solvedSegue:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="2LC-vB-bUl"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="completed" translatesAutoresizingMaskIntoConstraints="NO" id="w1v-5u-8Tn">
+                                <rect key="frame" x="-35.5" y="479" width="485" height="226"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wE9-cs-4TL"/>
                         <color key="backgroundColor" red="0.1743965076" green="0.31343880889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -439,9 +434,9 @@
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="trailing" secondItem="A79-LD-gjz" secondAttribute="trailing" constant="40" id="31K-ec-N5e"/>
                             <constraint firstItem="II0-Lq-5ab" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="8rF-Fe-Ef7"/>
                             <constraint firstItem="6H5-4d-Uvw" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="40" id="9QV-Xe-Zdc"/>
-                            <constraint firstItem="wE9-cs-4TL" firstAttribute="trailing" secondItem="8fq-70-hyV" secondAttribute="trailing" constant="40" id="BNC-DA-dwX"/>
+                            <constraint firstItem="wE9-cs-4TL" firstAttribute="trailing" secondItem="8fq-70-hyV" secondAttribute="trailing" constant="50" id="BNC-DA-dwX"/>
                             <constraint firstItem="wE9-cs-4TL" firstAttribute="bottom" secondItem="89J-wM-Axa" secondAttribute="bottom" multiplier="0.96" id="BP3-bl-QF0"/>
-                            <constraint firstItem="8fq-70-hyV" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="40" id="GJY-zK-znk"/>
+                            <constraint firstItem="8fq-70-hyV" firstAttribute="leading" secondItem="wE9-cs-4TL" secondAttribute="leading" constant="50" id="GJY-zK-znk"/>
                             <constraint firstItem="NVr-ga-5Jq" firstAttribute="top" secondItem="QGV-9A-mHb" secondAttribute="bottom" constant="-128" id="JTc-hO-98C"/>
                             <constraint firstItem="w1v-5u-8Tn" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="MCJ-Yb-f5d"/>
                             <constraint firstItem="Gtl-6O-6Fp" firstAttribute="centerX" secondItem="OJk-Zr-LXm" secondAttribute="centerX" id="OYI-hS-9rP"/>
