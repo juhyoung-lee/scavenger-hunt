@@ -69,7 +69,7 @@ class hintViewController: UIViewController {
         }
         else{
             hintText.text = vc.returnRiddleData(idnum: rID, select: "hint")
-            answerText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
+            answerText.text = vc.returnRiddleData(idnum: rID, select: "answer")
         }
     }
     

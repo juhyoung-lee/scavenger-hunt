@@ -143,8 +143,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             findHuntButton.isHidden = true
         }
         navigationItem.hidesBackButton = true
-        print("This it")
-        print(rID)
+        print(vc.returnHuntData(idnum: 1, select: "descript"))
         
     }
     
