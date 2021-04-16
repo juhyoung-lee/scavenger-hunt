@@ -63,9 +63,14 @@ class hintViewController: UIViewController {
         view.addBackground(imageName: "hint-page")
         answer.isHidden = true
         answerText.isHidden = true
-        hintText.text = vc.returnRiddleData(idnum: rID, select: "hint")
-        answerText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
-        
+        if rID == 0{
+            hintText.text = "This is where you would get a hint."
+            answerText.text = "This is where you would get the answer if you quit (don't be a quitter)."
+        }
+        else{
+            hintText.text = vc.returnRiddleData(idnum: rID, select: "hint")
+            answerText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
+        }
     }
     
 

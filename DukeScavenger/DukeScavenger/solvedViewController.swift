@@ -17,8 +17,13 @@ class solvedViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.addBackground(imageName: "solvedBackground")
+        if rID == 0 {
+            solvedText.text = "This is where you would get the answer and extra fun information about the location."
+        }
+        else{
+            solvedText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
+        }
         
-        solvedText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
     }
     
 
