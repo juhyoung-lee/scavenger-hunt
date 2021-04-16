@@ -47,6 +47,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     var myLocations: [RiddleLocation] = []
+    var solvedLocations: [RiddleLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         createUserTrackingButton()
         
-        // test
+        //FIXME: make sure hunt ID is passed in
         let riddleLocations = vc.getRiddleColumn(hId: 1, col: "location")
         let riddleNames = vc.getRiddleColumn(hId: 1, col: "answer")
         
@@ -101,13 +102,13 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
 //            annotation.subtitle = "current location"
 //            mapView.addAnnotation(annotation)
         
-        for location in myLocations {
-            let coord = CLLocation(latitude: location.latitude, longitude: location.longitude)
-            let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-            
-            if coord.distance(from: userLoc) < 40 {
-                triggerARView(loc: location)
-            }
+        let currentRiddle = myLocations[solvedLocations.count]
+        
+        let coord = CLLocation(latitude: currentRiddle.latitude, longitude: currentRiddle.longitude)
+        let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        if coord.distance(from: userLoc) < 40 {
+            triggerARView(loc: currentRiddle)
         }
         
         // just a demo of this function
@@ -147,6 +148,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = locValue
         annotation.title = loc.locName
         mapView.addAnnotation(annotation)
+        solvedLocations.append(loc)
     }
     
     func triggerARView(loc: RiddleLocation) {
