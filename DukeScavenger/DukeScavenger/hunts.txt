@@ -1,2 +1,2 @@
-1|oweek-east|A fun experience to get you aquainted with East Campus!
-2|oweek-west|A fun experience to get you aquainted with West Campus!
+1|oweek-east|A fun experience to get you aquainted with East Campus!|easy
+2|oweek-west|A fun experience to get you aquainted with West Campus!|easy

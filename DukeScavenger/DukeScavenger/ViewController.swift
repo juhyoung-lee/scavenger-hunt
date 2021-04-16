@@ -27,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let hId = Expression<Int64>("id")
         let name = Expression<String>("name")
         let descript = Expression<String>("description")
+        let diff = Expression<String>("difficulty")
     }
     
     struct Riddles {
@@ -49,7 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let time = Expression<String>("timeCompleted")
     }
     
-    var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript]
+    var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript, "difficulty": Hunts().diff]
     var riddleDict : [String: Expression<String>] = ["message":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "location": Riddles().loc, "sprite": Riddles().sprite]
     var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleID" : Progress().riddleId]
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // SQLite Database
         let db = createDatabase()
         populateDatabase(db: db)
-
+        
         // Set the view's delegate
         //sceneView.delegate = self
         
@@ -140,6 +141,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             t.column(h.hId, primaryKey: true)
             t.column(h.name, unique: true)
             t.column(h.descript)
+            t.column(h.diff)
         })
         print("\(attempt)")
         
@@ -196,7 +198,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 try db.run(h.table.insert(
                             h.hId <- Int64(temp[0]) ?? 0,
                             h.name <- String(temp[1]),
-                            h.descript <- String(temp[2])))
+                            h.descript <- String(temp[2]),
+                            h.diff <- String(temp[3])))
             }
             for line in riddlesLines {
                 let temp = line.split(separator: "|")
@@ -259,11 +262,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let htable = try db.prepare(h.table)
             print("\nhunts table")
             for row in htable {
-                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript])")
+                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript]), difficulty: \(row[h.diff])")
             }
             print("riddles table")
             for row in try db.prepare(r.table) {
-                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
+                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), answer: \(row[r.answer]), blurb: \(row[r.blurb]), loc: \(row[r.loc]), sprite: \(row[r.sprite])")
             }
             print("progress table")
             for row in try db.prepare(p.table) {
