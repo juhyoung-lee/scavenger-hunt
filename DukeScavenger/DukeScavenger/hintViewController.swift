@@ -8,12 +8,15 @@
 import UIKit
 
 class hintViewController: UIViewController {
+    
+    var vc = ViewController()
 
     @IBOutlet weak var answerText: UILabel!
     @IBOutlet weak var answer: UIImageView!
     private var tapGesture: UITapGestureRecognizer? = nil
-    var answerShowing = false
-    
+    var answerShowing: Bool = false
+    var rID: Int = 0
+    @IBOutlet weak var hintText: UILabel!
     @IBOutlet var blurView: UIView!
     
     @IBAction func showAnswer(_ sender: Any) {
@@ -60,6 +63,8 @@ class hintViewController: UIViewController {
         view.addBackground(imageName: "hint-page")
         answer.isHidden = true
         answerText.isHidden = true
+        hintText.text = vc.returnRiddleData(idnum: rID, select: "hint")
+        answerText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
         
     }
     

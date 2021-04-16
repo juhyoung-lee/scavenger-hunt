@@ -8,14 +8,17 @@
 import UIKit
 
 class solvedViewController: UIViewController {
+    var vc = ViewController()
 
-    @IBOutlet weak var solvedNotification: UIImageView!
-    
+    @IBOutlet weak var solvedText: UILabel!
+    var rID: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.addBackground(imageName: "solvedBackground")
+        
+        solvedText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
     }
     
 

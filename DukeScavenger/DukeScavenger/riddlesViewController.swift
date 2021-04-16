@@ -9,10 +9,11 @@ import UIKit
 
 class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     let vc = ViewController()
-    
+    var gCampus: Int = 0
+    var rID: Int = 0
     var menuShowing = false
-    var nums = (1...10).map{"Riddle \($0)"}
-    
+    var nums: [String] = (1...21).map{"Riddle \($0)"}
+    var count = 0
     private var tapGesture: UITapGestureRecognizer? = nil
     
     var solvedMode: [Bool] = [false]
@@ -91,18 +92,17 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
             if row > 0 {
-                
-                let riddleTxt = vc.returnRiddleData(idnum: row, select: "msg")
+                rID = getRiddleID(hID: gCampus, row: row)
+                let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
                 riddleName.text = "Riddle \(row)"
                 riddleText.text = "\(riddleTxt)"
                 openMenu((Any).self)
-                if solvedRiddle[row-1]{
+                if row <= vc.returnProgressData(hId: gCampus, select: "huntId"){
                     answerButton.isHidden = true
                     hintButton.isHidden = true
                     passed.isHidden = false
-                    if row-1 == 9{ //if this is len-1 of the riddles array
+                    if row-1 == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! Int{ //if this is len-1 of the riddles array
                         print("finished riddle")
-                    
                     }
                 }
                 else{
@@ -110,7 +110,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     hintButton.isHidden = false
                     passed.isHidden = true
                 }
-            
+            menuShowing = !menuShowing
         }
     }
     }
@@ -143,7 +143,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             findHuntButton.isHidden = true
         }
         navigationItem.hidesBackButton = true
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -166,7 +165,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return (vc.returnHuntData(idnum: Int64(gCampus), select: "total") as? Int ?? 21)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -193,6 +192,24 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.layer.mask = maskLayer
         //tableView.contentInset.bottom = (-verticalPadding/2) + 40
         //tableView.contentInset.top = -verticalPadding/2
+    }
+    
+    func getRiddleID(hID: Int, row: Int) -> Int{
+        return row + 100*hID
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier{
+        case "showHintSegue":
+            let destVC = segue.destination as! hintViewController
+            destVC.rID = rID
+        case "solvedSegue":
+            let destVC = segue.destination as! solvedViewController
+            destVC.rID = rID
+        default: break
+        }
     }
     
     /*
