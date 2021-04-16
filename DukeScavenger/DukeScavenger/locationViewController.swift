@@ -67,6 +67,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
         }
         
+        triggerARView(loc: myLocations[solvedLocations.count])
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods

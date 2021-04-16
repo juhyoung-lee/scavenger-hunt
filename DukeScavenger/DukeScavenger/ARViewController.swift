@@ -23,8 +23,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
-        var sprite = vc.returnRiddleData(idnum: 101, select: "sprite")
+
+        let rID = getRiddleID(hID: 1, lastCompleted: 1)
+        var sprite = vc.returnRiddleData(idnum: rID, select: "sprite")
         // Create a new scene
         if sprite == "Data not found" {
             sprite = "bella-union"
@@ -53,6 +54,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
         dummyNode?.scale = SCNVector3(0.1, 0.1, 0.1)
 
+    }
+    
+    func getRiddleID(hID: Int, lastCompleted: Int) -> Int{
+        return 100*hID + lastCompleted+1
     }
     
     override func viewWillAppear(_ animated: Bool) {
