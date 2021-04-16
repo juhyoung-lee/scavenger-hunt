@@ -6,9 +6,13 @@
 106|1|This house of art ‘raises the cultural bar,’ but its brunch should be on everyone’s radar|Oh no! Your RUBY ring rolled down hill!|You’ve solved the riddle for the Nasher Museum of Arts!|0|35.99911, -78.92904|0|
 107|1|Here lie Duke students former, near admissions you'll be warmer|If you need some aid, it's right next door!|You’ve solved the riddle for the Alumni Center!|0|35.99824, -78.93237|0|
 108|1|Come with your friends to see the flowers, just make sure to avoid the April showers|From the Allen building just a crosswalk away, here you'll find nature's boquet|You’ve solved the riddle for the Duke Gardens!|0|36.00076, -78.93552|0|
-109|1|Beyond the bridge near heated homes, you’ll find calicos basking on grey stones|cmon use your brain, they're right next to Keohane|You’ve solved the riddle for the Cat Homes!|0|36.00076, -78.93552|0|35.99949, -78.93767
+109|1|Beyond the bridge near heated homes, you’ll find calicos basking on grey stones|Come on use your brain, they're right next to Keohane|You’ve solved the riddle for the Cat Homes!|0|36.00076, -78.93552|0|35.99949, -78.93767
 110|1|With vinyl records by Keohane E, it’s the only place on campus with thai iced tea|Against the blue backdrop, a lone flag waves on top|You’ve solved the riddle for the McClendon Tower!|0|35.99917, -78.93676|0
-111|1|Basking in post-workout glow, find smoothies, flatbreads, and fro-yo|0|0|0|35.99733, -78.94108|0|
+111|1|Basking in post-workout glow, find smoothies, flatbreads, and fro-yo|During March Madness, a tent out here will replace your mattress|0|0|35.99733, -78.94108|0|
+112|1|A court full of crazies venting, the reward for a month of tenting|With stadiums four, this place is never a bore|0|0|35.99733, -78.94108|0|
+113|1|Three miles around frequented by the xc team, it’s also a golfer’s dream|What would you get if you crossed Waluigi with Benjamin N. Duke|0|0|35.99324, -78.94531|0|
+114|1|I’m touched a lot so I’m kind of Gross, but look for a greenhouse and you’ll be close|Contrary to popular belief, it's my oval-shaped blood cells that help me retain water.|0|0|36.001513, -78.943139|0|
+115|1|Elementary my dear Watson, in this lab you could pet a dachshund|Sacre bleu! Someone must have broken a beaker next door|0|0|36.002280, -78.943140|0|
 117|1|Here there be packages dropping, for all gifts from mom and online shopping|You may be surprised of what dwells in the depths of the Bryan Center|You've solved the riddle for the Student Mailbox Center!|0|36.00084, -78.94086|0|
 118|1|Two theaters, one above, one below, you can catch lectures, movies screenings, and even a show|On your way out, grab a McFlurry on the other side of the building|You've solved the riddle for the Reynolds and Griffith Theaters!|0|36.00111, -78.94111|0|
 119|1|Near the chapel, soon you'll find, stairs leading down to food divine|Often voted the best eatery on campus, it would be sacrilegious to say you don't love their grilled cheese and tomato soup|You've solved the riddle for Divinity Cafe!|0|36.00235, -78.93991|0|
