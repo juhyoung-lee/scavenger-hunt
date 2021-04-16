@@ -341,7 +341,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     return 0
     }
     
-    func getRiddleColumn(hId: Int64, col: String) -> Any {
+    func getRiddleColumn(hId: Int64, col: String) -> [String] {
         let r = Riddles()
         var ret : [String] = ["Placeholder"]
         do{

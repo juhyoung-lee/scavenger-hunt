@@ -16,6 +16,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     var toggleState = 1
     
+    let vc = ViewController()
     
     @IBAction func toggleRiddles(_ sender: Any) {
         let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -45,8 +46,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // tentatively just here for testing
-   let myLocations: [RiddleLocation] = [RiddleLocation(latitude: 35.99911, longitude: -78.92904, locName: "Nasher Museum"), RiddleLocation(latitude: 35.99705, longitude: -78.94258, locName: "Cameron Stadium"), RiddleLocation(latitude: 36.00668, longitude: -78.91326, locName: "Duke Coffeehouse")]
+    var myLocations: [RiddleLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,17 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         createUserTrackingButton()
-        triggerARView(loc: myLocations[0])
+        
+        // test
+        let riddleLocations = vc.getRiddleColumn(hId: 1, col: "location")
+        let riddleNames = vc.getRiddleColumn(hId: 1, col: "answer")
+        
+        for index in 1...riddleLocations.count-1 {
+            let lat = Double(riddleLocations[index].components(separatedBy: ", ")[0])
+            let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
+            myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
+        }
+        
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -101,7 +111,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         // just a demo of this function
-        self.solveLocation(loc: myLocations[0])
+        // self.solveLocation(loc: myLocations[0])
     }
     
     func createUserTrackingButton() {
