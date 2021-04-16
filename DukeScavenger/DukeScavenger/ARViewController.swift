@@ -52,19 +52,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let randomZ = multiplier*Int.random(in: 2...10)
         dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
         dummyNode?.scale = SCNVector3(0.1, 0.1, 0.1)
-        /*
-        let dummyNode2 = self.sceneView.scene.rootNode.childNode(withName: "CoffeeNode", recursively: false)
-        
-        let randomBin2 = Int.random(in: 0...1)
-        var multiplier2 = 1
-        if randomBin2 == 1 {
-            multiplier2 = -1
-        }
-        let randomX2 = multiplier2*Int.random(in: 0...8)
-        let randomY2 = multiplier2*Int.random(in: 0...8)
-        let randomZ2 = multiplier2*Int.random(in: 0...8)
-        dummyNode2?.position = SCNVector3(randomX2, randomY2, randomZ2)
- */
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

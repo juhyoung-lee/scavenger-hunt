@@ -149,7 +149,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             
             let okButton = UIAlertAction(title: "Yes", style: .default) { _ in
                 let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ViewController
+                let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
                 self.present(ARVC, animated: true, completion: nil)
             }
             alert.addAction(okButton)
