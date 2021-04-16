@@ -66,19 +66,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // SQLite Database
         let db = createDatabase()
-        //dropDatabase(db: db)
         populateDatabase(db: db)
-        
-        addProgress(rId: 101)
-        printDatabase(db: db)
-        addProgress(rId: 102)
-        printDatabase(db: db)
-        addProgress(rId: 103)
-        addProgress(rId: 201)
-        printDatabase(db: db)
-        addProgress(rId: 104)
-        addProgress(rId: 202)
-        printDatabase(db: db)
 
         // Set the view's delegate
         //sceneView.delegate = self
@@ -268,15 +256,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let p = Progress()
         
         do {
-//            let htable = try db.prepare(h.table)
-//            print("\nhunts table")
-//            for row in htable {
-//                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript])")
-//            }
-//            print("riddles table")
-//            for row in try db.prepare(r.table) {
-//                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
-//            }
+            let htable = try db.prepare(h.table)
+            print("\nhunts table")
+            for row in htable {
+                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript])")
+            }
+            print("riddles table")
+            for row in try db.prepare(r.table) {
+                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
+            }
             print("progress table")
             for row in try db.prepare(p.table) {
                 print("id: \(row[p.pId]), huntId: \(row[p.huntId]), riddleId: \(row[p.riddleId]), time: \(row[p.time])")
