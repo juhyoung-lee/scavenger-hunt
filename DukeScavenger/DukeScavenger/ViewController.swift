@@ -50,7 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript]
-    var riddleDict : [String: Expression<String>] = ["msg":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "loc": Riddles().loc, "sprite": Riddles().sprite]
+    var riddleDict : [String: Expression<String>] = ["message":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "location": Riddles().loc, "sprite": Riddles().sprite]
     var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleID" : Progress().riddleId]
     
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let db = createDatabase()
         //dropDatabase(db: db)
         populateDatabase(db: db)
-        let ret = getRiddleLocations(hId: 2)
+        let ret = getRiddleColumn(hId: 2, col: "location")
         print (ret)
         //printDatabase(db: db)
 
@@ -332,12 +332,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     return 0
     }
-    func getRiddleLocations(hId: Int64) -> Any {
+    
+    func getRiddleColumn(hId: Int64, col: String) -> Any {
         let r = Riddles()
-        var ret : [String] = ["Hi, Robert"]
+        var ret : [String] = ["Placeholder"]
         do{
-            for riddle in try database.prepare(r.table.select(r.loc).filter(r.huntId == hId).order(r.rId.asc)) {
-                ret.append(riddle[r.loc])
+            for riddle in try database.prepare(r.table.select(riddleDict[col]!).filter(r.huntId == hId).order(r.rId.asc)) {
+                ret.append(riddle[riddleDict[col]!])
             }
         } catch {
             print ("failed")
