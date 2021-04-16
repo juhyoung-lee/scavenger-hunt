@@ -68,9 +68,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let db = createDatabase()
         //dropDatabase(db: db)
         populateDatabase(db: db)
-        let ret = getRiddleColumn(hId: 2, col: "location")
-        print (ret)
-        //printDatabase(db: db)
+        
+        addProgress(rId: 101)
+        printDatabase(db: db)
+        addProgress(rId: 102)
+        printDatabase(db: db)
+        addProgress(rId: 103)
+        addProgress(rId: 201)
+        printDatabase(db: db)
+        addProgress(rId: 104)
+        addProgress(rId: 202)
+        printDatabase(db: db)
 
         // Set the view's delegate
         //sceneView.delegate = self
@@ -260,15 +268,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let p = Progress()
         
         do {
-            let htable = try db.prepare(h.table)
-            print("\nhunts table")
-            for row in htable {
-                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript])")
-            }
-            print("riddles table")
-            for row in try db.prepare(r.table) {
-                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
-            }
+//            let htable = try db.prepare(h.table)
+//            print("\nhunts table")
+//            for row in htable {
+//                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript])")
+//            }
+//            print("riddles table")
+//            for row in try db.prepare(r.table) {
+//                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), blurb: \(row[r.blurb]), loc: \(row[r.loc])")
+//            }
             print("progress table")
             for row in try db.prepare(p.table) {
                 print("id: \(row[p.pId]), huntId: \(row[p.huntId]), riddleId: \(row[p.riddleId]), time: \(row[p.time])")
@@ -344,6 +352,49 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             print ("failed")
         }
         return ret
+    }
+    
+    func addProgress(rId: Int64) {
+        let r = Riddles()
+        var maxRiddle: Int64 = 0
+        do {
+            for row in try database.prepare(r.table.select(r.rId).filter(r.huntId==rId/100).order(r.rId.asc)) {
+                maxRiddle = row[r.rId]
+            }
+        } catch {
+            print("error finding max riddle number")
+        }
+        
+        let p = Progress()
+        var pid: Int64 = 0
+        do {
+            for row in try database.prepare(p.table.select(p.pId).order(p.pId.asc)) {
+                pid = row[p.pId] + 1
+            }
+        } catch {
+            print("error counting progress rows")
+        }
+        let hunt = rId / 100
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm E, d MMM y"
+        let time = formatter.string(from: today)
+        if rId%(hunt*100) > 1 {
+            let prev = p.table.filter(p.riddleId == rId - 1)
+            do {
+                try database.run(prev.delete())
+            } catch {
+                print("error deleting previous progress entry")
+            }
+        }
+        if (rId < maxRiddle) {
+            do {
+                try database.run(p.table.insert(p.pId <- pid, p.huntId <- hunt, p.riddleId <- rId, p.time <- time))
+            } catch {
+                print(pid, hunt, rId)
+                print("error adding row to progress")
+            }
+        }
     }
     
 }
