@@ -68,8 +68,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let db = createDatabase()
         //dropDatabase(db: db)
         populateDatabase(db: db)
-        let ret = returnHuntData(idnum: 1, select: "total")
-        print ("\(ret)")
+        let ret = getRiddleLocations(hId: 2)
+        print (ret)
         //printDatabase(db: db)
 
         // Set the view's delegate
@@ -331,6 +331,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             print("\ndb printing failed\n")
         }
     return 0
+    }
+    func getRiddleLocations(hId: Int64) -> Any {
+        let r = Riddles()
+        var ret : [String] = ["Hi, Robert"]
+        do{
+            for riddle in try database.prepare(r.table.select(r.loc).filter(r.huntId == hId).order(r.rId.asc)) {
+                ret.append(riddle[r.loc])
+            }
+        } catch {
+            print ("failed")
+        }
+        return ret
     }
     
 }
