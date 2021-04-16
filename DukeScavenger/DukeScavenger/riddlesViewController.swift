@@ -81,7 +81,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row + 1
-        let rID = getRiddleID(hID: gCampus, row: row)
+        rID = getRiddleID(hID: gCampus, row: row)
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
         let max = 105 //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
         //ie, the last completed riddle is 104, and you're currently on 105
@@ -90,11 +90,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             riddleName.text = "Riddle \(row)"
             riddleText.text = "\(riddleTxt)"
             
-            if row == max {
+            if rID == max {
                 hintButton.isHidden = false
                 passed.isHidden = true
             }
-            else if row <= max {
+            else if rID <= max {
                 answerButton.isHidden = true
                 hintButton.isHidden = true
                 passed.isHidden = false
