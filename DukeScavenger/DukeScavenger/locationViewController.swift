@@ -172,6 +172,11 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             self.present(alert, animated: true)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
     /*
     // MARK: - Navigation
 
