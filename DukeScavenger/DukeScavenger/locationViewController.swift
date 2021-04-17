@@ -17,6 +17,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     var toggleState = 1
     
     let vc = ViewController()
+    var rID: Int = 0
     
     @IBAction func toggleRiddles(_ sender: Any) {
         let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -66,7 +67,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
             myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
         }
-        
+        triggerARView(loc: myLocations[solvedLocations.count])
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -162,6 +163,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             let okButton = UIAlertAction(title: "Yes", style: .default) { _ in
                 let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
+                ARVC.rID = self.rID
+                ARVC.modalPresentationStyle = .fullScreen
                 self.present(ARVC, animated: true, completion: nil)
             }
             alert.addAction(okButton)

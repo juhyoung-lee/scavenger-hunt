@@ -15,6 +15,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     let vc = ViewController()
     
+    var rID: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +26,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        var sprite = vc.returnRiddleData(idnum: 101, select: "sprite")
+        var sprite = vc.returnRiddleData(idnum: rID, select: "sprite")
         // Create a new scene
         if sprite == "Data not found" {
             sprite = "bella-union"
@@ -87,6 +89,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
                 node.removeFromParentNode() }
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
+            let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let solvedVC = sampleStoryBoard.instantiateViewController(withIdentifier: "solvedViewController") as! solvedViewController
+            solvedVC.rID = self.rID
+            solvedVC.modalPresentationStyle = .fullScreen
+            self.present(solvedVC, animated: true, completion: nil)
         }
         
     }
@@ -116,14 +124,15 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     
 
-    /*
+/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let destVC = segue.destination as! solvedViewController
+        destVC.rID = rID
     }
-    */
-
+*/
 }
