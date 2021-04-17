@@ -16,7 +16,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var count = 0
     private var tapGesture: UITapGestureRecognizer? = nil
     
-    
     @IBOutlet weak var tab: UIButton!
     @IBOutlet weak var solvedNotification: UIImageView!
     /*
@@ -87,14 +86,23 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     //var progress : Int64 = 101
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        vc.printDatabase(db: vc.database)
+        
         let row = indexPath.row + 1
         rID = getRiddleID(hID: gCampus, row: row)
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
-        let max = 105
+//        let max = 105
         //if progress > 101 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
             //max = Int(vc.returnProgressData(hId: gCampus, select: "riddleId") + 1)
         //}
         //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
+
+        var max = vc.returnProgressData(hId: gCampus, select: "riddleId")
+        if (max == 0) {
+            max += Int64(gCampus * 100 + 1)
+        } else {
+            max += 1
+        }
         //ie, the last completed riddle is 104, and you're currently on 105
         
         if  rID <= max{
@@ -126,7 +134,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
-            print(riddleTable.indexPathForRow(at: touchPoint)![1])
+//            print(riddleTable.indexPathForRow(at: touchPoint)![1])
             rID = getRiddleID(hID: gCampus, row: row)
             if row > 0 && rID <= 105{
                 let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
@@ -220,7 +228,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.riddleNum.textAlignment = .center
         
         if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
-            print(getRiddleID(hID: gCampus, row: indexPath.row+1))
+//            print(getRiddleID(hID: gCampus, row: indexPath.row+1))
             cell.backgroundColor = .gray
         }
         else{

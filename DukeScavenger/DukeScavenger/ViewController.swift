@@ -87,11 +87,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         
         
         // SQLite Database
-        let db = createDatabase()
-        populateDatabase(db: db)
-        //printDatabase(db: db)
-        //addProgress(rId: 101)
-        //returnProgressData(hId: 1, select: "riddleId")
+//        let db = createDatabase()
+//        dropDatabase(db: db)
+
+        // Set the view's delegate
         //sceneView.delegate = self
         
         // Show statistics such as fps and timing information
@@ -174,9 +173,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let db = try! Connection("\(dbPath)/db.sqlite3")
         if let error = try? db.execute("PRAGMA foreign_keys = ON;") {
-            print("\n\n\nforeign key support status: \(error)")
+//            print("\n\n\nforeign key support status: \(error)")
         } // turns on foreign keys support for the db connection
-        print("\n")
+//        print("\n")
         
         var attempt: Statement?
         
@@ -204,17 +203,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         })
         //print("\(attempt)")
 
+        printDatabase(db: db)
         let p = Progress()
         attempt = try? db.run(p.table.create(ifNotExists: true) { t in
             t.column(p.pId, primaryKey: .autoincrement)
             t.column(p.huntId)
             t.column(p.riddleId)
             t.column(p.time)
-            t.foreignKey(p.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
-            t.foreignKey(p.riddleId, references: r.table, r.rId, update: .cascade, delete: .cascade)
+//            t.foreignKey(p.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
+//            t.foreignKey(p.riddleId, references: r.table, r.rId, update: .cascade, delete: .cascade)
         })
+        printDatabase(db: db)
+        populateDatabase(db: db)
+        printDatabase(db: db)
         //print("\(attempt)")
-
         return db
     }
     
@@ -306,19 +308,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         
         do {
             let htable = try db.prepare(h.table)
-            print("\nhunts table")
+//            print("\nhunts table")
             for row in htable {
-                print("id: \(row[h.hId]), name: \(row[h.name]), shortdescript: \(row[h.shortdescript]), descript: \(row[h.descript]), difficulty: \(row[h.diff])")
+//                print("id: \(row[h.hId]), name: \(row[h.name]), shortdescript: \(row[h.shortdescript]), descript: \(row[h.descript]), difficulty: \(row[h.diff])")
             }
-            print("riddles table")
+//            print("riddles table")
             for row in try db.prepare(r.table) {
-                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), answer: \(row[r.answer]), blurb: \(row[r.blurb]), loc: \(row[r.loc]), sprite: \(row[r.sprite])")
+//                print("id: \(row[r.rId]), huntId: \(row[r.huntId]), msg: \(row[r.msg]), hint: \(row[r.hint]), answer: \(row[r.answer]), blurb: \(row[r.blurb]), loc: \(row[r.loc]), sprite: \(row[r.sprite])")
             }
             print("progress table")
             for row in try db.prepare(p.table) {
                 print("id: \(row[p.pId]), huntId: \(row[p.huntId]), riddleId: \(row[p.riddleId]), time: \(row[p.time])")
             }
-            print("db printed\n")
+//            print("db printed\n")
         } catch {
             print("\ndb printing failed\n")
         }
@@ -432,6 +434,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
                 print("error adding row to progress")
             }
         }
+        
     }
     
 }
