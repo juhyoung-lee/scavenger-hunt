@@ -21,35 +21,6 @@
     </customFonts>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tXr-a1-R10">
-            <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                            </arscnView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="138" y="88"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="Arb-4l-aFH">
             <objects>
                 <viewController id="xRf-cl-88m" customClass="ViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
@@ -337,7 +308,7 @@
                                 <rect key="frame" x="274" y="624" width="100" height="100"/>
                                 <state key="normal" image="map-icon"/>
                                 <connections>
-                                    <action selector="solvedSegue:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="2LC-vB-bUl"/>
+                                    <segue destination="7Sd-Gb-Lvr" kind="show" identifier="mapSegue" id="cpp-d8-Xa2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6H5-4d-Uvw">
@@ -471,7 +442,6 @@
                         <outlet property="riddleText" destination="8fq-70-hyV" id="Sd6-EG-dGr"/>
                         <outlet property="solvedNotification" destination="QGV-9A-mHb" id="Knt-NA-2II"/>
                         <outlet property="tab" destination="771-As-btk" id="Xzk-os-v47"/>
-                        <segue destination="Qwb-rC-tDf" kind="show" identifier="solvedSegue" id="cqb-oe-urw"/>
                         <segue destination="xRf-cl-88m" kind="show" identifier="returnHomeSegue" id="COy-yn-QbO"/>
                         <segue destination="6tY-NG-n0u" kind="show" identifier="showHintSegue" id="ccz-61-Iv6"/>
                     </connections>
@@ -483,25 +453,25 @@
         <!--Solved View Controller-->
         <scene sceneID="B3b-gj-iJK">
             <objects>
-                <viewController id="Qwb-rC-tDf" customClass="solvedViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="solvedViewController" id="Qwb-rC-tDf" customClass="solvedViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m28-Mo-mXH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x8-6Y-qoO">
-                                <rect key="frame" x="143.5" y="-30" width="127" height="48"/>
+                                <rect key="frame" x="143.5" y="14" width="127" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze7-6L-F6p">
-                                <rect key="frame" x="79" y="56" width="256" height="43"/>
+                                <rect key="frame" x="79" y="192" width="256" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.32549019607843138" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-IZ-137">
-                                <rect key="frame" x="40" y="124" width="334" height="167.5"/>
+                                <rect key="frame" x="40" y="260" width="334" height="167.5"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -575,21 +545,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghL-fz-9Yj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="88"/>
+            <point key="canvasLocation" x="1958" y="1523"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="dB0-0k-IE2">
             <objects>
                 <viewController id="7Sd-Gb-Lvr" customClass="locationViewController" customModule="DukeScavenger" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="utv-6d-cDR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="utv-6d-cDR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRQ-PX-nRm">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRQ-PX-nRm">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vuj-cO-U8F">
-                                <rect key="frame" x="20" y="97" width="40" height="45"/>
+                                <rect key="frame" x="20" y="53" width="40" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="eye">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -626,13 +596,14 @@
                             <constraint firstItem="ric-bs-kCH" firstAttribute="bottom" secondItem="Vuj-cO-U8F" secondAttribute="bottom" constant="720" id="zUx-l0-hfG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Q0T-dn-nPZ"/>
                     <connections>
                         <outlet property="mapView" destination="LRQ-PX-nRm" id="CVp-8L-KtC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rE-mo-xGy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911.594202898551" y="87.723214285714278"/>
+            <point key="canvasLocation" x="2710" y="1523"/>
         </scene>
         <!--Hint View Controller-->
         <scene sceneID="LeZ-im-eCp">

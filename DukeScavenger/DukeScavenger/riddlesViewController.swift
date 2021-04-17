@@ -19,8 +19,13 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tab: UIButton!
     @IBOutlet weak var solvedNotification: UIImageView!
+    /*
     @IBAction func solvedSegue(_ sender: Any) {
         performSegue(withIdentifier: "solvedSegue", sender: self)
+    }
+ */
+    @IBAction func mapSegue(_ sender: Any) {
+        performSegue(withIdentifier: "mapSegue", sender: self)
     }
     @IBOutlet weak var riddleName: UILabel!
     
@@ -246,11 +251,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         case "showHintSegue":
             let destVC = segue.destination as! hintViewController
             destVC.rID = rID
-        case "solvedSegue":
             //vc.addProgress(rId: progress)
             //vc.printDatabase(db: vc.database)
             //progress = progress + 1
-            let destVC = segue.destination as! solvedViewController
+        case "mapSegue":
+            let destVC = segue.destination as! locationViewController
             destVC.rID = rID
         default: break
         }
