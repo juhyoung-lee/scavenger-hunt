@@ -13,9 +13,13 @@ class introViewController: UIViewController {
     @IBAction func riddleSegue(_ sender: Any) {
         performSegue(withIdentifier: "startHuntSegue", sender: self)
     }
+    @IBOutlet weak var riddleDescript: UILabel!
+    
+    let vc = ViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addBackground()
+        riddleDescript.text = vc.returnHuntData(idnum: 1, select: "descript") as? String
         // Do any additional setup after loading the view.
     }
     

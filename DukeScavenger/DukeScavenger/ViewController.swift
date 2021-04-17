@@ -10,6 +10,7 @@ import ARKit
 import SQLite
 
 class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var back: UINavigationItem!
     
@@ -33,6 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         let table = Table("hunts")
         let hId = Expression<Int64>("id")
         let name = Expression<String>("name")
+        let shortdescript = Expression<String>("shortdescription")
         let descript = Expression<String>("description")
         let diff = Expression<String>("difficulty")
     }
@@ -57,9 +59,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         let time = Expression<String>("timeCompleted")
     }
     
-    var huntDict : [String: Expression<String>] = ["name": Hunts().name, "descript": Hunts().descript, "difficulty": Hunts().diff]
+    var huntDict : [String: Expression<String>] = ["name": Hunts().name, "shortdescript": Hunts().shortdescript, "descript": Hunts().descript, "difficulty": Hunts().diff]
     var riddleDict : [String: Expression<String>] = ["message":Riddles().msg, "hint": Riddles().hint, "answer": Riddles().answer, "blurb": Riddles().blurb, "location": Riddles().loc, "sprite": Riddles().sprite]
-    var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleID" : Progress().riddleId]
+    var progressDict : [String: Expression<Int64>] = ["huntId": Progress().huntId, "riddleId" : Progress().riddleId]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +89,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         // SQLite Database
         let db = createDatabase()
         populateDatabase(db: db)
-        printDatabase(db: db)
-        // Set the view's delegate
+        //printDatabase(db: db)
+        //addProgress(rId: 101)
+        //returnProgressData(hId: 1, select: "riddleId")
         //sceneView.delegate = self
         
         // Show statistics such as fps and timing information
@@ -100,7 +103,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         // Set the scene to the view
         //sceneView.scene = scene
         huntName.text = returnHuntData(idnum: 1, select: "name") as? String
-        huntDescript.text = returnHuntData(idnum: 1, select: "descript") as? String
+        huntDescript.text = returnHuntData(idnum: 1, select: "shortdescript") as? String
         difficulty.text = (returnHuntData(idnum: 1, select: "difficulty") as? String)?.capitalized
         stops.text = returnHuntData(idnum: 1, select: "total") as? String
         
@@ -110,7 +113,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         lbl.isHidden = true
         textF.isHidden = false
     }
-    let defaults = UserDefaults.standard
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textF.isHidden = true
         lbl.isHidden = false
@@ -180,11 +183,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         let h = Hunts()
         attempt = try? db.run(h.table.create(ifNotExists: true) { t in
             t.column(h.hId, primaryKey: true)
-            t.column(h.name, unique: true)
+            t.column(h.name)
+            t.column(h.shortdescript)
             t.column(h.descript)
             t.column(h.diff)
         })
-        print("\(attempt)")
+        //print("\(attempt)")
         
         let r = Riddles()
         attempt = try? db.run(r.table.create(ifNotExists: true) { t in
@@ -198,7 +202,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
             t.column(r.sprite)
             t.foreignKey(r.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
         })
-        print("\(attempt)")
+        //print("\(attempt)")
 
         let p = Progress()
         attempt = try? db.run(p.table.create(ifNotExists: true) { t in
@@ -209,7 +213,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
             t.foreignKey(p.huntId, references: h.table, h.hId, update: .cascade, delete: .cascade)
             t.foreignKey(p.riddleId, references: r.table, r.rId, update: .cascade, delete: .cascade)
         })
-        print("\(attempt)")
+        //print("\(attempt)")
 
         return db
     }
@@ -239,8 +243,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
                 try db.run(h.table.insert(
                             h.hId <- Int64(temp[0]) ?? 0,
                             h.name <- String(temp[1]),
-                            h.descript <- String(temp[2]),
-                            h.diff <- String(temp[3])))
+                            h.shortdescript <- String(temp[2]),
+                            h.descript <- String(temp[3]),
+                            h.diff <- String(temp[4])))
             }
             for line in riddlesLines {
                 let temp = line.split(separator: "|")
@@ -303,7 +308,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
             let htable = try db.prepare(h.table)
             print("\nhunts table")
             for row in htable {
-                print("id: \(row[h.hId]), name: \(row[h.name]), descript: \(row[h.descript]), difficulty: \(row[h.diff])")
+                print("id: \(row[h.hId]), name: \(row[h.name]), shortdescript: \(row[h.shortdescript]), descript: \(row[h.descript]), difficulty: \(row[h.diff])")
             }
             print("riddles table")
             for row in try db.prepare(r.table) {

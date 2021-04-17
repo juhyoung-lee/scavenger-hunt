@@ -79,11 +79,17 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         menuShowing = !menuShowing
     }
     
+    //var progress : Int64 = 101
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row + 1
         rID = getRiddleID(hID: gCampus, row: row)
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
-        let max = 105 //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
+        let max = 105
+        //if progress > 101 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
+            //max = Int(vc.returnProgressData(hId: gCampus, select: "riddleId") + 1)
+        //}
+        //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
         //ie, the last completed riddle is 104, and you're currently on 105
         
         if  rID <= max{
@@ -241,6 +247,9 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let destVC = segue.destination as! hintViewController
             destVC.rID = rID
         case "solvedSegue":
+            //vc.addProgress(rId: progress)
+            //vc.printDatabase(db: vc.database)
+            //progress = progress + 1
             let destVC = segue.destination as! solvedViewController
             destVC.rID = rID
         default: break
