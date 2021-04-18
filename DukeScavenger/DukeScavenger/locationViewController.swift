@@ -48,7 +48,6 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     var myLocations: [RiddleLocation] = []
-    var solvedLocations: [RiddleLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,15 +58,14 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         createUserTrackingButton()
         
         //FIXME: make sure hunt ID is passed in
-        let riddleLocations = vc.getRiddleColumn(hId: 1, col: "location")
-        let riddleNames = vc.getRiddleColumn(hId: 1, col: "answer")
+        let riddleLocations = vc.getRiddleColumn(hId: Int64(rID/100), col: "location")
+        let riddleNames = vc.getRiddleColumn(hId: Int64(rID/100), col: "answer")
         
         for index in 1...riddleLocations.count-1 {
             let lat = Double(riddleLocations[index].components(separatedBy: ", ")[0])
             let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
             myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
         }
-        triggerARView(loc: myLocations[solvedLocations.count])
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -103,7 +101,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
 //            annotation.subtitle = "current location"
 //            mapView.addAnnotation(annotation)
         
-        let currentRiddle = myLocations[solvedLocations.count]
+        let currentRiddle = myLocations[rID % 100 - 1]
         
         let coord = CLLocation(latitude: currentRiddle.latitude, longitude: currentRiddle.longitude)
         let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
@@ -149,7 +147,6 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = locValue
         annotation.title = loc.locName
         mapView.addAnnotation(annotation)
-        solvedLocations.append(loc)
     }
     
     func triggerARView(loc: RiddleLocation) {
