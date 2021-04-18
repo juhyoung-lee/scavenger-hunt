@@ -102,6 +102,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
 //            mapView.addAnnotation(annotation)
         
         let currentRiddle = myLocations[rID % 100 - 1]
+        print ("Current: \(currentRiddle.latitude), \(currentRiddle.longitude)")
         
         let coord = CLLocation(latitude: currentRiddle.latitude, longitude: currentRiddle.longitude)
         let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
