@@ -23,7 +23,7 @@ class solvedViewController: UIViewController {
         else{
             solvedText.text = vc.returnRiddleData(idnum: rID, select: "blurb")
             vc.addProgress(rId: Int64(rID))
-            vc.printDatabase(db: vc.database)
+            //vc.printDatabase(db: vc.database)
         }
     }
     
