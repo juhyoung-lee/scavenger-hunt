@@ -108,8 +108,9 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         let coord = CLLocation(latitude: currentRiddle.latitude, longitude: currentRiddle.longitude)
         let userLoc = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         
-        if coord.distance(from: userLoc) < 40 {
+        if coord.distance(from: userLoc) < 40 && vc.returnProgressData(hId: rID/100, select: "riddleId") == rID - 1 {
             triggerARView(loc: currentRiddle)
+            
         }
         
         // just a demo of this function
@@ -149,6 +150,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         annotation.coordinate = locValue
         annotation.title = loc.locName
         mapView.addAnnotation(annotation)
+        myLocations[rID % 100 - 1].solve()
     }
     
     func triggerARView(loc: RiddleLocation) {

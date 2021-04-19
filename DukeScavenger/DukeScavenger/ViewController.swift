@@ -85,7 +85,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         self.navigationController?.navigationBar.isTranslucent = true
         
         
-        
         // SQLite Database
 //        let db = createDatabase()
 //        dropDatabase(db: db)
