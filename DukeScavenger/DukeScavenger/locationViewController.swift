@@ -66,6 +66,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
             myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
         }
+        createAnnotations()
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -162,7 +163,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
                 let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
                 ARVC.rID = self.rID
-                ARVC.modalPresentationStyle = .fullScreen
+                //ARVC.modalPresentationStyle = .fullScreen
                 self.present(ARVC, animated: true, completion: nil)
             }
             alert.addAction(okButton)
@@ -171,9 +172,23 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func createAnnotations() {
+        let currentRiddleIndex = rID % 100 - 1
+        if currentRiddleIndex > 0 {
+            let solved = myLocations[0...currentRiddleIndex-1]
+            for riddle in solved {
+                let annotation = MKPointAnnotation()
+                let locValue = CLLocationCoordinate2D(latitude: riddle.latitude, longitude: riddle.longitude)
+                annotation.coordinate = locValue
+                annotation.title = riddle.locName
+                mapView.addAnnotation(annotation)
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
     }
     /*
     // MARK: - Navigation

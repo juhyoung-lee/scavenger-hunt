@@ -66,6 +66,7 @@ class hintViewController: UIViewController {
         if rID == 0{
             hintText.text = "This is where you would get a hint."
             answerText.text = "This is where you would get the answer if you quit (don't be a quitter)."
+            answerText.font = answerText.font.withSize(24)
         }
         else{
             hintText.text = vc.returnRiddleData(idnum: rID, select: "hint")

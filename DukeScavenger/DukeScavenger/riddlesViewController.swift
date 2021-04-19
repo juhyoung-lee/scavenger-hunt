@@ -11,18 +11,13 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let vc = ViewController()
     var gCampus: Int = 0
     var rID: Int = 0
-    var menuShowing = false
+    var menuShowing = true
     var nums: [String] = (1...21).map{"Riddle \($0)"}
     var count = 0
     private var tapGesture: UITapGestureRecognizer? = nil
     
     @IBOutlet weak var tab: UIButton!
-    @IBOutlet weak var solvedNotification: UIImageView!
-    /*
-    @IBAction func solvedSegue(_ sender: Any) {
-        performSegue(withIdentifier: "solvedSegue", sender: self)
-    }
- */
+
     @IBAction func mapSegue(_ sender: Any) {
         performSegue(withIdentifier: "mapSegue", sender: self)
     }
@@ -36,11 +31,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var hintButton: UIButton!
     @IBOutlet weak var riddleText: UILabel!
-    
-    @IBOutlet weak var findHuntButton: UIButton!
-    @IBAction func findHuntButton(_ sender: Any) {
-        performSegue(withIdentifier: "returnHomeSegue", sender: self)
-    }
     
     @IBOutlet var blurView: UIView!
     
@@ -90,21 +80,20 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let row = indexPath.row + 1
         rID = getRiddleID(hID: gCampus, row: row)
+        
+        if rID != 0 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
+            answerButton.isEnabled = true
+        }
+        
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
-//        let max = 105
-        //if progress > 101 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
-            //max = Int(vc.returnProgressData(hId: gCampus, select: "riddleId") + 1)
-        //}
-        //vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
 
         var max = vc.returnProgressData(hId: gCampus, select: "riddleId")
         if (max == 0) {
             max += Int64(gCampus * 100 + 1)
-        } else {
+        } else {
             max += 1
         }
         //ie, the last completed riddle is 104, and you're currently on 105
-        
         if  rID <= max{
             riddleName.text = "Riddle \(row)"
             riddleText.text = "\(riddleTxt)"
@@ -134,7 +123,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else{
             let row = riddleTable.indexPathForRow(at: touchPoint)![1]
-//            print(riddleTable.indexPathForRow(at: touchPoint)![1])
             rID = getRiddleID(hID: gCampus, row: row)
             if row > 0 && rID <= 105{
                 let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
@@ -149,11 +137,42 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     hintButton.isHidden = true
                     passed.isHidden = false
                 }
-            openMenu((Any).self)
+            
             menuShowing = !menuShowing
         }
     }
 }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        riddleTable.reloadData()
+        let temp: Int64 = vc.returnProgressData(hId: gCampus, select: "riddleId")
+        
+        if temp == rID {
+            if String(temp % 100) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
+                answerButton.isHidden = true
+                hintButton.isHidden = true
+                passed.isHidden = true
+            }
+            else {
+                let iPath = IndexPath(row: Int(temp % 100), section: 0)
+                let prevIPath = IndexPath(row: Int(temp % 100)-1, section: 0)
+                
+                if rID != 0 {
+                    tableView(riddleTable, didSelectRowAt: iPath)
+                    self.rID = Int(temp + 1)
+                    riddleTable.deselectRow(at: prevIPath, animated: false)
+                    riddleTable.reloadData()
+                    self.navigationItem.setHidesBackButton(true, animated: true)
+                }
+                
+            }
+            
+            
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,35 +181,21 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        riddleName.text = "Riddle Number"
         passed.isHidden = true
-        
-        //fix conversion types as int later
-        //print(String(vc.returnProgressData(hId: gCampus, select: "riddleId")) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String)
-        //print(vc.returnHuntData(idnum: Int64(gCampus), select: "total"))
-        //print(String(vc.returnProgressData(hId: gCampus, select: "riddleId")))
-        //var temp = getRiddleID(hID: gCampus, row: vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! Int)
+        if rID == 0 && vc.returnProgressData(hId: gCampus, select: "riddleId") == 0 {
+            answerButton.isEnabled = false
+        }
         
         //loading total and converting data types not working; fix later
         
         if getRiddleID(hID: gCampus, row: 21) == vc.returnProgressData(hId: gCampus, select: "riddleId"){
-            solvedNotification.isHidden = false
-            findHuntButton.isHidden = false
-            
-            
             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = self.view.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view.addSubview(blurEffectView)
-            self.view.addSubview(solvedNotification)
-            self.view.addSubview(findHuntButton)
         }
-        else{
-            solvedNotification.isHidden = true
-            findHuntButton.isHidden = true
-        }
-        navigationItem.hidesBackButton = true
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -219,16 +224,22 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
             as! riddleTableViewCell
-        let max = 105
-        
+        let max = vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
         // Configure the cell...
         cell.riddleNum.text = nums[indexPath.row]
         cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
         cell.riddleNum.textColor = .white
         cell.riddleNum.textAlignment = .center
         
-        if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
-//            print(getRiddleID(hID: gCampus, row: indexPath.row+1))
+        if vc.returnProgressData(hId: gCampus, select: "riddleId") == 0{
+            if indexPath.row == 0{
+                cell.backgroundColor = UIColor(red: 0/255, green: 83/255, blue: 139/255, alpha:0.8)
+            }
+            else{
+                cell.backgroundColor = .gray
+            }
+        }
+        else if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
             cell.backgroundColor = .gray
         }
         else{
@@ -244,8 +255,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
-        //tableView.contentInset.bottom = (-verticalPadding/2) + 40
-        //tableView.contentInset.top = -verticalPadding/2
     }
     
     func getRiddleID(hID: Int, row: Int) -> Int{
@@ -259,9 +268,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         case "showHintSegue":
             let destVC = segue.destination as! hintViewController
             destVC.rID = rID
-            //vc.addProgress(rId: progress)
-            //vc.printDatabase(db: vc.database)
-            //progress = progress + 1
         case "mapSegue":
             let destVC = segue.destination as! locationViewController
             destVC.rID = rID
@@ -274,7 +280,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+     // Get the new view controlleletsing segue.destination.
         // Pass the selected object to the new view controller.
     }
     */
