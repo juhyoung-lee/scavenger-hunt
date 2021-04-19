@@ -164,7 +164,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
                 let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let ARVC = sampleStoryBoard.instantiateViewController(withIdentifier: "ARViewController") as! ARViewController
                 ARVC.rID = self.rID
-                ARVC.modalPresentationStyle = .fullScreen
+                //ARVC.modalPresentationStyle = .fullScreen
                 self.present(ARVC, animated: true, completion: nil)
             }
             alert.addAction(okButton)
@@ -175,7 +175,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
     }
     /*
     // MARK: - Navigation

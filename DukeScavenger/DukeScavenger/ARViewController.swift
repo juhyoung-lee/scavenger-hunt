@@ -28,8 +28,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         
         var sprite = vc.returnRiddleData(idnum: rID, select: "sprite")
         // Create a new scene
-        if sprite == "Data not found" {
-            sprite = "bella-union"
+        if sprite == "Data not found" || sprite == "Cat Homes" {
+            sprite = "cat"
         }
         var sceneName = "art.scnassets/" + sprite + ".usdz"
 
@@ -50,7 +50,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             multiplier = -1
         }
         let randomX = multiplier*Int.random(in: 2...10)
-        let randomY = multiplier*Int.random(in: 2...10)
+        let randomY = multiplier*Int.random(in: 2...5)
         let randomZ = multiplier*Int.random(in: 2...10)
         dummyNode?.position = SCNVector3(randomX, randomY, randomZ)
         dummyNode?.scale = SCNVector3(0.1, 0.1, 0.1)
@@ -93,7 +93,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             let sampleStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let solvedVC = sampleStoryBoard.instantiateViewController(withIdentifier: "solvedViewController") as! solvedViewController
             solvedVC.rID = self.rID
-            solvedVC.modalPresentationStyle = .fullScreen
+            //solvedVC.modalPresentationStyle = .fullScreen
             self.present(solvedVC, animated: true, completion: nil)
         }
         

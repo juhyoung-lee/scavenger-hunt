@@ -11,7 +11,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     let vc = ViewController()
     var gCampus: Int = 0
     var rID: Int = 0
-    var menuShowing = false
+    var menuShowing = true
     var nums: [String] = (1...21).map{"Riddle \($0)"}
     var count = 0
     private var tapGesture: UITapGestureRecognizer? = nil
@@ -90,6 +90,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let row = indexPath.row + 1
         rID = getRiddleID(hID: gCampus, row: row)
+        
+        if rID != 0 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
+            answerButton.isEnabled = true
+        }
+        
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
 //        let max = 105
         //if progress > 101 || vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
@@ -104,7 +109,8 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             max += 1
         }
         //ie, the last completed riddle is 104, and you're currently on 105
-        
+        print(rID)
+        print(max)
         if  rID <= max{
             riddleName.text = "Riddle \(row)"
             riddleText.text = "\(riddleTxt)"
@@ -149,11 +155,70 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     hintButton.isHidden = true
                     passed.isHidden = false
                 }
-            openMenu((Any).self)
+            
             menuShowing = !menuShowing
         }
     }
 }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        /*
+        if getRiddleID(hID: gCampus, row: currRiddle.suffix(1) as? Int) == vc.returnProgressData(hId: gCampus, select: "riddleId") + 1 {
+            answerButton.isHidden = true
+            hintButton.isHidden = true
+            passed.isHidden = false
+ */
+        print("viewWillAppear lmao")
+        let temp: Int64 = vc.returnProgressData(hId: gCampus, select: "riddleId")
+        print(temp)
+        print("vWA + \(rID)")
+        
+        if String(vc.returnProgressData(hId: gCampus, select: "riddleId") % 100 + 1) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
+            answerButton.isHidden = true
+            hintButton.isHidden = true
+            passed.isHidden = false
+            riddleText.text = ""
+            solvedNotification.isHidden = false
+        }
+        
+        if temp == rID {
+            print(temp)
+            print(rID)
+            if String(temp % 100) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
+                solvedNotification.isHidden = false
+                answerButton.isHidden = true
+                hintButton.isHidden = true
+                passed.isHidden = true
+            }
+            else {
+                //let riddleTxt = vc.returnRiddleData(idnum: Int(temp+1), select: "message")
+                //riddleName.text = "Riddle \(temp % 100 + 1)"
+                //riddleText.text = "\(riddleTxt)"
+                let iPath = IndexPath(row: Int(temp % 100), section: 0)
+                //let iPath = IndexPath(row: 1, section: 0)
+                let prevIPath = IndexPath(row: Int(temp % 100)-1, section: 0)
+                //riddleTable.selectRow(at: iPath, animated: false, scrollPosition: <#T##UITableView.ScrollPosition#>)
+                //riddleTable.deselectRow(at: prevIPath, animated: false)
+                //riddleTable.cellForRow(at: iPath)?.setHighlighted(true, animated: false)
+                if rID != 0 {
+                    tableView(riddleTable, didSelectRowAt: iPath)
+                    //openMenu((Any).self)
+                    self.rID = Int(temp + 1)
+                    print(iPath)
+                    print(prevIPath)
+                    riddleTable.deselectRow(at: prevIPath, animated: false)
+                    riddleTable.reloadData()
+                    self.navigationItem.setHidesBackButton(true, animated: true)
+                    //riddleTable.cellForRow(at: iPath)?.setHighlighted(true, animated: false)
+                    //riddleTable.reloadData()
+                    //riddleTable.cellForRow(at: prevIPath)?.setHighlighted(false, animated: false)
+                }
+                
+            }
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,8 +227,12 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        riddleName.text = "Riddle Number"
         passed.isHidden = true
+        if rID == 0 && vc.returnProgressData(hId: gCampus, select: "riddleId") == 0 {
+            print("viewDidLoad lol")
+            answerButton.isEnabled = false
+        }
+        
         
         //fix conversion types as int later
         //print(String(vc.returnProgressData(hId: gCampus, select: "riddleId")) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String)
@@ -190,7 +259,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             solvedNotification.isHidden = true
             findHuntButton.isHidden = true
         }
-        navigationItem.hidesBackButton = true
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -217,17 +286,28 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("table pls: rid: \(rID)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "riddleCell", for: indexPath)
             as! riddleTableViewCell
-        let max = 105
-        
+        var max = vc.returnProgressData(hId: gCampus, select: "riddleId") + 1
+        print("table pls: max: \(max)")
         // Configure the cell...
         cell.riddleNum.text = nums[indexPath.row]
         cell.riddleNum.font = UIFont.systemFont(ofSize: 22.0)
         cell.riddleNum.textColor = .white
         cell.riddleNum.textAlignment = .center
         
-        if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
+        print("getRiddleID: \(vc.returnProgressData(hId: gCampus, select: "riddleId"))")
+        print(max)
+        if vc.returnProgressData(hId: gCampus, select: "riddleId") == 0{
+            if indexPath.row == 0{
+                cell.backgroundColor = UIColor(red: 0/255, green: 83/255, blue: 139/255, alpha:0.8)
+            }
+            else{
+                cell.backgroundColor = .gray
+            }
+        }
+        else if getRiddleID(hID: gCampus, row: indexPath.row+1) > max{
 //            print(getRiddleID(hID: gCampus, row: indexPath.row+1))
             cell.backgroundColor = .gray
         }
