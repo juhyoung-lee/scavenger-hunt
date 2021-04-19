@@ -26,12 +26,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        var sprite = vc.returnRiddleData(idnum: rID, select: "sprite")
+        let sprite = vc.returnRiddleData(idnum: rID, select: "sprite")
         // Create a new scene
-        if sprite == "Data not found" || sprite == "Cat Homes" {
-            sprite = "cat"
-        }
-        var sceneName = "art.scnassets/" + sprite + ".usdz"
+        let sceneName = "art.scnassets/" + sprite + ".usdz"
 
         let scene = SCNScene(named: sceneName)!
 
