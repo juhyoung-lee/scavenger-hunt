@@ -17,11 +17,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     private var tapGesture: UITapGestureRecognizer? = nil
     
     @IBOutlet weak var tab: UIButton!
-    /*
-    @IBAction func solvedSegue(_ sender: Any) {
-        performSegue(withIdentifier: "solvedSegue", sender: self)
-    }
- */
+
     @IBAction func mapSegue(_ sender: Any) {
         performSegue(withIdentifier: "mapSegue", sender: self)
     }
@@ -99,7 +95,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         var max = vc.returnProgressData(hId: gCampus, select: "riddleId")
         if (max == 0) {
             max += Int64(gCampus * 100 + 1)
-        } else {
+        } else {
             max += 1
         }
         //ie, the last completed riddle is 104, and you're currently on 105
