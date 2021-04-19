@@ -85,6 +85,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             answerButton.isEnabled = true
         }
         
+        
         let riddleTxt = vc.returnRiddleData(idnum: rID, select: "message")
 
         var max = vc.returnProgressData(hId: gCampus, select: "riddleId")

@@ -118,7 +118,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         lbl.isHidden = false
         lbl.text = textF.text
         if lbl.text == "" {
-            lbl.text = "Insert Name"
+            lbl.text = "Blue Devil Scavengers"
         }
         self.view.endEditing(true)
         defaults.setValue(lbl.text, forKey: "Name")
@@ -433,8 +433,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
                 print(pid, hunt, rId)
                 print("error adding row to progress")
             }
-        }
-        
+        } 
     }
     
 }
