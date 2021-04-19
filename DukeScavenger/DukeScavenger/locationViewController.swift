@@ -66,6 +66,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             let long = Double(riddleLocations[index].components(separatedBy: ", ")[1])
             myLocations.append(RiddleLocation(latitude: lat!, longitude: long!, locName: riddleNames[index]))
         }
+        
+        createAnnotations()
         // Do any additional setup after loading the view.
     }
     //Mark: CoreLocation Methods
@@ -168,6 +170,20 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(okButton)
             
             self.present(alert, animated: true)
+        }
+    }
+    
+    func createAnnotations() {
+        let currentRiddleIndex = rID % 100 - 1
+        if currentRiddleIndex > 0 {
+            let solved = myLocations[0...currentRiddleIndex-1]
+            for riddle in solved {
+                let annotation = MKPointAnnotation()
+                let locValue = CLLocationCoordinate2D(latitude: riddle.latitude, longitude: riddle.longitude)
+                annotation.coordinate = locValue
+                annotation.title = riddle.locName
+                mapView.addAnnotation(annotation)
+            }
         }
     }
     
