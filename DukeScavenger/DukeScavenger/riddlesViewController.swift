@@ -17,7 +17,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     private var tapGesture: UITapGestureRecognizer? = nil
     
     @IBOutlet weak var tab: UIButton!
-    @IBOutlet weak var solvedNotification: UIImageView!
     /*
     @IBAction func solvedSegue(_ sender: Any) {
         performSegue(withIdentifier: "solvedSegue", sender: self)
@@ -36,11 +35,6 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var hintButton: UIButton!
     @IBOutlet weak var riddleText: UILabel!
-    
-    @IBOutlet weak var findHuntButton: UIButton!
-    @IBAction func findHuntButton(_ sender: Any) {
-        performSegue(withIdentifier: "returnHomeSegue", sender: self)
-    }
     
     @IBOutlet var blurView: UIView!
     
@@ -168,24 +162,27 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
             hintButton.isHidden = true
             passed.isHidden = false
  */
-        print("viewWillAppear lmao")
+
+        riddleTable.reloadData()
+        print("reloadidddddd")
         let temp: Int64 = vc.returnProgressData(hId: gCampus, select: "riddleId")
         print(temp)
         print("vWA + \(rID)")
         
-        if String(vc.returnProgressData(hId: gCampus, select: "riddleId") % 100 + 1) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
+        /*
+        if String(vc.returnProgressData(hId: gCampus, select: "riddleId") % 100) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
             answerButton.isHidden = true
             hintButton.isHidden = true
             passed.isHidden = false
             riddleText.text = ""
             solvedNotification.isHidden = false
         }
+ */
         
         if temp == rID {
             print(temp)
             print(rID)
             if String(temp % 100) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
-                solvedNotification.isHidden = false
                 answerButton.isHidden = true
                 hintButton.isHidden = true
                 passed.isHidden = true
@@ -215,6 +212,8 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
             }
+            
+            
         }
         
         
@@ -243,21 +242,11 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //loading total and converting data types not working; fix later
         
         if getRiddleID(hID: gCampus, row: 21) == vc.returnProgressData(hId: gCampus, select: "riddleId"){
-            solvedNotification.isHidden = false
-            findHuntButton.isHidden = false
-            
-            
             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = self.view.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view.addSubview(blurEffectView)
-            self.view.addSubview(solvedNotification)
-            self.view.addSubview(findHuntButton)
-        }
-        else{
-            solvedNotification.isHidden = true
-            findHuntButton.isHidden = true
         }
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
