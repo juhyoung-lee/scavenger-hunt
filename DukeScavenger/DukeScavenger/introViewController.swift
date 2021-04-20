@@ -19,6 +19,7 @@ class introViewController: UIViewController {
     let vc = ViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
         view.addBackground()
         riddleDescript.text = vc.returnHuntData(idnum: 1, select: "descript") as? String
         huntName.text = vc.returnHuntData(idnum: 1, select: "name") as? String

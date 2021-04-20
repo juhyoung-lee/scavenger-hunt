@@ -12,9 +12,16 @@ class solvedViewController: UIViewController {
 
     @IBOutlet weak var greatJob: UIImageView!
     @IBOutlet weak var findHunt: UIButton!
+    @IBOutlet weak var congratsSolved: UIButton!
     
-    @IBAction func findHuntButton(_ sender: Any) {
+    @IBAction func findHuttonButton(_ sender: Any) {
         performSegue(withIdentifier: "returnHomeSegue", sender: self)
+    }
+
+    @IBAction func congratsButton(_ sender: Any) {
+        self.greatJob.isHidden = false
+        self.findHunt.isHidden = false
+        self.congratsSolved.isHidden = true
     }
     
     @IBOutlet weak var solvedText: UILabel!
@@ -36,12 +43,10 @@ class solvedViewController: UIViewController {
         
         self.greatJob.isHidden = true
         self.findHunt.isHidden = true
+        self.congratsSolved.isHidden = true
         
         if rID%100 == 21 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
-                self.greatJob.isHidden = false
-                self.findHunt.isHidden = false
-            }
+            self.congratsSolved.isHidden = false
         }
 
     }

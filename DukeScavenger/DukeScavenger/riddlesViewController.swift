@@ -144,10 +144,31 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
     
+    func refreshRiddles(_ iPath: IndexPath, prevIPath: IndexPath) {
+        let temp: Int64 = vc.returnProgressData(hId: gCampus, select: "riddleId")
+        
+        tableView(riddleTable, didSelectRowAt: iPath)
+        self.rID = Int(temp + 1)
+        riddleTable.deselectRow(at: prevIPath, animated: false)
+        riddleTable.reloadData()
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
 
+        print("View will appear")
         riddleTable.reloadData()
+        self.navigationController?.navigationBar.tintColor = .white
+        
         let temp: Int64 = vc.returnProgressData(hId: gCampus, select: "riddleId")
+        
+        print(rID)
+        print(vc.returnProgressData(hId: gCampus, select: "riddleId"))
+        if rID == 0 && vc.returnProgressData(hId: gCampus, select: "riddleId") != 0 {
+            let iPath = IndexPath(row: Int(temp % 100), section: 0)
+            let prevIPath = IndexPath(row: Int(temp % 100)-1, section: 0)
+            self.refreshRiddles(iPath, prevIPath: prevIPath)
+        }
         
         if temp == rID {
             if String(temp % 100) == vc.returnHuntData(idnum: Int64(gCampus), select: "total") as! String {
@@ -160,11 +181,7 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let prevIPath = IndexPath(row: Int(temp % 100)-1, section: 0)
                 
                 if rID != 0 {
-                    tableView(riddleTable, didSelectRowAt: iPath)
-                    self.rID = Int(temp + 1)
-                    riddleTable.deselectRow(at: prevIPath, animated: false)
-                    riddleTable.reloadData()
-                    self.navigationItem.setHidesBackButton(true, animated: true)
+                    self.refreshRiddles(iPath, prevIPath: prevIPath)
                 }
                 
             }
@@ -177,7 +194,9 @@ class riddlesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
         // Do any additional setup after loading the view.
+        print("Whoo view did load")
         view.addBackground(imageName: "RiddleView")
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

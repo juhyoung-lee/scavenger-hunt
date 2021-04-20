@@ -58,6 +58,7 @@ class hintViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
 
         // Do any additional setup after loading the view.
         view.addBackground(imageName: "hint-page")

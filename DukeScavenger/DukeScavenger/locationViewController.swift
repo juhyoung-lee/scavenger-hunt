@@ -51,6 +51,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .black
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -68,6 +69,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
         createAnnotations()
         // Do any additional setup after loading the view.
+        let currentRiddle = myLocations[rID % 100 - 1]
+        triggerARView(loc: currentRiddle)
     }
     //Mark: CoreLocation Methods
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -190,6 +193,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .black
         //self.navigationItem.hidesBackButton = true
     }
     /*

@@ -436,44 +436,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze7-6L-F6p">
-                                <rect key="frame" x="79" y="341" width="256" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.32549019607843138" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-IZ-137">
                                 <rect key="frame" x="40" y="409" width="334" height="167.5"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="0.0"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze7-6L-F6p">
+                                <rect key="frame" x="79" y="341" width="256" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.32549019607843138" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great_job" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-9A-mHb">
+                                <rect key="frame" x="-10" y="253" width="424" height="400"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x8-6Y-qoO">
                                 <rect key="frame" x="143.5" y="62" width="127" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great_job" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-9A-mHb">
-                                <rect key="frame" x="-10" y="253" width="424" height="400"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCM-SL-14c">
                                 <rect key="frame" x="71" y="533" width="272" height="67"/>
                                 <state key="normal" image="find_hunt"/>
                                 <connections>
                                     <action selector="findHuntButton:" destination="Ezj-jg-Moe" eventType="touchUpInside" id="m9L-lC-POv"/>
-                                    <segue destination="Z12-su-Ndg" kind="presentation" modalPresentationStyle="fullScreen" id="f3c-Ef-TBd"/>
+                                    <action selector="findHuttonButton:" destination="Qwb-rC-tDf" eventType="touchUpInside" id="NQS-88-2VA"/>
+                                    <segue destination="Z12-su-Ndg" kind="presentation" identifier="returnHomeSegue" modalPresentationStyle="fullScreen" id="f3c-Ef-TBd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKH-Ax-TE1">
+                                <rect key="frame" x="266" y="661" width="128" height="130"/>
+                                <state key="normal" image="congrats"/>
+                                <connections>
+                                    <action selector="congratsButton:" destination="Qwb-rC-tDf" eventType="touchUpInside" id="BMT-Bt-Uht"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2nw-qH-F04"/>
                         <color key="backgroundColor" red="0.1743965076" green="0.31343880889999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2nw-qH-F04" firstAttribute="bottom" secondItem="fKH-Ax-TE1" secondAttribute="bottom" constant="71" id="1zL-QO-F1K"/>
                             <constraint firstItem="JMf-IZ-137" firstAttribute="leading" secondItem="2nw-qH-F04" secondAttribute="leading" constant="40" id="5kG-On-DK4"/>
                             <constraint firstItem="ze7-6L-F6p" firstAttribute="top" secondItem="6x8-6Y-qoO" secondAttribute="bottom" multiplier="3.1" id="6Jm-XU-wwx"/>
                             <constraint firstItem="oCM-SL-14c" firstAttribute="centerX" secondItem="2nw-qH-F04" secondAttribute="centerX" id="CMI-qq-7BB"/>
                             <constraint firstItem="ze7-6L-F6p" firstAttribute="centerX" secondItem="m28-Mo-mXH" secondAttribute="centerX" id="EGx-63-kOG"/>
+                            <constraint firstItem="2nw-qH-F04" firstAttribute="trailing" secondItem="fKH-Ax-TE1" secondAttribute="trailing" constant="20" id="K1u-GF-ObG"/>
                             <constraint firstItem="6x8-6Y-qoO" firstAttribute="top" secondItem="m28-Mo-mXH" secondAttribute="top" constant="62" id="R48-td-bBt"/>
                             <constraint firstItem="2nw-qH-F04" firstAttribute="trailing" secondItem="JMf-IZ-137" secondAttribute="trailing" constant="40" id="RDz-8O-ohQ"/>
                             <constraint firstItem="oCM-SL-14c" firstAttribute="top" secondItem="QGV-9A-mHb" secondAttribute="bottom" constant="-120" id="aP0-Ab-JER"/>
@@ -486,6 +498,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="PUL-Xe-gd4"/>
                     <connections>
+                        <outlet property="congratsSolved" destination="fKH-Ax-TE1" id="vu4-Ai-TN6"/>
                         <outlet property="findHunt" destination="oCM-SL-14c" id="nKL-tY-6uK"/>
                         <outlet property="greatJob" destination="QGV-9A-mHb" id="0xC-C9-Vxn"/>
                         <outlet property="solvedText" destination="JMf-IZ-137" id="is2-vi-qEU"/>
@@ -671,6 +684,7 @@
         <image name="answer-popup" width="319" height="239"/>
         <image name="chapel2" width="118.5" height="113.5"/>
         <image name="completed" width="485" height="226"/>
+        <image name="congrats" width="128" height="130"/>
         <image name="duke" width="395" height="449"/>
         <image name="duke-starter" width="414" height="245"/>
         <image name="eye" width="256" height="256"/>
