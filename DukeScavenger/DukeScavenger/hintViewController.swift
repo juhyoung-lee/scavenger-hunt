@@ -32,6 +32,7 @@ class hintViewController: UIViewController {
             
             answer.isHidden = false
             answerText.isHidden = false
+            answerText.textColor = .black
         }
         else{
             for subview in blurView.subviews{

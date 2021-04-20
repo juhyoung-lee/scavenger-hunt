@@ -84,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        
+        //addProgress(rId: 120)
         // SQLite Database
 //        let db = createDatabase()
 //        dropDatabase(db: db)
@@ -432,7 +432,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UITextFieldDelegate {
                 print(pid, hunt, rId)
                 print("error adding row to progress")
             }
-        } 
+        }
     }
     
 }
