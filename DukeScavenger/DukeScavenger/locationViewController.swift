@@ -69,8 +69,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         }
         createAnnotations()
         // Do any additional setup after loading the view.
-        let currentRiddle = myLocations[rID % 100 - 1]
-        triggerARView(loc: currentRiddle)
+        //let currentRiddle = myLocations[rID % 100 - 1]
+        //triggerARView(loc: currentRiddle)
     }
     //Mark: CoreLocation Methods
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
