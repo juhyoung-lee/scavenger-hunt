@@ -9,6 +9,10 @@ Nico Aldana
 Robert Chen  
 RJ Schreck  
 
+## Demo/Walkthrough Youtube Link
+https://youtu.be/GqIfh8SMpt0
+
+
 ## Project Architecture and Features
 * opening menu
     * scavenger hunt options
